@@ -4,6 +4,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/lpic1-practice/',
+  base: '/lpic-1/',
   plugins: [react(), tailwindcss()],
 })
