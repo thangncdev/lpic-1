@@ -22,9 +22,9 @@ export default function Home() {
   return (
     <div className="text-center">
       <h1 className="text-4xl font-bold text-gray-900 mb-2">LPIC-1 Practice</h1>
-      <p className="text-gray-500 mb-10 text-lg">Ôn tập và thi thử chứng chỉ LPIC-1</p>
+      <p className="text-gray-500 mb-10 text-lg">Review and practice LPIC-1 certification</p>
 
-      <h2 className="text-lg font-semibold text-gray-700 mb-6">Chọn bài thi</h2>
+      <h2 className="text-lg font-semibold text-gray-700 mb-6">Select an exam</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
         {exams.map((exam) => (
           <button
@@ -40,7 +40,7 @@ export default function Home() {
               {exam.title}
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">{exam.description}</p>
-            <div className="mt-4 text-xs text-gray-400">120 câu hỏi</div>
+            <div className="mt-4 text-xs text-gray-400">120 questions</div>
           </button>
         ))}
       </div>

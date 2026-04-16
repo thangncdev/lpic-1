@@ -44,13 +44,13 @@ export default function QuizResults({ result, questions, answers, exam, onRetry,
             {percent}%
           </div>
           <div className="text-xl font-semibold text-gray-700 mb-1">
-            {score} / {total} câu đúng
+            {score} / {total} correct
           </div>
           <div className={`text-sm font-semibold ${passed ? 'text-green-600' : 'text-red-600'}`}>
-            {passed ? '✓ ĐẠT — Bạn đã vượt ngưỡng 62.5%' : '✗ CHƯA ĐẠT — Cần ít nhất 62.5% để đậu'}
+            {passed ? '✓ PASSED — You exceeded the 62.5% threshold' : '✗ NOT PASSED — At least 62.5% required to pass'}
           </div>
           <div className="mt-3 text-sm text-gray-500">
-            LPIC-{exam} · Thời gian: {formatDuration(durationSeconds)}
+            LPIC-{exam} · Time: {formatDuration(durationSeconds)}
           </div>
         </div>
 
@@ -60,19 +60,19 @@ export default function QuizResults({ result, questions, answers, exam, onRetry,
             onClick={onRetry}
             className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-xl transition-colors"
           >
-            Thi lại
+            Retry
           </button>
           <button
             onClick={onHome}
             className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 rounded-xl transition-colors"
           >
-            Trang chủ
+            Home
           </button>
         </div>
 
         {/* Question breakdown */}
         <div>
-          <h2 className="text-lg font-bold text-gray-800 mb-4">Chi tiết từng câu</h2>
+          <h2 className="text-lg font-bold text-gray-800 mb-4">Question Breakdown</h2>
           <div className="space-y-4">
             {questions.map((q, i) => {
               const ans = answers[q.number] ?? [];
@@ -102,7 +102,7 @@ export default function QuizResults({ result, questions, answers, exam, onRetry,
                       {icon}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <div className="text-xs text-gray-500 mb-1 font-medium">Câu {i + 1}</div>
+                      <div className="text-xs text-gray-500 mb-1 font-medium">Question {i + 1}</div>
                       <p className="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap mb-3">{q.question}</p>
 
                       {/* All options */}
@@ -127,13 +127,13 @@ export default function QuizResults({ result, questions, answers, exam, onRetry,
                                 <span className="font-bold shrink-0 w-4">{opt.letter}.</span>
                                 <span className="leading-relaxed">{opt.text}</span>
                                 {userSelected && isCorrectOption && (
-                                  <span className="ml-auto shrink-0 text-green-600 font-semibold">✓ bạn chọn</span>
+                                  <span className="ml-auto shrink-0 text-green-600 font-semibold">✓ you selected</span>
                                 )}
                                 {userSelected && !isCorrectOption && (
-                                  <span className="ml-auto shrink-0 text-red-600 font-semibold">✗ bạn chọn</span>
+                                  <span className="ml-auto shrink-0 text-red-600 font-semibold">✗ you selected</span>
                                 )}
                                 {!userSelected && isCorrectOption && (
-                                  <span className="ml-auto shrink-0 text-green-600 font-semibold">đáp án đúng</span>
+                                  <span className="ml-auto shrink-0 text-green-600 font-semibold">correct answer</span>
                                 )}
                               </div>
                             );
@@ -145,14 +145,14 @@ export default function QuizResults({ result, questions, answers, exam, onRetry,
                       {q.type === 'fill_blank' && (
                         <div className="text-xs space-y-1 mb-2">
                           <div>
-                            <span className="text-gray-500">Bạn điền: </span>
+                            <span className="text-gray-500">You entered: </span>
                             <span className={`font-mono font-semibold ${status === 'correct' ? 'text-green-700' : status === 'wrong' ? 'text-red-700' : 'text-gray-500'}`}>
-                              {ans[0] ?? '(bỏ trống)'}
+                              {ans[0] ?? '(left blank)'}
                             </span>
                           </div>
                           {status !== 'correct' && (
                             <div>
-                              <span className="text-gray-500">Đáp án đúng: </span>
+                              <span className="text-gray-500">Correct answer: </span>
                               <span className="font-mono font-semibold text-green-700">{q.correctText}</span>
                             </div>
                           )}
@@ -161,12 +161,12 @@ export default function QuizResults({ result, questions, answers, exam, onRetry,
 
                       {/* Summary line */}
                       <div className="text-xs text-gray-400 border-t border-gray-200 pt-2 mt-1">
-                        {status === 'skipped' && <span className="italic">Bỏ qua — không trả lời</span>}
-                        {status === 'correct' && <span className="text-green-600 font-medium">Trả lời đúng</span>}
+                        {status === 'skipped' && <span className="italic">Skipped — no answer</span>}
+                        {status === 'correct' && <span className="text-green-600 font-medium">Answered correctly</span>}
                         {status === 'wrong' && q.type === 'multiple_choice' && (
                           <span className="text-red-600">
-                            Bạn chọn: <span className="font-mono font-semibold">{ans.join(', ')}</span>
-                            {' · '}Đáp án đúng: <span className="font-mono font-semibold text-green-700">{q.correctAnswers.join(', ')}</span>
+                            Your choice: <span className="font-mono font-semibold">{ans.join(', ')}</span>
+                            {' · '}Correct answer: <span className="font-mono font-semibold text-green-700">{q.correctAnswers.join(', ')}</span>
                           </span>
                         )}
                       </div>
@@ -181,21 +181,21 @@ export default function QuizResults({ result, questions, answers, exam, onRetry,
 
       {/* Right: fixed question list */}
       <div className="w-52 shrink-0 border-l border-gray-200 bg-white overflow-y-auto px-3 pt-6 pb-8">
-        <div className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">Danh sách câu</div>
+        <div className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">Question List</div>
 
         {/* Legend */}
         <div className="flex flex-col gap-1 mb-4 text-xs text-gray-500">
           <div className="flex items-center gap-1.5">
             <span className="w-3 h-3 rounded-sm bg-green-500 inline-block shrink-0" />
-            Đúng
+            Correct
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-3 h-3 rounded-sm bg-red-400 inline-block shrink-0" />
-            Sai
+            Incorrect
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-3 h-3 rounded-sm bg-gray-300 inline-block shrink-0" />
-            Bỏ qua
+            Skipped
           </div>
         </div>
 
@@ -224,15 +224,15 @@ export default function QuizResults({ result, questions, answers, exam, onRetry,
         {/* Summary counts */}
         <div className="mt-4 pt-4 border-t border-gray-100 text-xs text-gray-500 space-y-1">
           <div className="flex justify-between">
-            <span>Đúng</span>
+            <span>Correct</span>
             <span className="font-semibold text-green-600">{questions.filter((q) => getQuestionStatus(q, answers[q.number] ?? []) === 'correct').length}</span>
           </div>
           <div className="flex justify-between">
-            <span>Sai</span>
+            <span>Incorrect</span>
             <span className="font-semibold text-red-500">{questions.filter((q) => getQuestionStatus(q, answers[q.number] ?? []) === 'wrong').length}</span>
           </div>
           <div className="flex justify-between">
-            <span>Bỏ qua</span>
+            <span>Skipped</span>
             <span className="font-semibold text-gray-500">{questions.filter((q) => getQuestionStatus(q, answers[q.number] ?? []) === 'skipped').length}</span>
           </div>
         </div>

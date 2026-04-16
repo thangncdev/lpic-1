@@ -29,7 +29,7 @@ export default function HistoryPage() {
   const stats = getStats(examFilter);
 
   function handleClear() {
-    if (confirm('Xóa toàn bộ lịch sử thi? Hành động này không thể hoàn tác.')) {
+    if (confirm('Clear all test history? This action cannot be undone.')) {
       clearHistory();
     }
   }
@@ -38,18 +38,18 @@ export default function HistoryPage() {
     <div>
       <div className="flex items-center gap-3 mb-6">
         <button onClick={() => navigate('/')} className="text-gray-400 hover:text-gray-600 text-sm">
-          ← Trang chủ
+          ← Home
         </button>
       </div>
 
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Lịch sử thi</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Test History</h1>
         {sessions.length > 0 && (
           <button
             onClick={handleClear}
             className="text-sm text-red-500 hover:text-red-700 border border-red-200 hover:border-red-400 px-3 py-1.5 rounded-lg transition-colors"
           >
-            Xóa tất cả
+            Clear All
           </button>
         )}
       </div>
@@ -63,7 +63,7 @@ export default function HistoryPage() {
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors
               ${examFilter === f ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
           >
-            {f === 'all' ? 'Tất cả' : `LPIC-${f}`}
+            {f === 'all' ? 'All' : `LPIC-${f}`}
           </button>
         ))}
       </div>
@@ -73,19 +73,19 @@ export default function HistoryPage() {
         <div className="grid grid-cols-3 gap-4 mb-8">
           <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
             <div className="text-2xl font-bold text-gray-800">{stats.count}</div>
-            <div className="text-xs text-gray-500 mt-1">Lần thi</div>
+            <div className="text-xs text-gray-500 mt-1">Tests</div>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
             <div className={`text-2xl font-bold ${stats.avg >= PASS_THRESHOLD ? 'text-green-600' : 'text-red-500'}`}>
               {stats.avg}%
             </div>
-            <div className="text-xs text-gray-500 mt-1">Trung bình</div>
+            <div className="text-xs text-gray-500 mt-1">Average</div>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
             <div className={`text-2xl font-bold ${stats.best >= PASS_THRESHOLD ? 'text-green-600' : 'text-red-500'}`}>
               {stats.best}%
             </div>
-            <div className="text-xs text-gray-500 mt-1">Cao nhất</div>
+            <div className="text-xs text-gray-500 mt-1">Best</div>
           </div>
         </div>
       )}
@@ -94,12 +94,12 @@ export default function HistoryPage() {
       {filtered.length === 0 ? (
         <div className="text-center py-16">
           <div className="text-4xl mb-4">📋</div>
-          <p className="text-gray-400">Chưa có lịch sử thi nào</p>
+          <p className="text-gray-400">No test history yet</p>
           <button
             onClick={() => navigate('/')}
             className="mt-4 px-6 py-2 bg-orange-500 text-white rounded-xl text-sm font-medium hover:bg-orange-600 transition-colors"
           >
-            Thi thử ngay
+            Take a Test Now
           </button>
         </div>
       ) : (
@@ -125,15 +125,15 @@ export default function HistoryPage() {
                       {session.mode === 'instant' ? 'Instant' : 'Exam'}
                     </span>
                     <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${passed ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'}`}>
-                      {passed ? 'ĐẠT' : 'CHƯA ĐẠT'}
+                      {passed ? 'PASSED' : 'NOT PASSED'}
                     </span>
                   </div>
                   <div className="text-xs text-gray-500 flex items-center gap-3">
-                    <span>{session.score}/{session.total} câu đúng</span>
+                    <span>{session.score}/{session.total} correct</span>
                     <span>·</span>
                     <span>⏱ {formatDuration(session.durationSeconds)}</span>
                     <span>·</span>
-                    <span>{date.toLocaleDateString('vi-VN')} {date.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}</span>
+                    <span>{date.toLocaleDateString('en-US')} {date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</span>
                   </div>
                 </div>
                 {/* Mini progress bar */}

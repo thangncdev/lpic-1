@@ -38,17 +38,17 @@ export default function QuizQuestion({ question, answer, mode, locked, onAnswer 
       {/* Question header */}
       <div className="flex items-center gap-2 mb-3">
         {question.type === 'fill_blank' ? (
-          <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Điền vào ô trống</span>
+          <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Fill in the blank</span>
         ) : isMulti ? (
           <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">
-            Chọn {question.correctAnswers.length} đáp án
+            Select {question.correctAnswers.length} answers
           </span>
         ) : (
-          <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">Chọn 1 đáp án</span>
+          <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">Select 1 answer</span>
         )}
         {showFeedback && (
           <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${correct ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-            {correct ? '✓ Đúng' : '✗ Sai'}
+            {correct ? '✓ Correct' : '✗ Incorrect'}
           </span>
         )}
       </div>
@@ -66,12 +66,12 @@ export default function QuizQuestion({ question, answer, mode, locked, onAnswer 
             value={answer[0] ?? ''}
             onChange={(e) => handleFillBlankChange(e.target.value)}
             disabled={locked}
-            placeholder="Nhập đáp án..."
+            placeholder="Enter answer..."
             className="w-full border-2 border-gray-300 rounded-xl px-4 py-3 font-mono text-sm focus:outline-none focus:border-blue-400 disabled:bg-gray-50 disabled:text-gray-500"
           />
           {showFeedback && (
             <div className="text-sm">
-              <span className="text-gray-500">Đáp án đúng: </span>
+              <span className="text-gray-500">Correct answer: </span>
               <span className="font-mono bg-green-100 text-green-800 px-2 py-1 rounded font-semibold">
                 {question.correctText}
               </span>

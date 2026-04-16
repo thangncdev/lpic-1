@@ -43,19 +43,19 @@ export default function QuestionListPage() {
       <div className="mb-6">
         <div className="flex items-center gap-3 mb-1">
           <button onClick={() => navigate(`/exam/${exam}`)} className="text-gray-400 hover:text-gray-600 text-sm">
-            ← Quay lại
+            ← Back
           </button>
           <span className="text-gray-300">|</span>
           <span className="text-sm font-medium text-gray-600">LPIC-{exam}</span>
         </div>
-        <h1 className="text-2xl font-bold text-gray-900">Danh sách câu hỏi</h1>
-        <p className="text-gray-500 text-sm mt-1">{questions.length} câu hỏi · Click để xem đáp án</p>
+        <h1 className="text-2xl font-bold text-gray-900">Question List</h1>
+        <p className="text-gray-500 text-sm mt-1">{questions.length} questions · Click to view answers</p>
       </div>
 
       <div className="mb-6">
         <input
           type="text"
-          placeholder="Tìm kiếm câu hỏi..."
+          placeholder="Search questions..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
@@ -63,7 +63,7 @@ export default function QuestionListPage() {
       </div>
 
       {filtered.length === 0 ? (
-        <div className="text-center py-16 text-gray-400">Không tìm thấy câu hỏi nào</div>
+        <div className="text-center py-16 text-gray-400">No questions found</div>
       ) : (
         <div className="space-y-3">
           {filtered.map((q, i) => (

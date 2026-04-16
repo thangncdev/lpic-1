@@ -16,7 +16,7 @@ export default function Header() {
             to="/"
             className="text-sm text-gray-300 hover:text-white transition-colors"
           >
-            ← Trang chủ
+            ← Home
           </Link>
         )}
       </div>

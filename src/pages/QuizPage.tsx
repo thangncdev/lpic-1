@@ -37,7 +37,7 @@ export default function QuizPage() {
     return (
       <div className="flex justify-center items-center py-24">
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-orange-500"></div>
-        <span className="ml-3 text-gray-500">Đang chuẩn bị bài thi...</span>
+        <span className="ml-3 text-gray-500">Preparing test...</span>
       </div>
     );
   }
@@ -69,7 +69,7 @@ export default function QuizPage() {
     answerQuestion(currentQuestion.number, selected);
   }
 
-  // Nút Tiếp: instant mode → lock + next; exam mode → chỉ next
+  // Next button: instant mode → lock + next; exam mode → just next
   function handleNext() {
     if (mode === 'instant' && !isLocked) {
       confirmAndNext(currentQuestion.number);
@@ -86,20 +86,20 @@ export default function QuizPage() {
           <span className="text-sm font-medium text-gray-600">LPIC-{exam}</span>
           <span className="text-gray-300">·</span>
           <span className="text-sm text-gray-500">
-            Câu {currentIndex + 1} / {questions.length}
+            Question {currentIndex + 1} / {questions.length}
           </span>
           <span className="text-gray-300">·</span>
-          <span className="text-sm text-gray-500">Đã trả lời: {answeredCount}/{questions.length}</span>
+          <span className="text-sm text-gray-500">Answered: {answeredCount}/{questions.length}</span>
         </div>
         <div className="flex items-center gap-3">
           <QuizTimer timeLeft={timeLeft} total={QUIZ_DURATION} />
           <button
             onClick={() => {
-              if (confirm('Bạn có chắc muốn nộp bài không?')) submitQuiz();
+              if (confirm('Are you sure you want to submit?')) submitQuiz();
             }}
             className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold rounded-lg transition-colors"
           >
-            Nộp bài
+            Submit
           </button>
         </div>
       </div>
@@ -130,7 +130,7 @@ export default function QuizPage() {
         {/* Question navigator — right sidebar */}
         <div className="hidden sm:block w-52 shrink-0 bg-white rounded-2xl border border-gray-200 p-4 shadow-sm">
           <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
-            Danh sách câu
+            Question List
           </div>
           <div className="grid grid-cols-5 gap-1">
             {questions.map((q, i) => {
@@ -155,13 +155,13 @@ export default function QuizPage() {
           {/* Legend */}
           <div className="mt-4 space-y-1.5 text-xs text-gray-500">
             <div className="flex items-center gap-2">
-              <span className="w-4 h-4 rounded bg-orange-500 inline-block shrink-0"></span> Câu hiện tại
+              <span className="w-4 h-4 rounded bg-orange-500 inline-block shrink-0"></span> Current
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-4 h-4 rounded bg-gray-400 inline-block shrink-0"></span> Đã trả lời
+              <span className="w-4 h-4 rounded bg-gray-400 inline-block shrink-0"></span> Answered
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-4 h-4 rounded bg-gray-100 border border-gray-300 inline-block shrink-0"></span> Chưa trả lời
+              <span className="w-4 h-4 rounded bg-gray-100 border border-gray-300 inline-block shrink-0"></span> Unanswered
             </div>
           </div>
         </div>
@@ -174,14 +174,14 @@ export default function QuizPage() {
           disabled={currentIndex === 0}
           className="px-5 py-2 bg-gray-200 hover:bg-gray-300 disabled:opacity-40 text-gray-700 font-medium rounded-xl transition-colors"
         >
-          ← Trước
+          ← Previous
         </button>
         <button
           onClick={handleNext}
           disabled={currentIndex === questions.length - 1}
           className="px-5 py-2 bg-gray-200 hover:bg-gray-300 disabled:opacity-40 text-gray-700 font-medium rounded-xl transition-colors"
         >
-          Tiếp →
+          Next →
         </button>
       </div>
     </div>
