@@ -91,6 +91,8 @@ export function useQuiz(exam: ExamId) {
       total,
       durationSeconds,
       wrongQuestionNumbers: wrongNumbers,
+      questions,
+      answers,
     });
   }, [questions, answers, exam, mode, addSession]);
 

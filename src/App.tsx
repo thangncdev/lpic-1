@@ -5,6 +5,7 @@ import ModePage from './pages/ModePage';
 import QuestionListPage from './pages/QuestionListPage';
 import QuizPage from './pages/QuizPage';
 import HistoryPage from './pages/HistoryPage';
+import SessionResultPage from './pages/SessionResultPage';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="exam/:exam/list" element={<QuestionListPage />} />
           <Route path="exam/:exam/quiz" element={<QuizPage />} />
           <Route path="history" element={<HistoryPage />} />
+          <Route path="history/:sessionId" element={<SessionResultPage />} />
         </Route>
       </Routes>
     </HashRouter>

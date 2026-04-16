@@ -111,7 +111,8 @@ export default function HistoryPage() {
             return (
               <div
                 key={session.id}
-                className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-4"
+                onClick={() => navigate(`/history/${session.id}`)}
+                className="bg-white border border-gray-200 rounded-xl p-4 flex items-center gap-4 cursor-pointer hover:border-orange-300 hover:shadow-sm transition-all"
               >
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold shrink-0
                   ${passed ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'}`}>

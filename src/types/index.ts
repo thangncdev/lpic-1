@@ -27,6 +27,8 @@ export interface CompletedSession {
   total: number;
   durationSeconds: number;
   wrongQuestionNumbers: number[];
+  questions?: Question[];
+  answers?: Record<number, string[]>;
 }
 
 export interface ProgressStore {
