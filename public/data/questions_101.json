@@ -945,7 +945,7 @@
       {
         "letter": "A",
         "text": "grub2 install /dev/sdc",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "letter": "B",
@@ -965,11 +965,11 @@
       {
         "letter": "E",
         "text": "grub-install /dev/sdc",
-        "isCorrect": false
+        "isCorrect": true
       }
     ],
     "correctAnswers": [
-      "A"
+      "E"
     ],
     "correctText": null
   },
@@ -2134,12 +2134,12 @@
       {
         "letter": "A",
         "text": "grub-install /dev/sda",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "letter": "B",
         "text": "grub-install /dev/sda1",
-        "isCorrect": false
+        "isCorrect": true
       },
       {
         "letter": "C",
@@ -2158,7 +2158,7 @@
       }
     ],
     "correctAnswers": [
-      "A"
+      "B"
     ],
     "correctText": null
   },
@@ -3190,17 +3190,17 @@
       {
         "letter": "D",
         "text": "locate",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "letter": "E",
         "text": "type",
-        "isCorrect": false
+        "isCorrect": true
       }
     ],
     "correctAnswers": [
       "C",
-      "D"
+      "E"
     ],
     "correctText": null
   },
@@ -3362,12 +3362,12 @@
       {
         "letter": "B",
         "text": "0",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "letter": "C",
         "text": "10",
-        "isCorrect": false
+        "isCorrect": true
       },
       {
         "letter": "D",
@@ -3381,7 +3381,7 @@
       }
     ],
     "correctAnswers": [
-      "B"
+      "C"
     ],
     "correctText": null
   },
@@ -3578,7 +3578,7 @@
       {
         "letter": "B",
         "text": "Only texts.tar and texts.tgz",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "letter": "C",
@@ -3593,11 +3593,11 @@
       {
         "letter": "E",
         "text": "Only texts.tar",
-        "isCorrect": false
+        "isCorrect": true
       }
     ],
     "correctAnswers": [
-      "B"
+      "E"
     ],
     "correctText": null
   },
@@ -4053,17 +4053,17 @@
       {
         "letter": "D",
         "text": "Both S02apache2 and K01apache2 are run during a system shutdown.",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "letter": "E",
         "text": "K01apache2 is run when runlevel 1 is entered.",
-        "isCorrect": false
+        "isCorrect": true
       }
     ],
     "correctAnswers": [
       "A",
-      "D"
+      "E"
     ],
     "correctText": null
   }

@@ -720,17 +720,17 @@
       {
         "letter": "D",
         "text": "Effective group ID",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "letter": "E",
         "text": "Command",
-        "isCorrect": false
+        "isCorrect": true
       }
     ],
     "correctAnswers": [
       "B",
-      "D"
+      "E"
     ],
     "correctText": null
   },
@@ -1668,8 +1668,10 @@
     "type": "fill_blank",
     "question": "When using X11 forwarding in SSH, what environment variable is automatically set in the remote shell in order to help applications to connect to the correct X11 server? (Specify only the environment variable without any additional commands or values.)",
     "options": [],
-    "correctAnswers": [],
-    "correctText": null
+    "correctAnswers": [
+      "DISPLAY"
+    ],
+    "correctText": "DISPLAY"
   },
   {
     "number": 55,
@@ -1677,9 +1679,9 @@
     "question": "The presence of what file will temporarily prevent all users except root from logging into a system? (Specify the full name of the file, including path.)",
     "options": [],
     "correctAnswers": [
-      "/sbin/nologin"
+      "/etc/nologin"
     ],
-    "correctText": "/sbin/nologin"
+    "correctText": "/etc/nologin"
   },
   {
     "number": 56,
@@ -2440,7 +2442,7 @@
       {
         "letter": "B",
         "text": "it triggers the installation of the script's interpreter.",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "letter": "C",
@@ -2455,12 +2457,12 @@
       {
         "letter": "E",
         "text": "It is a comment that is ignored by the script interpreter.",
-        "isCorrect": false
+        "isCorrect": true
       }
     ],
     "correctAnswers": [
-      "B",
-      "C"
+      "C",
+      "E"
     ],
     "correctText": null
   },
@@ -2815,9 +2817,9 @@
     "question": "Which parameter of the ssh command specifies the location of the private key used for login attempts?(Specify only the option name without any values or parameters.)",
     "options": [],
     "correctAnswers": [
-      "ssh-keygen"
+      "-i"
     ],
-    "correctText": "ssh-keygen"
+    "correctText": "-i"
   },
   {
     "number": 91,
@@ -2873,12 +2875,12 @@
       {
         "letter": "C",
         "text": "NetworkManager creates a new wifi connection WIFIoI and activates it.",
-        "isCorrect": false
+        "isCorrect": true
       },
       {
         "letter": "D",
         "text": "NetworkManager returns an error in case the connection WIFIoI does not exist.",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "letter": "E",
@@ -2887,7 +2889,7 @@
       }
     ],
     "correctAnswers": [
-      "D"
+      "C"
     ],
     "correctText": null
   },
@@ -3197,12 +3199,12 @@
   {
     "number": 102,
     "type": "fill_blank",
-    "question": "What command enables a network interface according to distribution-specific configuration, such as /etc/network/interfaces or /etc/sysconfig/network-scripts/ifcfg-eth0? (Specify only thecommand without any path or parameters.)",
+    "question": "What command enables a network interface according to distribution-specific configuration, such as /etc/network/interfaces or /etc/sysconfig/network-scripts/ifcfg-eth0? (Specify only the command without any path or parameters.)",
     "options": [],
     "correctAnswers": [
-      "up"
+      "ifup"
     ],
-    "correctText": "up"
+    "correctText": "ifup"
   },
   {
     "number": 103,
@@ -3217,7 +3219,7 @@
       {
         "letter": "B",
         "text": "NetworkManager must be explicitly enabled for each interface it should manage.",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "letter": "C",
@@ -3232,12 +3234,12 @@
       {
         "letter": "E",
         "text": "NetworkManager can be configured to use the distribution's network interface configuration.",
-        "isCorrect": false
+        "isCorrect": true
       }
     ],
     "correctAnswers": [
-      "B",
-      "C"
+      "C",
+      "E"
     ],
     "correctText": null
   },
@@ -3356,9 +3358,9 @@
     "question": "What option to useradd creates a new user's home directory and provisions it with a set of standard files?(Specify only the option name without any values or parameters.)",
     "options": [],
     "correctAnswers": [
-      "-D"
+      "-m"
     ],
-    "correctText": "-D"
+    "correctText": "-m"
   },
   {
     "number": 108,
@@ -3590,7 +3592,7 @@
       {
         "letter": "B",
         "text": "Without additional configuration, only root may create user specific crontabs.",
-        "isCorrect": false
+        "isCorrect": true
       },
       {
         "letter": "C",
@@ -3604,12 +3606,12 @@
       },
       {
         "letter": "E",
-        "text": "The default settings of /etc/crond.conf define whether or not user specific crontabs aregenerally allowed or not.Câu này trên mạng vote B nhiều nhất",
-        "isCorrect": true
+        "text": "The default settings of /etc/crond.conf define whether or not user specific crontabs aregenerally allowed or not.",
+        "isCorrect": false
       }
     ],
     "correctAnswers": [
-      "E"
+      "B"
     ],
     "correctText": null
   },
