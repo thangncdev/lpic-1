@@ -1,0 +1,102 @@
+[
+  {
+    "number": 1,
+    "explanation": "The `hostname` command sets or displays the system's hostname. When run with a name argument (as root), it updates the hostname for the current session; persistent changes are typically made via configuration files or `hostnamectl` on systemd systems."
+  },
+  {
+    "number": 2,
+    "explanation": "IPv6 addresses use hexadecimal groups separated by colons, with `::` allowed only once to compress consecutive zero groups. `2001:db8:3241::1` is valid, while `2001:db8:0g21::1` contains the invalid character `g`, `2001::db8:4581::1` uses `::` twice, `2001%db8%9990%%1` uses invalid `%` separators, and `2001.db8.819f..1` uses dots instead of colons."
+  },
+  {
+    "number": 3,
+    "explanation": "`netstat` is a classic networking utility that, depending on its options, can list open TCP/UDP connections (`-t`, `-u`), display routing tables (`-r`), and show network interface statistics (`-i`). Modern systems often use `ss` for similar tasks, but `netstat` remains the expected LPIC-1 answer."
+  },
+  {
+    "number": 4,
+    "explanation": "`nmtui` (NetworkManager Text User Interface) is a curses-based front end to NetworkManager for managing connections from the command line. It provides menus for editing connections, activating interfaces, and setting hostnames without needing a graphical desktop."
+  },
+  {
+    "number": 5,
+    "explanation": "`dig` (Domain Information Groper) performs DNS lookups and prints detailed information about both the query sent and the response received, including flags, timing, and server details. `hostname` only resolves or sets hostnames, while `dnsq`, `dnslookup`, and `zoneinfo` are not standard DNS debugging tools on Linux."
+  },
+  {
+    "number": 6,
+    "explanation": "`/etc/nsswitch.conf` configures the order of sources used to resolve databases such as `hosts`, `passwd`, and `group`. A line like `hosts: files dns` is valid syntax, meaning the system checks `/etc/hosts` first, then DNS. The other options use invalid keywords or formats not recognized by the Name Service Switch."
+  },
+  {
+    "number": 7,
+    "explanation": "NetworkManager connection profiles have a `connection.type` such as `ethernet`, `wifi`, or `bridge`, visible via `nmcli connection show`. `tcp` and `ipv6` are protocols or address families, not NetworkManager connection types."
+  },
+  {
+    "number": 8,
+    "explanation": "The legacy `route` command attempts to resolve IP addresses into hostnames by default, which causes long delays when DNS is misconfigured or unreachable. The other answers describe fictional mechanisms (ARF-D, LKRD, default router elections) that do not exist on Linux."
+  },
+  {
+    "number": 9,
+    "explanation": "The IPv6 Hop Limit field serves the same purpose as IPv4's TTL: each router that forwards the packet decrements it by one, and the packet is discarded when it reaches zero. It is a fixed field in the main IPv6 header, not in an extension header, and is not always 1 for multicast traffic."
+  },
+  {
+    "number": 10,
+    "explanation": "`nmcli` provides top-level subcommands including `nmcli device` (to manage network devices) and `nmcli connection` (to manage connection profiles). `nmcli ethernet`, `nmcli wifi`, and `nmcli address` are not valid top-level nmcli subcommands; Wi-Fi and Ethernet settings are managed through `connection` or `device` subcommands."
+  },
+  {
+    "number": 11,
+    "explanation": "The `ip` command from iproute2 can bring interfaces up or down (`ip link set`), assign or remove IP addresses (`ip addr`), and modify routes (`ip route`). It does not change the system hostname or configure DNS name servers; those are handled by other tools such as `hostnamectl` and `/etc/resolv.conf`."
+  },
+  {
+    "number": 12,
+    "explanation": "A /26 subnet mask leaves 6 host bits, giving 2^6 = 64 total addresses. Subtracting the network address (192.168.2.128) and broadcast address (192.168.2.191) leaves 62 usable host addresses. Smaller values like 14 or 30 correspond to larger prefix lengths (/28, /27)."
+  },
+  {
+    "number": 13,
+    "explanation": "RFC 1918 defines three private IPv4 ranges: `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`. The `127.0.0.0/8` range is reserved for loopback addresses, not private network assignment, and `169.255.0.0/16` is not a designated private range."
+  },
+  {
+    "number": 14,
+    "explanation": "`ifup` and `ifdown` are distribution-specific scripts that read network configuration from files such as `/etc/network/interfaces` (Debian/Ubuntu) or `/etc/sysconfig/network-scripts/` (RHEL) and activate or deactivate interfaces accordingly. `ifconf`, `ifpause`, and `ifstart` are not standard interface management commands."
+  },
+  {
+    "number": 15,
+    "explanation": "UIDs and GIDs are separate namespaces in Linux, so a user and a group can share the same numeric ID without conflict. Both the user account and the group remain fully available; neither takes precedence over the other, and numeric coincidence does not imply membership."
+  },
+  {
+    "number": 16,
+    "explanation": "`/etc/shadow` stores the hashed password (and password aging fields) for each user, readable only by root. The UID, home directory, and login shell are stored in `/etc/passwd`; SSH keys are not kept in shadow, and last login time is tracked in files like `/var/log/wtmp` or `lastlog`."
+  },
+  {
+    "number": 17,
+    "explanation": "`systemctl list-timers` displays all active systemd timer units along with their next and last trigger times. The other options (`systemctl-timer show`, `timectl list`, `systemctl –t`, `timeq`) are not valid commands for listing systemd timers."
+  },
+  {
+    "number": 18,
+    "explanation": "The `date` command can display the current date and time in various formats (using `+format` specifiers) and, when run as root with options like `-s`, set the system clock. It cannot print a calendar (that is `cal`), calculate time spans between dates, or set the date independently of the time in a single operation."
+  },
+  {
+    "number": 19,
+    "explanation": "When `/etc/cron.allow` exists, only users listed in that file may use the cron scheduling system (create crontabs). If `cron.allow` is absent, `/etc/cron.deny` may be used instead to block specific users; by default, all users are permitted when neither file exists."
+  },
+  {
+    "number": 20,
+    "explanation": "`useradd` supports options such as `-d` to set the home directory path and `-u` to assign a specific numeric UID. Sudo privileges are configured in `/etc/sudoers`, SSH keys are managed separately, and printer access is not set during account creation with `useradd`."
+  },
+  {
+    "number": 21,
+    "explanation": "`/etc/localtime` is either a symbolic link to or a copy of a binary timezone data file under `/usr/share/zoneinfo/` (e.g., `/usr/share/zoneinfo/Europe/Berlin`). It is not a plain-text zone name, is not maintained by NTP based on IP geolocation, and does not require a `newtzconfig` command after changes."
+  },
+  {
+    "number": 22,
+    "explanation": "A systemd timer unit (`.timer`) schedules when an associated service unit (`.service`) is triggered, linked by matching unit names. Timer units are standalone unit files (not embedded in service files), the executed command is defined in the service unit (not a `[Cmd]` section), and user-level timers are supported."
+  },
+  {
+    "number": 23,
+    "explanation": "Both the system `/etc/crontab` and per-user crontab files share the standard time fields (minute, hour, day of month, month, day of week) followed by the command to execute. The `Username` field exists only in `/etc/crontab`, not in user crontabs, and neither format includes a `Year` or `Effective group ID` field."
+  },
+  {
+    "number": 24,
+    "explanation": "The `LC_MESSAGES` locale variable controls the language of program messages and error text for internationalized applications. Setting `export LC_MESSAGES=\"pt\"` in a login shell configures Portuguese messages; `LANGUAGE` affects a broader set of locale categories, and `UI_MESSAGES`, `MESSAGE`, and `ALL_MESSAGES` are not standard locale variables."
+  },
+  {
+    "number": 25,
+    "explanation": "Each line in `/etc/passwd` includes the user's primary GID in the fourth field, linking the account to its primary group. `/etc/group` lists group memberships (including supplementary groups), `/etc/shadow` holds password hashes, and `/etc/pgroup` and `/etc/gshadow` do not assign primary groups to users."
+  }
+]

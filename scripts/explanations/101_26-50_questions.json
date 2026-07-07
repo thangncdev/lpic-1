@@ -1,0 +1,882 @@
+[
+  {
+    "number": 26,
+    "type": "multiple_choice",
+    "question": "Which of the following files exist in a standard GRUB 2 installation? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/boot/grub/stages/stage0",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/boot/grub/i386-pc/lvm.mod",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "/boot/grub/fstab",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "/boot/grub/grub.cfg",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "/boot/grub/linux/vmlinuz",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 27,
+    "type": "multiple_choice",
+    "question": "Which of the following commands installs all packages with a name ending with the string foo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "zypper get “*foo”",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "zypper update “foo?”",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "zypper force “foo*”",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "zypper install “*foo”",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "zypper add “.*foo”",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 28,
+    "type": "multiple_choice",
+    "question": "Which of the following properties of a Linux system should be changed when a virtual machine is cloned?(Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The partitioning scheme",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The file system",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The D-Bus Machine ID",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "The permissions of /root/",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The SSH host keys",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 29,
+    "type": "multiple_choice",
+    "question": "Which of the following commands installs GRUB 2 into the master boot record on the third hard disk?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "grub2 install /dev/sdc",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "grub-mkrescue /dev/sdc",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "grub-mbrinstall /dev/sdc",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "grub-setup /dev/sdc",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "grub-install /dev/sdc",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 30,
+    "type": "multiple_choice",
+    "question": "Which of the following partition types is used for Linux swap spaces when partitioning hard disk drives?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "7",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "82",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "83",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "8e",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "fd",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 31,
+    "type": "multiple_choice",
+    "question": "What is true regarding the configuration of yum? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Changes to the repository configuration become active after running yum confupdate",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Changes to the yum configuration become active after restarting the yumd service",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The configuration of package repositories can be divided into multiple files",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Repository configurations can include variables such as $basearchor $releasever",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "In case /etc/yum.repos.d/ contains files, /etc/yum.conf is ignored",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 32,
+    "type": "multiple_choice",
+    "question": "Which of the following apt-get subcommands installs the newest versions of all currently installed packages?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "auto-update",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "dist-upgrade",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "full-upgrade",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "install",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "update",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 33,
+    "type": "multiple_choice",
+    "question": "Which command uninstalls a package but keeps its configuration files in case the package is re-installed?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "dpkg –s pkgname",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "dpkg –L pkgname",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "dpkg –P pkgname",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "dpkg –v pkgname",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "dpkg –r pkgname",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 34,
+    "type": "multiple_choice",
+    "question": "Which of the following commands lists the dependencies of the RPM package file foo.rpm?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "rpm –qpR foo.rpm",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "rpm –dep foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "rpm –ld foo.rpm",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "rpm –R foo.rpm",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "rpm –pD foo",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 35,
+    "type": "multiple_choice",
+    "question": "What is the maximum niceness value that a regular user can assign to a process with the nice command whenexecuting a new process?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "9",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "15",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "19",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "49",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "99",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 36,
+    "type": "multiple_choice",
+    "question": "Which of the following commands list all files and directories within the /tmp/ directory and its subdirectorieswhich are owned by the user root? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "find /tmp –user root -print",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "find –path /tmp –uid root",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "find /tmp –uid root -print",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "find /tmp –user root",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "find –path /tmp –user root -print",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 37,
+    "type": "multiple_choice",
+    "question": "Which of the following are valid stream redirection operators within Bash? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "<",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "#>",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "%>",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": ">>>",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "2>&1",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 38,
+    "type": "multiple_choice",
+    "question": "Which of the following vi commands deletes two lines, the current and the following line?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "d2",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "2d",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "2dd",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "dd2",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "de12",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 39,
+    "type": "multiple_choice",
+    "question": "The command dbmaint & was used to run dbmaint in the background. However, dbmaint is terminated after logging out of the system. Which alternative dbmaint invocation lets dbmaint continue to run even when the user running the program logs out?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "job –b dmaint",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "dbmaint &>/dev/pts/null",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "nohup dbmaint &",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "bg dbmaint",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "wait dbmaint",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 40,
+    "type": "multiple_choice",
+    "question": "From a Bash shell, which of the following commands directly execute the instructions from the file /usr/local/bin/runme.sh without starting a subshell? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "source /usr/local/bin/runme.sh",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "/usr/local/bin/runme.sh",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/bin/bash /usr/local/bin/runme.sh",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": ". /usr/local/bin/runme.sh",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "run /usr/local/bin/runme.sh",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 41,
+    "type": "fill_blank",
+    "question": "Which program runs a command in specific intervals and refreshes the display of the program’s output?(Specify ONLY the command without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "watch"
+    ],
+    "correctText": "watch"
+  },
+  {
+    "number": 42,
+    "type": "multiple_choice",
+    "question": "Immediately after deleting 3 lines of text in vi and moving the cursor to a different line, which single character command will insert the deleted content below the current line?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "i (lowercase)",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "p (lowercase)",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "P (uppercase)",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "U (uppercase)",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "u (lowercase)",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 43,
+    "type": "multiple_choice",
+    "question": "Which of the following commands changes all CR-LF line breaks in the text file userlist.txt to Linuxstandard LF line breaks and stores the result in newlist.txt?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "tr –d ‘\\r’ < userlist.txt > newlist.txt",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "tr –c ‘\\n\\r’ ‘’ <newlist.txt> userlist.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "tr ‘\\r\\n’ ‘’ <userlist.txt> newlist.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "tr ‘\\r’ ‘\\n’ userlist.txt newlist.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "tr –s ‘/^M/^J/’ userlist.txt newlist.txt",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 44,
+    "type": "multiple_choice",
+    "question": "Given the following input stream:txt1.txtatxt.txttxtB.txtWhich of the following regular expressions turns this input stream into the following output stream?txt1.bak.txtatxt.bak.txttxtB.bak.txt",
+    "options": [
+      {
+        "letter": "A",
+        "text": "s/^.txt/.bak/",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "s/txt/bak.txt/",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "s/txt$/bak.txt/",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "s/^txt$/.bak^/",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "s/[.txt]/.bak$1/",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 45,
+    "type": "multiple_choice",
+    "question": "Which command must be entered before exiting vi to save the current file as filea.txt?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "%s filea.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "%w filea.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": ":save filea.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": ":w filea.txt",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": ":s filea.txt",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 46,
+    "type": "multiple_choice",
+    "question": "Which of the following signals is sent to a process when the key combination Ctrl+C is pressed on thekeyboard?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SIGTERM",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "SIGCONT",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "SIGSTOP",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "SIGKILL",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "SIGINT",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 47,
+    "type": "multiple_choice",
+    "question": "Which of the following commands displays the output of the foo command on the screen and also writes it to a file called /tmp/foodata?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "foo | less /tmp/foodata",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "foo | cp /tmp/foodata",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "foo > /tmp/foodata",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "foo | tee /tmp/foodata",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "foo > stdout >> /tmp/foodata",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 48,
+    "type": "multiple_choice",
+    "question": "What output will be displayed when the user fredexecutes the following command?echo ‘fred $USER’",
+    "options": [
+      {
+        "letter": "A",
+        "text": "fred fred",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "fred /home/fred/",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "‘fred $USER’",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "fred $USER",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "‘fred fred’",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 49,
+    "type": "multiple_choice",
+    "question": "Which of the following commands displays the path to the executable file that would be executed when the command foo is invoked?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "lsattr foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "apropos foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "locate foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "whatis foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "which foo",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 50,
+    "type": "multiple_choice",
+    "question": "When redirecting the output of find to the xargs command, what option to find is useful if the filenames contain spaces?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "–rep-space",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "-printnul",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "-nospace",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "–ignore-space",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "–print0",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  }
+]

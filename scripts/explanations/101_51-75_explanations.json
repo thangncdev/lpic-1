@@ -1,0 +1,102 @@
+[
+  {
+    "number": 51,
+    "explanation": "The `uptime` command reports how long the system has been running, along with load averages. `top` also displays uptime in its header line. `up` is not a standard Linux command, `time` measures command duration (it has no `--up` option), and `uname` reports kernel/system information—not uptime."
+  },
+  {
+    "number": 52,
+    "explanation": "The `>` operator redirects standard output to a file, creating the file if it does not exist and truncating it if it does. So `ls > files` runs `ls` and writes its output into a new file named `files`. The output is not printed to the terminal, no error occurs, and `files` is a filename—not a command to execute."
+  },
+  {
+    "number": 53,
+    "explanation": "Bash stores previously entered commands in `~/.bash_history`. The other filenames are invented; `.bashrc` configures the shell but does not hold the history file, and there is no standard `.history` or `.bash_histfile` in a default Bash setup."
+  },
+  {
+    "number": 54,
+    "explanation": "`tty?[0-5]` matches `tty` plus one character (`S`) plus a digit 0–5, covering ttyS0, ttyS1, and ttyS2. `tty[A-Z][012]` matches `tty` plus an uppercase letter plus 0, 1, or 2—also matching all three. `ttyS[1-5]` misses ttyS0, `tty*2` only matches names ending in 2, and `tty[Ss][02]` misses ttyS1."
+  },
+  {
+    "number": 55,
+    "explanation": "`ls >&2` redirects standard output (file descriptor 1) to wherever standard error (file descriptor 2) is currently pointing. `ls >-1`, `ls <<ERR`, `ls >>2`, and `ls |error` are not valid ways to send stdout to stderr."
+  },
+  {
+    "number": 56,
+    "explanation": "`tar ztf archive.tgz` lists (`t`) the contents of a gzip-compressed (`z`) tar archive specified with `-f`. The other options either extract instead of list, use invalid option combinations (`-fzt`), or create an archive (`tar cf`) rather than display one."
+  },
+  {
+    "number": 57,
+    "explanation": "`cut -d : -f 1,4 /etc/passwd` extracts fields 1 (username) and 4 (primary group GID) from colon-delimited `/etc/passwd` lines. `fmt` reformats text, `sort` orders lines, `paste` merges files side by side, and `split` divides files—none selectively extract specific fields."
+  },
+  {
+    "number": 58,
+    "explanation": "In basic regular expressions, `[A-Z]` matches exactly one uppercase ASCII letter. `:UPPER:`, `!a-z`, `%C`, and `{AZ}` are not standard regex constructs for matching a single uppercase letter."
+  },
+  {
+    "number": 59,
+    "explanation": "The `nice` command starts a program with an adjusted scheduling priority (nice value). For example, `nice -n 10 command` runs `command` at a lower priority. To change the nice level of an already running process, you would use `renice` instead."
+  },
+  {
+    "number": 60,
+    "explanation": "`grep -E ':08:[0-9]+:[0-9]+' loga.log` matches log lines where the time field shows hour 08 (8:00–8:59 am) with any minutes and seconds. The pattern must target the `:hh:mm:ss` portion after the date. Wrong options use incorrect regex syntax, wrong argument order, or patterns that do not match the full minute/second range."
+  },
+  {
+    "number": 61,
+    "explanation": "In `/etc/fstab`, partitions can be identified by filesystem label (`LABEL=...`) or UUID (`UUID=...`) instead of a device path like `/dev/sda1`. These identifiers remain stable across reboots and device reordering. `ID`, `FIND`, and `NAME` are not valid fstab device specifiers."
+  },
+  {
+    "number": 62,
+    "explanation": "`yum groupinstall admintools` installs all packages in the named yum package group. Yum organizes related packages into groups; `groupinstall` is the command designed for this. The other options use nonexistent or incorrect yum syntax."
+  },
+  {
+    "number": 63,
+    "explanation": "Additional yum repository definitions are stored as `.repo` files in `/etc/yum.repos.d/`. Each file describes a repository URL, GPG keys, and enable/disable settings. The main yum configuration lives in `/etc/yum.conf`, but individual repo entries go in this directory."
+  },
+  {
+    "number": 64,
+    "explanation": "`grub-install /dev/sda1` installs GRUB boot files to the currently mounted filesystems and writes the boot loader to the first partition of the first disk. Specifying the whole disk (`/dev/sda`) targets the MBR/disk boot sector rather than partition 1, and options like `current` or `/dev/sda0` are not valid for this scenario."
+  },
+  {
+    "number": 65,
+    "explanation": "The `/boot` directory holds files needed to boot the system, including compressed Linux kernel images (`vmlinuz-*`) and initial RAM disk images (`initrd.img-*` or `initramfs-*`). Bash binaries live under `/bin` or `/usr/bin`, systemd units under `/etc/systemd`, and `fsck` under `/sbin`."
+  },
+  {
+    "number": 66,
+    "explanation": "`/etc/apt/sources.list` (and files under `/etc/apt/sources.list.d/`) define the network locations (repositories) from which APT downloads Debian packages. `/etc/apt/apt.conf` sets APT options, and `/etc/dpkg/` files configure dpkg behavior—not repository URLs."
+  },
+  {
+    "number": 67,
+    "explanation": "`dpkg --purge` (or `apt-get purge`) removes a package and its configuration files. A plain `dpkg --remove` or `apt-get remove` uninstalls the package but leaves config files on disk. Options like `--clean`, `--vacuum`, and `--declare` are not valid dpkg removal flags."
+  },
+  {
+    "number": 68,
+    "explanation": "Containers (e.g., LXC) share the host kernel and use namespaces/cgroups for lightweight process isolation. Full VMs (e.g., KVM) run a separate guest OS on virtual hardware provided by a hypervisor, so they can run different operating systems for the same CPU architecture. Containers do not use emulated hardware or separate kernels—those statements describe full virtualization, not containers."
+  },
+  {
+    "number": 69,
+    "explanation": "`apt-get install -f` (fix-broken) resolves unmet dependencies and completes interrupted installations. It reads dpkg's state, downloads missing packages, and configures pending packages. `dpkg --fix --all`, `apt-get autoinstall`, and `dpkg-reconfigure --all` are not the correct commands for this situation."
+  },
+  {
+    "number": 70,
+    "explanation": "`rpm --query --all` (or `rpm -qa`) lists every installed RPM package on the system. `rpm --query --list` shows files within a single named package, not all installed packages. The yum variants shown are not the standard way to list all installed RPMs—`rpm -qa` is the direct tool for this."
+  },
+  {
+    "number": 71,
+    "explanation": "`menuentry` defines a boot menu item in GRUB 2's configuration, and `insmod` loads a GRUB module at boot time. `uefi` is a firmware interface—not a GRUB config directive—and `pxe-ifconfig` and `kpartx` are unrelated utilities, not valid GRUB 2 configuration commands."
+  },
+  {
+    "number": 72,
+    "explanation": "`ldd` (list dynamic dependencies) shows which shared libraries an executable or shared object requires to run. It does not install libraries, convert binaries to static linking, set default library versions, or alter the library search path—that is what package managers, linkers, and `LD_LIBRARY_PATH`/`ldconfig` handle."
+  },
+  {
+    "number": 73,
+    "explanation": "LVM manages logical volumes on top of physical volumes and volume groups, allowing you to create and delete LVs, resize them online, and take snapshots of volume state. RAID 9 is not a real RAID level, and while LVM can sit on encrypted block devices, native LVM does not provide encryption—that is handled by LUKS/dm-crypt."
+  },
+  {
+    "number": 74,
+    "explanation": "GPT supports up to 128 partitions by default, while MBR allows only four primary partitions (or three primaries plus one extended). MBR uses 32-bit sector addressing, limiting partitions to about 2.2 TB, whereas GPT uses 64-bit addressing and supports vastly larger partitions (on the order of zettabytes). Claims of 4 TB MBR limits, 64 GPT partitions, or identical limits for both schemes are incorrect."
+  },
+  {
+    "number": 75,
+    "explanation": "Hard links let multiple directory entries point to the same inode and data blocks on disk, so unchanged files between backup runs do not consume extra storage for duplicate content. Creating a hard link only adds a directory entry (metadata), which is much faster than copying file data. Hard links do not make files immutable, are not asynchronous deferred copies, and moving old backups to tape typically breaks hard-link-based deduplication on the original filesystem."
+  }
+]

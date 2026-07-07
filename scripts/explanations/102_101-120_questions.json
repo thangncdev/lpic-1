@@ -1,0 +1,649 @@
+[
+  {
+    "number": 101,
+    "type": "multiple_choice",
+    "question": "Which of the following commands will delete the default gateway from the system's IP routing table? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ifconfig unset default",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "route del default",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "ip route del default",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "netstat -r default",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "sysctl ipv4.default_gw=0",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 102,
+    "type": "fill_blank",
+    "question": "What command enables a network interface according to distribution-specific configuration, such as /etc/network/interfaces or /etc/sysconfig/network-scripts/ifcfg-eth0? (Specify only the command without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "ifup"
+    ],
+    "correctText": "ifup"
+  },
+  {
+    "number": 103,
+    "type": "multiple_choice",
+    "question": "What is true about NetworkManager on a Linux system that uses its distribution's mechanisms to configure network interfaces? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NetworkManager reconfigures all network interfaces to use DHCP unless they are specifically managed by NetworkManager.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "NetworkManager must be explicitly enabled for each interface it should manage.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "NetworkManager by default does not change interfaces which are already configured.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "NetworkManager disables all interfaces which were not configured by NetworkManager.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "NetworkManager can be configured to use the distribution's network interface configuration.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 104,
+    "type": "multiple_choice",
+    "question": "Which standardized TCP port is used by HTTPS services?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "25",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "80",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "8080",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "443",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "636",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 105,
+    "type": "multiple_choice",
+    "question": "Which of the following environment variables can be defined in locale.conf? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "LC_ALL",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "LC_USERNAME",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "LC_UTF8",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "LC_GEOGRAPHY",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "LC_TIME",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 106,
+    "type": "multiple_choice",
+    "question": "Which of the following commands sets the system's time zone to the Canadian Eastern Time?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "localegen -t -f /usr/share/zoneinfo/Canada/Eastern > /etc/locate.tz",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "tzconf /etc/localtime",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "sysctl -w clock.tz='Canada/Eastern'",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "modprobe tz_ca_est",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "ln -sf /usr/share/zoneinfo/Canada/Eastern /etc/localtime",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 107,
+    "type": "fill_blank",
+    "question": "What option to useradd creates a new user's home directory and provisions it with a set of standard files?(Specify only the option name without any values or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "-m"
+    ],
+    "correctText": "-m"
+  },
+  {
+    "number": 108,
+    "type": "multiple_choice",
+    "question": "How can a specific user be prevented from scheduling tasks with at?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "By adding the specific user to the /etc/at.allow file.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "By adding the specific user to the [deny] section in the /etc/atd.conf file.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "By adding the specific user to the nojobs group.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "By adding the specific user to the /etc/at.deny file.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "By executing the atd --deny [user] command.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 109,
+    "type": "multiple_choice",
+    "question": "Which file contains the data of the last change of a user's password?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/etc/gshadow",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/etc/pwdlog",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "/var/log/shadow",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "/etc/shadow",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 110,
+    "type": "multiple_choice",
+    "question": "Which of the following fields can be found in the /etc/group file? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The home directory of the group.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The list of users that belong to the group.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "The name of the group.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "The default group ACL.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The description of the group.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 111,
+    "type": "multiple_choice",
+    "question": "Which of the following sections exists in a systemd timer unit?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "[Events]",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "[Timer]",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "[cron]",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "[Schedule]",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "[Trigger]",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 112,
+    "type": "multiple_choice",
+    "question": "Which of the following getent invocations lists all existing users?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "getent homes",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "getent uids",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "getent passwd",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "getent users",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "getent logins",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 113,
+    "type": "multiple_choice",
+    "question": "Given the following user's crontab entry:15 14 * * 1-5 /usr/local/bin/example.shWhen will the script /usr/local/bin/example.sh be executed?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "At 14:15 local time, January till May.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "At 15:14 local time, 1st to 5th day of month.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "At 14:15 local time, February till June.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "At 14:15 local time, 1st to 5th day of month.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "At 14:15 local time, Monday to Friday",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 114,
+    "type": "multiple_choice",
+    "question": "If neither cron.allow nor cron.deny exist in /etc/, which of the following is true?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Without additional configuration, all users may create user specific crontabs.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Without additional configuration, only root may create user specific crontabs.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "The cron daemon will refuse to start and report missing files in the system's logfile.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "When a user creates a user specific crontab the system administrator must approve it explicitly.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The default settings of /etc/crond.conf define whether or not user specific crontabs aregenerally allowed or not.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 115,
+    "type": "multiple_choice",
+    "question": "What is the purpose of the iconv command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It converts bitmap images from one format to another such as PNG to JPEG.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It verifies that the root directory tree compiles to all conventions from the Filesystem Hierarchy Standard (FHS).",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It converts files from one character set to an other.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It changes the mode of an inode in the ext4 filesystem.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It displays additional meta information from icon files ending in .ico.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 116,
+    "type": "multiple_choice",
+    "question": "Which character in the password field of /etc/passwd is used to indicate that the encrypted password isstored in /etc/shadow?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "*",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "-",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "s",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "#",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "x",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 117,
+    "type": "multiple_choice",
+    "question": "What does the term Braille Display refer to?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A standardized high contract graphical theme for desktop applications?",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "A Linux desktop environment similar to KDE and GNOME.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A legacy display technology superseded by LCD.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "A physical representation of characters using small dots.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "A standard file format for data exchange, similar to XML.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 118,
+    "type": "fill_blank",
+    "question": "Which environment variable is used by an X11 client to determine the X Server to connect to? (Specify only the variable name without any preceding commands or values.)",
+    "options": [],
+    "correctAnswers": [
+      "DISPLAY"
+    ],
+    "correctText": "DISPLAY"
+  },
+  {
+    "number": 119,
+    "type": "multiple_choice",
+    "question": "Which of the following tasks are handled by a display manager like XDM or KMD? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Configure additional devices like new monitors or projectors when they are attached.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Start and prepare the desktop environment for the user.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Create an X11 configuration file for the current graphic devices and monitors.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Lock the screen when the user was inactive for a configurable amount of time.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Handle the login of a user.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 120,
+    "type": "multiple_choice",
+    "question": "Which of the following protocols is designed to access the video card output of a virtual machine?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "KDE",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "X11",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Xfce",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "SPICE",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "XDMCP",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  }
+]

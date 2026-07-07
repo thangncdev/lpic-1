@@ -1,73 +1,131 @@
-# React + TypeScript + Vite
+# LPIC-1 Practice
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ứng dụng web luyện thi chứng chỉ **LPIC-1** (Linux Professional Institute Certification Level 1). Hỗ trợ hai kỳ thi **LPIC-101** và **LPIC-102**, mỗi kỳ có 120 câu hỏi.
 
-Currently, two official plugins are available:
+**Demo:** [https://thangncdev.github.io/lpic-1/](https://thangncdev.github.io/lpic-1/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tính năng
 
-## React Compiler
+- **Danh sách câu hỏi** — Xem toàn bộ 120 câu hỏi kèm đáp án và giải thích, phù hợp để ôn lý thuyết.
+- **Bài thi thử** — 60 câu ngẫu nhiên, thời gian 90 phút (giống kỳ thi thật).
+- **Hai chế độ làm bài:**
+  - **Exam Mode** — Không hiện đáp án trong lúc làm, xem kết quả sau khi nộp bài.
+  - **Instant Feedback** — Phản hồi ngay sau mỗi câu, tiện cho việc ghi nhớ.
+- **Lịch sử làm bài** — Lưu điểm số, thời gian và danh sách câu sai vào `localStorage`.
+- **Giải thích chi tiết** — Mỗi câu hỏi có phần giải thích (nếu đã được bổ sung).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Công nghệ
 
-## Expanding the ESLint configuration
+| Thành phần | Công nghệ |
+|---|---|
+| Framework | React 19 + TypeScript |
+| Build tool | Vite 8 |
+| Styling | Tailwind CSS 4 |
+| Routing | React Router (HashRouter) |
+| State | Zustand |
+| Hosting | GitHub Pages |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Yêu cầu
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 20+
+- npm (hoặc pnpm)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Chạy local
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Cài dependencies
+npm install
+
+# Chạy dev server (mặc định http://localhost:5173/lpic-1/)
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Các lệnh khác:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build      # Build production → thư mục dist/
+npm run preview    # Xem trước bản build
+npm run lint       # Kiểm tra ESLint
 ```
+
+## Deploy
+
+Ứng dụng được host trên **GitHub Pages** với base path `/lpic-1/` (cấu hình trong `vite.config.ts`).
+
+### Tự động (khuyến nghị)
+
+Mỗi khi push lên nhánh `main`, GitHub Actions sẽ tự build và deploy lên `gh-pages`:
+
+```yaml
+# .github/workflows/deploy.yml
+on:
+  push:
+    branches: [main]
+```
+
+### Thủ công
+
+```bash
+npm run deploy
+```
+
+Script `deploy.sh` sẽ build project, tạo nhánh `gh-pages` từ thư mục `dist/` và push lên remote.
+
+> **Lưu ý:** Cần cấu hình GitHub Pages trong repo settings để serve từ nhánh `gh-pages`.
+
+## Cấu trúc thư mục
+
+```
+lpic-1/
+├── public/data/          # Ngân hàng câu hỏi (questions_101.json, questions_102.json)
+├── scripts/              # Script quản lý giải thích câu hỏi
+│   ├── apply-explanations.mjs
+│   ├── validate-explanations.mjs
+│   └── explanations/     # File giải thích theo từng batch
+├── src/
+│   ├── components/       # UI components (quiz, layout, shared)
+│   ├── pages/            # Các trang (Home, Quiz, History, ...)
+│   ├── hooks/            # Custom hooks (useQuiz)
+│   ├── store/            # Zustand store
+│   ├── types/            # TypeScript types
+│   └── utils/            # Scoring, shuffle, ...
+├── deploy.sh             # Script deploy thủ công
+└── vite.config.ts
+```
+
+## Quản lý giải thích câu hỏi
+
+Giải thích được lưu trong `scripts/explanations/` theo từng batch (ví dụ: `101_1-25_explanations.json`), sau đó merge vào file câu hỏi chính.
+
+```bash
+# Áp dụng giải thích vào file câu hỏi
+node scripts/apply-explanations.mjs 101 scripts/explanations/101_1-25_explanations.json
+
+# Kiểm tra tính hợp lệ của file giải thích
+npm run validate:explanations
+```
+
+## Định dạng câu hỏi
+
+Mỗi câu hỏi trong `public/data/questions_*.json` có cấu trúc:
+
+```json
+{
+  "number": 1,
+  "type": "multiple_choice",
+  "question": "...",
+  "options": [
+    { "letter": "A", "text": "...", "isCorrect": false }
+  ],
+  "correctAnswers": ["B"],
+  "correctText": null,
+  "explanation": "...",
+  "exam": "101"
+}
+```
+
+Hỗ trợ hai loại: `multiple_choice` (trắc nghiệm) và `fill_blank` (điền đáp án).
+
+## License
+
+Private project.

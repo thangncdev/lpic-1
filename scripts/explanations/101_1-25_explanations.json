@@ -1,0 +1,102 @@
+[
+  {
+    "number": 1,
+    "explanation": "When invoked with only a block device and no `-t` type flag, the generic `mkfs` command defaults to creating an ext2 filesystem. ext3, ext4, XFS, and VFAT each require their own specific mkfs tool (e.g., `mkfs.ext4`, `mkfs.xfs`, `mkfs.vfat`) or an explicit type argument."
+  },
+  {
+    "number": 2,
+    "explanation": "A umask is subtracted from the default permissions (0777 for directories, 0666 for files). To get directory mode 750 (rwxr-x---), subtract 750 from 0777, which gives 0027. Option 0750 is a permission mode, not a umask value, and the other values would leave too much or too little access for group or others."
+  },
+  {
+    "number": 3,
+    "explanation": "The `tune2fs -i` option sets the maximum time interval between filesystem checks, measured in days (e.g., `-i 200` means check at most every 200 days). `-c` controls checks based on mount count, not days, and `-d`, `-n`, and `--days` are not valid tune2fs options for this purpose."
+  },
+  {
+    "number": 4,
+    "explanation": "By default, ext4 (and ext2/ext3) reserves 5% of filesystem blocks exclusively for the root user, preventing the disk from filling completely and locking out administrative tasks. The 10% figure is a common misconception from older documentation; 0%, 3%, and 15% are not the default."
+  },
+  {
+    "number": 5,
+    "explanation": "When a filesystem is mounted manually (e.g., via the `mount` command) and is not defined in `/etc/fstab`, systemd dynamically creates a transient `.mount` unit to track it. systemd does not ignore manual mounts, does not auto-unmount them after a timeout, and no `mountsync` or special `systemctl unmount` command is required."
+  },
+  {
+    "number": 6,
+    "explanation": "The `updatedb` command rebuilds the database used by `locate`, scanning the filesystem and recording file paths. `locate` itself only searches the pre-built database and does not update it; `updatedb` is typically run periodically via cron."
+  },
+  {
+    "number": 7,
+    "explanation": "`mount --bind` (or `mount -o bind`) remounts an existing directory tree at a second location, making the same contents visible through both paths. It does not mount all filesystems, all fstab entries, or permanently attach a regular file to a directory."
+  },
+  {
+    "number": 8,
+    "explanation": "`ln a.txt c.txt` creates a hard link named c.txt that shares the same inode (525385) as a.txt. `ln` has no `-h` or `-i` options for this purpose, and reversing the argument order (`ln c.txt a.txt`) would try to link a nonexistent file."
+  },
+  {
+    "number": 9,
+    "explanation": "Setting the setgid bit on a directory (`chmod g+s` or `chmod 2775`, where 2 is the setgid flag) causes new files and subdirectories created inside to inherit the directory's group (sales). `chgrp`, `chown --persistent`, and `setpol` are not valid mechanisms for enforcing inherited group ownership on new files."
+  },
+  {
+    "number": 10,
+    "explanation": "The `mount` command and `cat /proc/self/mounts` (equivalent to `/proc/mounts`) both list currently mounted filesystems with their mount points and options. `free` reports memory usage, `lsmounts` is not a standard command, and `/proc/filesystems` only lists filesystem types supported by the kernel, not active mounts."
+  },
+  {
+    "number": 11,
+    "explanation": "The `df` (disk free) command reports disk space usage for all mounted filesystems, showing total, used, available space, and mount points. Related tools like `du` measure usage of specific directories rather than summarizing all mounted filesystems."
+  },
+  {
+    "number": 12,
+    "explanation": "The correct `chown` syntax for setting both owner and group is `user:group`, so `chown dave:staff data.txt` assigns user dave and group staff. Slashes, plus signs, and `--user`/`--group` or `-u`/`-g` flags are not valid chown syntax."
+  },
+  {
+    "number": 13,
+    "explanation": "Hard links reference an inode number, which is only meaningful within a single filesystem, so a hard link cannot point to a file on a different partition or device. ext4 fully supports hard links, all hard links share the same metadata (not separate permissions), and modifying a hard-linked file does not create a copy."
+  },
+  {
+    "number": 14,
+    "explanation": "The Filesystem Hierarchy Standard (FHS) places manual pages in `/usr/share/man/`, organized by section (man1, man5, etc.). `/usr/doc/`, `/opt/man/`, `/var/man/`, and `/var/pkg/man` are not the standard FHS locations for man pages."
+  },
+  {
+    "number": 15,
+    "explanation": "The file `/proc/cmdline` contains the kernel command-line parameters passed by the bootloader at boot time (e.g., `root=`, `quiet`, `ro`). It is a virtual procfs file, not a file stored on disk under `/boot`."
+  },
+  {
+    "number": 16,
+    "explanation": "On System V init systems, the init process is always assigned PID 1 by the kernel as the first userspace process. PID 0 is the kernel scheduler (idle), PID -1 is not used for init, and the init PID is fixed at 1 across reboots."
+  },
+  {
+    "number": 17,
+    "explanation": "The `acpid` daemon listens for ACPI (Advanced Configuration and Power Interface) events such as power button presses, lid closes, and battery status changes. `batteryd`, `pwrmgntd`, and `psd` are not standard Linux daemons, and `inetd` handles network superserver duties, not power management."
+  },
+  {
+    "number": 18,
+    "explanation": "After power-on, the BIOS firmware runs POST and initiates the boot process by loading a boot loader from the configured boot device. Parts of the boot sequence (boot device order, hardware settings) are configurable in the BIOS setup. Linux still depends on the BIOS/UEFI firmware to start the boot loader, and the BIOS itself resides in firmware ROM, not on the hard disk."
+  },
+  {
+    "number": 19,
+    "explanation": "UEFI firmware can read partition tables (including GPT) and access files on supported filesystems such as FAT32 on the EFI System Partition. UEFI configuration is stored in NVRAM/firmware, not on `/boot`, and while GPT is commonly used with UEFI, the firmware itself is not stored within GPT metadata."
+  },
+  {
+    "number": 20,
+    "explanation": "Adding a `blacklist modulename` entry to `/etc/modprobe.d/blacklist.conf` prevents the module from being loaded automatically at boot. `modprobe -r` only removes the module from the currently running kernel, and `lsmod --remove` is not a valid command for persistent blacklisting."
+  },
+  {
+    "number": 21,
+    "explanation": "The kernel ring buffer is cleared when the system shuts down or reboots, and can also be explicitly cleared with `dmesg --clear`. Simply reading `dmesg` does not reset the buffer, it persists across module loads, and there is no automatic 15-minute timeout."
+  },
+  {
+    "number": 22,
+    "explanation": "On System V init systems, the kernel starts `/sbin/init` (PID 1) as the first userspace program after bootstrapping. `/lib/init.so`, `/proc/sys/kernel/init`, `/etc/rc.d/rcinit`, and `/boot/init` are not the actual init binary executed by the kernel."
+  },
+  {
+    "number": 23,
+    "explanation": "`dpkg -S /etc/debian_version` searches installed packages to find which one owns that file path. `apt-get search` finds packages by name/description, not by file ownership, and `apt-file` requires a separate index and uses different syntax (`apt-file search`)."
+  },
+  {
+    "number": 24,
+    "explanation": "The EFI System Partition (ESP), typically formatted as FAT32, stores UEFI boot loaders and related boot files that the firmware loads at startup. The Linux root filesystem, swap, shell binaries, and home directories reside on other partitions, not on the ESP."
+  },
+  {
+    "number": 25,
+    "explanation": "On 64-bit Linux systems, shared libraries (.so files) are installed in `/lib64/` and `/usr/lib64/` per the FHS and multilib conventions. `/var/lib64/` is not a standard library location (package state data lives under `/var/lib/`), and `~/.lib64/` is not a system-wide shared library directory."
+  }
+]

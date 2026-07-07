@@ -33,7 +33,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "When invoked with only a block device and no `-t` type flag, the generic `mkfs` command defaults to creating an ext2 filesystem. ext3, ext4, XFS, and VFAT each require their own specific mkfs tool (e.g., `mkfs.ext4`, `mkfs.xfs`, `mkfs.vfat`) or an explicit type argument."
   },
   {
     "number": 2,
@@ -69,7 +70,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "A umask is subtracted from the default permissions (0777 for directories, 0666 for files). To get directory mode 750 (rwxr-x---), subtract 750 from 0777, which gives 0027. Option 0750 is a permission mode, not a umask value, and the other values would leave too much or too little access for group or others."
   },
   {
     "number": 3,
@@ -105,7 +107,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The `tune2fs -i` option sets the maximum time interval between filesystem checks, measured in days (e.g., `-i 200` means check at most every 200 days). `-c` controls checks based on mount count, not days, and `-d`, `-n`, and `--days` are not valid tune2fs options for this purpose."
   },
   {
     "number": 4,
@@ -141,7 +144,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "By default, ext4 (and ext2/ext3) reserves 5% of filesystem blocks exclusively for the root user, preventing the disk from filling completely and locking out administrative tasks. The 10% figure is a common misconception from older documentation; 0%, 3%, and 15% are not the default."
   },
   {
     "number": 5,
@@ -177,7 +181,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "When a filesystem is mounted manually (e.g., via the `mount` command) and is not defined in `/etc/fstab`, systemd dynamically creates a transient `.mount` unit to track it. systemd does not ignore manual mounts, does not auto-unmount them after a timeout, and no `mountsync` or special `systemctl unmount` command is required."
   },
   {
     "number": 6,
@@ -187,7 +192,8 @@
     "correctAnswers": [
       "updatedb"
     ],
-    "correctText": "updatedb"
+    "correctText": "updatedb",
+    "explanation": "The `updatedb` command rebuilds the database used by `locate`, scanning the filesystem and recording file paths. `locate` itself only searches the pre-built database and does not update it; `updatedb` is typically run periodically via cron."
   },
   {
     "number": 7,
@@ -223,7 +229,8 @@
     "correctAnswers": [
       "A"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`mount --bind` (or `mount -o bind`) remounts an existing directory tree at a second location, making the same contents visible through both paths. It does not mount all filesystems, all fstab entries, or permanently attach a regular file to a directory."
   },
   {
     "number": 8,
@@ -259,7 +266,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`ln a.txt c.txt` creates a hard link named c.txt that shares the same inode (525385) as a.txt. `ln` has no `-h` or `-i` options for this purpose, and reversing the argument order (`ln c.txt a.txt`) would try to link a nonexistent file."
   },
   {
     "number": 9,
@@ -296,7 +304,8 @@
       "A",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Setting the setgid bit on a directory (`chmod g+s` or `chmod 2775`, where 2 is the setgid flag) causes new files and subdirectories created inside to inherit the directory's group (sales). `chgrp`, `chown --persistent`, and `setpol` are not valid mechanisms for enforcing inherited group ownership on new files."
   },
   {
     "number": 10,
@@ -333,7 +342,8 @@
       "A",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The `mount` command and `cat /proc/self/mounts` (equivalent to `/proc/mounts`) both list currently mounted filesystems with their mount points and options. `free` reports memory usage, `lsmounts` is not a standard command, and `/proc/filesystems` only lists filesystem types supported by the kernel, not active mounts."
   },
   {
     "number": 11,
@@ -343,7 +353,8 @@
     "correctAnswers": [
       "df"
     ],
-    "correctText": "df"
+    "correctText": "df",
+    "explanation": "The `df` (disk free) command reports disk space usage for all mounted filesystems, showing total, used, available space, and mount points. Related tools like `du` measure usage of specific directories rather than summarizing all mounted filesystems."
   },
   {
     "number": 12,
@@ -379,7 +390,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The correct `chown` syntax for setting both owner and group is `user:group`, so `chown dave:staff data.txt` assigns user dave and group staff. Slashes, plus signs, and `--user`/`--group` or `-u`/`-g` flags are not valid chown syntax."
   },
   {
     "number": 13,
@@ -415,7 +427,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Hard links reference an inode number, which is only meaningful within a single filesystem, so a hard link cannot point to a file on a different partition or device. ext4 fully supports hard links, all hard links share the same metadata (not separate permissions), and modifying a hard-linked file does not create a copy."
   },
   {
     "number": 14,
@@ -451,7 +464,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The Filesystem Hierarchy Standard (FHS) places manual pages in `/usr/share/man/`, organized by section (man1, man5, etc.). `/usr/doc/`, `/opt/man/`, `/var/man/`, and `/var/pkg/man` are not the standard FHS locations for man pages."
   },
   {
     "number": 15,
@@ -461,7 +475,8 @@
     "correctAnswers": [
       "cmdline"
     ],
-    "correctText": "cmdline"
+    "correctText": "cmdline",
+    "explanation": "The file `/proc/cmdline` contains the kernel command-line parameters passed by the bootloader at boot time (e.g., `root=`, `quiet`, `ro`). It is a virtual procfs file, not a file stored on disk under `/boot`."
   },
   {
     "number": 16,
@@ -497,7 +512,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "On System V init systems, the init process is always assigned PID 1 by the kernel as the first userspace process. PID 0 is the kernel scheduler (idle), PID -1 is not used for init, and the init PID is fixed at 1 across reboots."
   },
   {
     "number": 17,
@@ -533,7 +549,8 @@
     "correctAnswers": [
       "A"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The `acpid` daemon listens for ACPI (Advanced Configuration and Power Interface) events such as power button presses, lid closes, and battery status changes. `batteryd`, `pwrmgntd`, and `psd` are not standard Linux daemons, and `inetd` handles network superserver duties, not power management."
   },
   {
     "number": 18,
@@ -570,7 +587,8 @@
       "A",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "After power-on, the BIOS firmware runs POST and initiates the boot process by loading a boot loader from the configured boot device. Parts of the boot sequence (boot device order, hardware settings) are configurable in the BIOS setup. Linux still depends on the BIOS/UEFI firmware to start the boot loader, and the BIOS itself resides in firmware ROM, not on the hard disk."
   },
   {
     "number": 19,
@@ -607,7 +625,8 @@
       "A",
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "UEFI firmware can read partition tables (including GPT) and access files on supported filesystems such as FAT32 on the EFI System Partition. UEFI configuration is stored in NVRAM/firmware, not on `/boot`, and while GPT is commonly used with UEFI, the firmware itself is not stored within GPT metadata."
   },
   {
     "number": 20,
@@ -643,7 +662,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Adding a `blacklist modulename` entry to `/etc/modprobe.d/blacklist.conf` prevents the module from being loaded automatically at boot. `modprobe -r` only removes the module from the currently running kernel, and `lsmod --remove` is not a valid command for persistent blacklisting."
   },
   {
     "number": 21,
@@ -680,7 +700,8 @@
       "A",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The kernel ring buffer is cleared when the system shuts down or reboots, and can also be explicitly cleared with `dmesg --clear`. Simply reading `dmesg` does not reset the buffer, it persists across module loads, and there is no automatic 15-minute timeout."
   },
   {
     "number": 22,
@@ -716,7 +737,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "On System V init systems, the kernel starts `/sbin/init` (PID 1) as the first userspace program after bootstrapping. `/lib/init.so`, `/proc/sys/kernel/init`, `/etc/rc.d/rcinit`, and `/boot/init` are not the actual init binary executed by the kernel."
   },
   {
     "number": 23,
@@ -752,7 +774,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`dpkg -S /etc/debian_version` searches installed packages to find which one owns that file path. `apt-get search` finds packages by name/description, not by file ownership, and `apt-file` requires a separate index and uses different syntax (`apt-file search`)."
   },
   {
     "number": 24,
@@ -788,7 +811,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The EFI System Partition (ESP), typically formatted as FAT32, stores UEFI boot loaders and related boot files that the firmware loads at startup. The Linux root filesystem, swap, shell binaries, and home directories reside on other partitions, not on the ESP."
   },
   {
     "number": 25,
@@ -825,7 +849,8 @@
       "B",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "On 64-bit Linux systems, shared libraries (.so files) are installed in `/lib64/` and `/usr/lib64/` per the FHS and multilib conventions. `/var/lib64/` is not a standard library location (package state data lives under `/var/lib/`), and `~/.lib64/` is not a system-wide shared library directory."
   },
   {
     "number": 26,
@@ -862,7 +887,8 @@
       "B",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "GRUB 2 stores its main configuration in /boot/grub/grub.cfg and loads platform-specific modules (such as lvm.mod) from directories like /boot/grub/i386-pc/. The stage files under /boot/grub/stages/ belong to legacy GRUB 1, not GRUB 2. GRUB does not provide its own fstab or kernel image paths — those live in /etc/fstab and /boot/ respectively."
   },
   {
     "number": 27,
@@ -898,7 +924,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "On openSUSE/SLES, `zypper install \"*foo\"` uses a shell-style wildcard to install every package whose name ends with \"foo\". Options like `get`, `update`, `force`, and `add` are either different operations or not valid zypper subcommands for bulk installation."
   },
   {
     "number": 28,
@@ -935,7 +962,8 @@
       "C",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "A cloned VM must get unique identity values or two systems will conflict on the network and in system services. The D-Bus machine ID (/etc/machine-id) and SSH host keys must be regenerated so each clone is distinct. Partition layout, filesystem type, and /root permissions are ordinary install properties and do not need to change just because a VM was cloned."
   },
   {
     "number": 29,
@@ -971,7 +999,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`grub-install /dev/sdc` installs GRUB 2 boot code to the MBR of the third disk (/dev/sdc). `grub-mkrescue` builds a rescue image, `grub-mbrinstall` is a legacy GRUB 1 tool, and `grub2 install` / `grub-setup` are not the correct modern command names."
   },
   {
     "number": 30,
@@ -1007,7 +1036,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In the MBR partition table, type 0x82 (decimal 82) is reserved for Linux swap. Type 83 is a standard Linux filesystem, 0x8e is Linux LVM, 0xfd is Linux RAID, and type 7 is typically NTFS/exFAT — none of which identify swap space."
   },
   {
     "number": 31,
@@ -1044,7 +1074,8 @@
       "C",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "YUM repository settings can be split across multiple `.repo` files in /etc/yum.repos.d/, and those files support variables such as `$basearch` and `$releasever` for architecture- and version-specific URLs. There is no `yum confupdate` command, yum is not managed by a `yumd` service, and /etc/yum.conf is still read alongside files in yum.repos.d/."
   },
   {
     "number": 32,
@@ -1080,7 +1111,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`apt-get dist-upgrade` upgrades all installed packages to their newest available versions and intelligently resolves dependency changes (such as installing or removing related packages). `apt-get update` only refreshes package lists without upgrading, and `install` is for adding new packages rather than upgrading everything already installed."
   },
   {
     "number": 33,
@@ -1116,7 +1148,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`dpkg -r pkgname` removes a package but leaves its configuration files in place, so they are reused if the package is reinstalled. `dpkg -P` purges the package and its config files, while `-s` shows status, `-L` lists installed files, and `-v` prints the dpkg version."
   },
   {
     "number": 34,
@@ -1152,7 +1185,8 @@
     "correctAnswers": [
       "A"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`rpm -qpR foo.rpm` queries (`-q`) the uninstalled package file (`-p`) and lists its Requires (`-R`) dependencies. `rpm -R` without `-p` queries an already-installed package, and the other options are not valid rpm query flags."
   },
   {
     "number": 35,
@@ -1188,7 +1222,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Linux niceness ranges from -20 (highest priority) to 19 (lowest priority). A regular user may only increase niceness (lower CPU priority), so the maximum value they can assign when starting a new process with `nice` is 19. Values like 9 or 15 are within range but not the maximum, and 49 or 99 are outside the valid niceness range entirely."
   },
   {
     "number": 36,
@@ -1225,7 +1260,8 @@
       "A",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`find /tmp -user root` searches /tmp recursively for files owned by the user \"root\"; adding `-print` is optional because find prints results by default. `-uid root` is incorrect because root's UID is 0, not the string \"root\". Options that place `-path` before the starting directory or omit `/tmp` as the search path will not correctly limit the search to /tmp and its subdirectories."
   },
   {
     "number": 37,
@@ -1262,7 +1298,8 @@
       "A",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In Bash, `<` redirects standard input from a file, and `2>&1` redirects file descriptor 2 (stderr) to file descriptor 1 (stdout). `#>`, `%>`, and `>>>` are not valid Bash stream-redirection operators."
   },
   {
     "number": 38,
@@ -1298,7 +1335,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In vi/vim, `dd` deletes the current line, and a count prefix applies to the command — so `2dd` deletes the current line and the one below it. `d2`, `2d`, and `dd2` are not valid vi delete-line syntax."
   },
   {
     "number": 39,
@@ -1334,7 +1372,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`nohup dbmaint &` runs dbmaint in the background and makes it immune to the SIGHUP signal sent when the controlling terminal closes (e.g., on logout). A plain `&` keeps the process tied to the shell session, `bg` only resumes an already-stopped job, and redirecting output does not detach the process from the terminal."
   },
   {
     "number": 40,
@@ -1371,7 +1410,8 @@
       "A",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The `source` builtin and its dot (`.`) equivalent execute a script's commands in the current shell without spawning a subshell. Running the script as an executable path or invoking `/bin/bash script.sh` starts a child shell, so variables and shell state changes do not persist in the parent."
   },
   {
     "number": 41,
@@ -1381,7 +1421,8 @@
     "correctAnswers": [
       "watch"
     ],
-    "correctText": "watch"
+    "correctText": "watch",
+    "explanation": "The `watch` command repeatedly runs a specified command at a set interval (default 2 seconds) and clears/redraws the screen each time, making it ideal for monitoring changing command output."
   },
   {
     "number": 42,
@@ -1417,7 +1458,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In vi, lowercase `p` pastes the most recently deleted or yanked text on the line below the cursor. Uppercase `P` pastes above the current line, `u` undoes the last change, and `U` restores the current line to its state before the last sequence of changes on that line."
   },
   {
     "number": 43,
@@ -1453,7 +1495,8 @@
     "correctAnswers": [
       "A"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`tr -d '\\r'` reads the input and deletes every carriage-return character, converting Windows CRLF line endings to Unix LF. Replacing `\\r` with `\\n` would turn CRLF into two line feeds (LF LF), and the other options use incorrect `tr` syntax or argument order."
   },
   {
     "number": 44,
@@ -1489,7 +1532,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The sed expression `s/txt$/bak.txt/` replaces the substring \"txt\" only when it appears at the end of a line, turning e.g. \"txt1.txt\" into \"txt1.bak.txt\". `s/txt/bak.txt/` would replace the first occurrence of \"txt\" anywhere in the line (breaking names like \"txt1.txt\"), and the other patterns use invalid or misplaced anchors."
   },
   {
     "number": 45,
@@ -1525,7 +1569,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In vi's command mode, `:w filea.txt` writes (saves) the current buffer contents to the file filea.txt. `%s` and `:s` perform substitutions, `%w` is not a standard vi write command, and `:save` is not a valid ex/vi command."
   },
   {
     "number": 46,
@@ -1561,7 +1606,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Pressing Ctrl+C in a terminal sends SIGINT (signal 2) to the foreground process group, requesting it to interrupt execution. SIGTERM is the default `kill` signal, SIGSTOP/SIGCONT pause and resume processes, and SIGKILL cannot be caught or ignored."
   },
   {
     "number": 47,
@@ -1597,7 +1643,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`tee` reads from standard input and writes the data both to stdout (the screen) and to the specified file. Using `>` alone sends output only to the file (not the screen), and the other piped commands do not duplicate output to a file and the terminal simultaneously."
   },
   {
     "number": 48,
@@ -1633,7 +1680,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Single quotes in Bash suppress all expansions, so `echo 'fred $USER'` prints the literal string \"fred $USER\" without substituting the environment variable. With double quotes, `$USER` would expand to the username (e.g., \"fred\"), producing \"fred fred\"."
   },
   {
     "number": 49,
@@ -1669,7 +1717,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`which foo` searches the directories in `$PATH` and prints the full path to the executable that would run when you type `foo`. `whatis` and `apropos` search manual pages, `locate` finds files in a database, and `lsattr` lists extended file attributes — none of which resolve the executable path."
   },
   {
     "number": 50,
@@ -1705,7 +1754,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`find ... -print0` outputs each matched filename followed by a null byte instead of a newline, which pairs safely with `xargs -0` when filenames contain spaces or special characters. Options like `-printnul`, `-rep-space`, and `-nospace` are not real find flags."
   },
   {
     "number": 51,
@@ -1742,7 +1792,8 @@
       "A",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The `uptime` command reports how long the system has been running, along with load averages. `top` also displays uptime in its header line. `up` is not a standard Linux command, `time` measures command duration (it has no `--up` option), and `uname` reports kernel/system information—not uptime."
   },
   {
     "number": 52,
@@ -1778,7 +1829,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The `>` operator redirects standard output to a file, creating the file if it does not exist and truncating it if it does. So `ls > files` runs `ls` and writes its output into a new file named `files`. The output is not printed to the terminal, no error occurs, and `files` is a filename—not a command to execute."
   },
   {
     "number": 53,
@@ -1814,7 +1866,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Bash stores previously entered commands in `~/.bash_history`. The other filenames are invented; `.bashrc` configures the shell but does not hold the history file, and there is no standard `.history` or `.bash_histfile` in a default Bash setup."
   },
   {
     "number": 54,
@@ -1851,7 +1904,8 @@
       "B",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`tty?[0-5]` matches `tty` plus one character (`S`) plus a digit 0–5, covering ttyS0, ttyS1, and ttyS2. `tty[A-Z][012]` matches `tty` plus an uppercase letter plus 0, 1, or 2—also matching all three. `ttyS[1-5]` misses ttyS0, `tty*2` only matches names ending in 2, and `tty[Ss][02]` misses ttyS1."
   },
   {
     "number": 55,
@@ -1887,7 +1941,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`ls >&2` redirects standard output (file descriptor 1) to wherever standard error (file descriptor 2) is currently pointing. `ls >-1`, `ls <<ERR`, `ls >>2`, and `ls |error` are not valid ways to send stdout to stderr."
   },
   {
     "number": 56,
@@ -1923,7 +1978,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`tar ztf archive.tgz` lists (`t`) the contents of a gzip-compressed (`z`) tar archive specified with `-f`. The other options either extract instead of list, use invalid option combinations (`-fzt`), or create an archive (`tar cf`) rather than display one."
   },
   {
     "number": 57,
@@ -1959,7 +2015,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`cut -d : -f 1,4 /etc/passwd` extracts fields 1 (username) and 4 (primary group GID) from colon-delimited `/etc/passwd` lines. `fmt` reformats text, `sort` orders lines, `paste` merges files side by side, and `split` divides files—none selectively extract specific fields."
   },
   {
     "number": 58,
@@ -1995,7 +2052,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In basic regular expressions, `[A-Z]` matches exactly one uppercase ASCII letter. `:UPPER:`, `!a-z`, `%C`, and `{AZ}` are not standard regex constructs for matching a single uppercase letter."
   },
   {
     "number": 59,
@@ -2005,7 +2063,8 @@
     "correctAnswers": [
       "nice"
     ],
-    "correctText": "nice"
+    "correctText": "nice",
+    "explanation": "The `nice` command starts a program with an adjusted scheduling priority (nice value). For example, `nice -n 10 command` runs `command` at a lower priority. To change the nice level of an already running process, you would use `renice` instead."
   },
   {
     "number": 60,
@@ -2041,7 +2100,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`grep -E ':08:[0-9]+:[0-9]+' loga.log` matches log lines where the time field shows hour 08 (8:00–8:59 am) with any minutes and seconds. The pattern must target the `:hh:mm:ss` portion after the date. Wrong options use incorrect regex syntax, wrong argument order, or patterns that do not match the full minute/second range."
   },
   {
     "number": 61,
@@ -2078,7 +2138,8 @@
       "A",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In `/etc/fstab`, partitions can be identified by filesystem label (`LABEL=...`) or UUID (`UUID=...`) instead of a device path like `/dev/sda1`. These identifiers remain stable across reboots and device reordering. `ID`, `FIND`, and `NAME` are not valid fstab device specifiers."
   },
   {
     "number": 62,
@@ -2114,7 +2175,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`yum groupinstall admintools` installs all packages in the named yum package group. Yum organizes related packages into groups; `groupinstall` is the command designed for this. The other options use nonexistent or incorrect yum syntax."
   },
   {
     "number": 63,
@@ -2124,7 +2186,8 @@
     "correctAnswers": [
       "/etc/yum.repos.d/"
     ],
-    "correctText": "/etc/yum.repos.d/"
+    "correctText": "/etc/yum.repos.d/",
+    "explanation": "Additional yum repository definitions are stored as `.repo` files in `/etc/yum.repos.d/`. Each file describes a repository URL, GPG keys, and enable/disable settings. The main yum configuration lives in `/etc/yum.conf`, but individual repo entries go in this directory."
   },
   {
     "number": 64,
@@ -2160,7 +2223,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`grub-install /dev/sda1` installs GRUB boot files to the currently mounted filesystems and writes the boot loader to the first partition of the first disk. Specifying the whole disk (`/dev/sda`) targets the MBR/disk boot sector rather than partition 1, and options like `current` or `/dev/sda0` are not valid for this scenario."
   },
   {
     "number": 65,
@@ -2197,7 +2261,8 @@
       "A",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The `/boot` directory holds files needed to boot the system, including compressed Linux kernel images (`vmlinuz-*`) and initial RAM disk images (`initrd.img-*` or `initramfs-*`). Bash binaries live under `/bin` or `/usr/bin`, systemd units under `/etc/systemd`, and `fsck` under `/sbin`."
   },
   {
     "number": 66,
@@ -2233,7 +2298,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`/etc/apt/sources.list` (and files under `/etc/apt/sources.list.d/`) define the network locations (repositories) from which APT downloads Debian packages. `/etc/apt/apt.conf` sets APT options, and `/etc/dpkg/` files configure dpkg behavior—not repository URLs."
   },
   {
     "number": 67,
@@ -2269,7 +2335,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`dpkg --purge` (or `apt-get purge`) removes a package and its configuration files. A plain `dpkg --remove` or `apt-get remove` uninstalls the package but leaves config files on disk. Options like `--clean`, `--vacuum`, and `--declare` are not valid dpkg removal flags."
   },
   {
     "number": 68,
@@ -2307,7 +2374,8 @@
       "B",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Containers (e.g., LXC) share the host kernel and use namespaces/cgroups for lightweight process isolation. Full VMs (e.g., KVM) run a separate guest OS on virtual hardware provided by a hypervisor, so they can run different operating systems for the same CPU architecture. Containers do not use emulated hardware or separate kernels—those statements describe full virtualization, not containers."
   },
   {
     "number": 69,
@@ -2343,7 +2411,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`apt-get install -f` (fix-broken) resolves unmet dependencies and completes interrupted installations. It reads dpkg's state, downloads missing packages, and configures pending packages. `dpkg --fix --all`, `apt-get autoinstall`, and `dpkg-reconfigure --all` are not the correct commands for this situation."
   },
   {
     "number": 70,
@@ -2379,7 +2448,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`rpm --query --all` (or `rpm -qa`) lists every installed RPM package on the system. `rpm --query --list` shows files within a single named package, not all installed packages. The yum variants shown are not the standard way to list all installed RPMs—`rpm -qa` is the direct tool for this."
   },
   {
     "number": 71,
@@ -2416,7 +2486,8 @@
       "A",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`menuentry` defines a boot menu item in GRUB 2's configuration, and `insmod` loads a GRUB module at boot time. `uefi` is a firmware interface—not a GRUB config directive—and `pxe-ifconfig` and `kpartx` are unrelated utilities, not valid GRUB 2 configuration commands."
   },
   {
     "number": 72,
@@ -2452,7 +2523,8 @@
     "correctAnswers": [
       "A"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "`ldd` (list dynamic dependencies) shows which shared libraries an executable or shared object requires to run. It does not install libraries, convert binaries to static linking, set default library versions, or alter the library search path—that is what package managers, linkers, and `LD_LIBRARY_PATH`/`ldconfig` handle."
   },
   {
     "number": 73,
@@ -2490,7 +2562,8 @@
       "B",
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "LVM manages logical volumes on top of physical volumes and volume groups, allowing you to create and delete LVs, resize them online, and take snapshots of volume state. RAID 9 is not a real RAID level, and while LVM can sit on encrypted block devices, native LVM does not provide encryption—that is handled by LUKS/dm-crypt."
   },
   {
     "number": 74,
@@ -2527,7 +2600,8 @@
       "B",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "GPT supports up to 128 partitions by default, while MBR allows only four primary partitions (or three primaries plus one extended). MBR uses 32-bit sector addressing, limiting partitions to about 2.2 TB, whereas GPT uses 64-bit addressing and supports vastly larger partitions (on the order of zettabytes). Claims of 4 TB MBR limits, 64 GPT partitions, or identical limits for both schemes are incorrect."
   },
   {
     "number": 75,
@@ -2564,7 +2638,8 @@
       "D",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Hard links let multiple directory entries point to the same inode and data blocks on disk, so unchanged files between backup runs do not consume extra storage for duplicate content. Creating a hard link only adds a directory entry (metadata), which is much faster than copying file data. Hard links do not make files immutable, are not asynchronous deferred copies, and moving old backups to tape typically breaks hard-link-based deduplication on the original filesystem."
   },
   {
     "number": 76,
@@ -2574,7 +2649,8 @@
     "correctAnswers": [
       "/proc/mounts"
     ],
-    "correctText": "/proc/mounts"
+    "correctText": "/proc/mounts",
+    "explanation": "/proc/mounts is a kernel-generated pseudo-file that lists all currently mounted filesystems, including device, mount point, filesystem type, and mount options. It mirrors the information in /etc/mtab on many systems and is the standard place to inspect active mounts under /proc. Similar paths like /proc/partitions or /proc/devices list hardware partitions and registered device drivers, not mount table entries."
   },
   {
     "number": 77,
@@ -2610,7 +2686,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Each non-comment line in /etc/fstab contains exactly six whitespace-separated fields: device, mount point, filesystem type, mount options, dump flag, and fsck pass number. Fewer than six fields makes the line syntactically invalid, and there is no seventh standard field in the traditional fstab format."
   },
   {
     "number": 78,
@@ -2647,7 +2724,8 @@
       "A",
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Only the file owner or root may change a file's permissions, so chmod fails if another user owns the file. On Linux, chmod cannot change the permissions of a symbolic link; it may change the link's metadata in limited ways, but permission changes apply to the target file, not the link itself. The sticky bit, SetUID bit, and hard links do not prevent chmod from working when you own the file."
   },
   {
     "number": 79,
@@ -2684,7 +2762,8 @@
       "B",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "ext2 and ext3 allocate a fixed inode table when the filesystem is created, which is why running out of inodes can occur even with free disk space. XFS and JFS create inodes dynamically as files are added. procfs is a virtual filesystem and does not use traditional inode preallocation at all."
   },
   {
     "number": 80,
@@ -2720,7 +2799,8 @@
     "correctAnswers": [
       "A"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In octal chmod notation, the leading digit 4 sets the SetUID bit, so 4755 enables SetUID while keeping rwxr-xr-x permissions. 1755 sets the sticky bit, 2755 sets SetGID, and u-s removes SetUID rather than setting it. The syntax 755+s is not valid chmod notation."
   },
   {
     "number": 81,
@@ -2757,7 +2837,8 @@
       "C",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The stat command reports detailed file metadata including the inode number. ls -i also displays inode numbers alongside filenames. There is no standard inode command, and ln, cp, and similar tools perform file operations without primarily displaying inode information."
   },
   {
     "number": 82,
@@ -2793,7 +2874,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "New files are created with mode 666 masked by the umask. A umask of 0027 removes write for group and all permissions for others from the default, yielding 640 (-rw-r-----) for regular files. Values like 0640 or 0038 do not produce that exact permission set when applied to the default file mode."
   },
   {
     "number": 83,
@@ -2829,7 +2911,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "xfs_repair is the dedicated offline repair utility for XFS filesystems and must be run on an unmounted partition. There is no xfsck command (that naming belongs to ext-family tools), and mount -f only forces a mount without fixing structural errors. xfsadmin manages XFS parameters but does not serve as the primary filesystem repair tool."
   },
   {
     "number": 84,
@@ -2865,7 +2948,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "A hard link is another directory entry pointing to the same inode, so creating one increments the link count stored in the inode. File size, permissions, inode number, and modification time belong to the shared inode and are not changed merely by adding another hard link name."
   },
   {
     "number": 85,
@@ -2875,7 +2959,8 @@
     "correctAnswers": [
       "/usr/local/bin/"
     ],
-    "correctText": "/usr/local/bin/"
+    "correctText": "/usr/local/bin/",
+    "explanation": "The FHS designates /usr/local for software installed locally by the system administrator, separate from distribution-packaged files under /usr/bin. Locally compiled programs meant for all users belong in /usr/local/bin. Directories like /usr/bin or /sbin are reserved for packages provided by the distribution."
   },
   {
     "number": 86,
@@ -2911,7 +2996,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The type shell builtin reports how the shell would interpret a command name: alias, function, builtin, or external executable path. where exists in some shells like tcsh but is not the standard Bash mechanism, and stat reports file metadata rather than command resolution."
   },
   {
     "number": 87,
@@ -2947,7 +3033,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In vi Normal mode, ? begins a reverse search, searching backward from the cursor toward the start of the file. The / character performs a forward search instead. Characters like r (replace) and s (substitute) edit text rather than initiate a search."
   },
   {
     "number": 88,
@@ -2983,7 +3070,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The standard Linux syntax to open a specific manual section is man 1 command, where 1 is the section number. Forms like command(1) or 1.command are not the conventional invocation, and man -s is used on BSD systems rather than being the primary GNU man syntax."
   },
   {
     "number": 89,
@@ -3019,7 +3107,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The > operator redirects stdout and creates the file if it does not exist, or truncates and overwrites it if it does. The >> operator appends instead of overwriting. Redirections like 3>, >& , and >>> are either different file descriptors or invalid syntax for this purpose."
   },
   {
     "number": 90,
@@ -3055,7 +3144,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The set builtin modifies shell options and positional parameters in the current running Bash session. Commands like history, setsh, bashconf, and envsetup are not standard Bash builtins for changing live shell behavior."
   },
   {
     "number": 91,
@@ -3092,7 +3182,8 @@
       "B",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "pgrep -u root matches processes by the username root, and pgrep -U 0 matches by UID 0, which is also root. The -c option returns a count rather than listing IDs, and -f matches against the full command line text, which would also match unrelated processes whose commands happen to contain the word root."
   },
   {
     "number": 92,
@@ -3129,7 +3220,8 @@
       "D",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In vi, :wq (after pressing Esc) writes the buffer to disk and quits the editor. ZZ (Shift+Z twice from Normal mode) saves and exits without typing the colon command. Ctrl+:W alone does not quit, and zz scrolls the current line to the center of the screen."
   },
   {
     "number": 93,
@@ -3165,7 +3257,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "grep -v inverts the match and prints only lines that do not contain the pattern. Color highlighting uses --color, version information uses -V, and grep has no option that prefixes matching lines with a plus sign or reverses output order."
   },
   {
     "number": 94,
@@ -3202,7 +3295,8 @@
       "C",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "which searches PATH and prints the executable that would run for a given command name. type also reveals the resolved command, including builtins and aliases, and shows the path for external commands. find and locate search the filesystem broadly, while pwd prints the current working directory."
   },
   {
     "number": 95,
@@ -3238,7 +3332,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Pressing Ctrl+Z sends a stop signal that suspends the foreground process, allowing it to be resumed later with fg or bg. On Linux terminals this is typically SIGTSTP, which is the exam's intended answer as SIGSTOP. SIGINT (Ctrl+C) interrupts, SIGTERM requests termination, and SIGCONT resumes a stopped process."
   },
   {
     "number": 96,
@@ -3274,7 +3369,8 @@
     "correctAnswers": [
       "A"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The substitution s/[ABC][abc]/xx/ replaces the first pair of characters where the first matches A, B, or C and the second matches a, b, or c. In the string ABCabc, C matches [ABC] and the following a matches [abc], so Cab becomes xx, producing ABxxbc. The pattern only replaces one occurrence unless a global flag is used."
   },
   {
     "number": 97,
@@ -3311,7 +3407,8 @@
       "A",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The pwd command prints the current working directory. echo \"${PWD}\" also works because PWD is a Bash shell variable automatically set to the same value. ${WD} and ${pwd} are not standard variables for this purpose, and printwd is not a standard command."
   },
   {
     "number": 98,
@@ -3347,7 +3444,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "cat <<EOT starts a here-document: the shell feeds subsequent lines as standard input until a line containing only EOT is found. The other options use invalid or nonexistent redirection operators and would not produce the expected output."
   },
   {
     "number": 99,
@@ -3383,7 +3481,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "When invoked without an explicit priority argument, the nice command increases the nice value by 10 relative to the current shell, so a process normally started at nice 0 runs at nice 10. Nice 0 is the default priority for processes started without nice, not the default increment that nice itself applies."
   },
   {
     "number": 100,
@@ -3419,7 +3518,8 @@
     "correctAnswers": [
       "A"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The directory name is literally backslash followed by dir, so the shell path must include an escaped backslash: ~/\\dir resolves to $HOME/\\dir. In rmdir ~/\\\\dir (written as ~/\\dir in the shell), the double backslash produces a single literal backslash in the path. Quoted forms like \"~/\\dir\" prevent tilde expansion, and ~/\\dir without proper escaping is interpreted as ~/dir, a different directory."
   },
   {
     "number": 101,
@@ -3455,7 +3555,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "grep searches the contents of files line by line and supports regular expressions with options like -E and -P. find and locate search for files by name or attributes, not by matching text inside files. pgrep matches running processes, and reggrep is not a standard Linux command."
   },
   {
     "number": 102,
@@ -3491,7 +3592,8 @@
     "correctAnswers": [
       "A"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The find -maxdepth option limits how many directory levels below the starting path are searched. Options like -dirmax and -maxlevels do not exist, and -s enables silent mode while -n is unrelated to depth control."
   },
   {
     "number": 103,
@@ -3527,7 +3629,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "The file command identifies a file's type by comparing its content against the magic database (typically under /usr/share/misc/magic or /etc/magic). type is a shell builtin that classifies commands, and hash computes checksums rather than detecting file formats."
   },
   {
     "number": 104,
@@ -3563,7 +3666,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "cut -d: -f1,7 uses colon as the field delimiter and extracts fields 1 (username) and 7 (login shell) from /etc/passwd. sort only reorders lines, colrm removes columns by character position, and chop and column are not standard tools for this field-based extraction."
   },
   {
     "number": 105,
@@ -3599,7 +3703,8 @@
     "correctAnswers": [
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "gunzip only decompresses the gzip layer, converting texts.tgz into texts.tar. It does not extract the tar archive, so a.txt and b.txt remain inside texts.tar until tar is run separately. The original .tgz file is removed after successful decompression."
   },
   {
     "number": 106,
@@ -3635,7 +3740,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In vi Normal mode, a count is placed immediately before a command to repeat it that many times, such as 4dd to delete four lines or 2yj to yank two lines and move down. There is no :repeat command, and placing the number after the command does not work as a repeat prefix."
   },
   {
     "number": 107,
@@ -3671,7 +3777,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "Appending & to a command runs it as a background job in the current shell, returning control to the prompt immediately. It does not redirect output to /dev/null, read input from /dev/null, or directly make init the parent process."
   },
   {
     "number": 108,
@@ -3707,7 +3814,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "split reads a file and divides it into smaller files of a specified size (for example, split -b 1M largefile). cat concatenates files, ar manages static library archives, and parted is a disk partitioning tool."
   },
   {
     "number": 109,
@@ -3743,7 +3851,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "xargs reads items from standard input (often filenames from find) and builds command lines to execute, which is useful when a command cannot accept too many arguments at once. It has nothing to do with X servers, graphical prompts, or translating short options into long ones."
   },
   {
     "number": 110,
@@ -3753,7 +3862,8 @@
     "correctAnswers": [
       "jobs"
     ],
-    "correctText": "jobs"
+    "correctText": "jobs",
+    "explanation": "The jobs builtin lists background tasks started in the current shell session, showing their job numbers and status. It only reports jobs managed by that shell, not all processes on the system."
   },
   {
     "number": 111,
@@ -3763,7 +3873,8 @@
     "correctAnswers": [
       "renice"
     ],
-    "correctText": "renice"
+    "correctText": "renice",
+    "explanation": "renice changes the scheduling priority (nice value) of a process that is already running. The nice command only sets priority when starting a new process; renice is needed to adjust an existing one."
   },
   {
     "number": 112,
@@ -3799,7 +3910,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In Bash, 1>&2 redirects file descriptor 1 (standard output) to file descriptor 2 (standard error), so stdout goes to the same destination as stderr. The other options reverse the direction or redirect stdin instead of stdout."
   },
   {
     "number": 113,
@@ -3835,7 +3947,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "After booting from a rescue CD, examining /var/log on the hard disk's filesystem reveals messages from the failed boot, including service startup errors. dmesg in the rescue environment only shows the rescue session's kernel ring buffer, and /proc/kmsg is not available as a persistent log on disk."
   },
   {
     "number": 114,
@@ -3871,7 +3984,8 @@
     "correctAnswers": [
       "C"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "On UEFI systems, bootloaders and EFI applications are stored on the EFI System Partition (ESP), usually a FAT-formatted partition mounted at /boot/efi. The MBR and EBR belong to legacy BIOS/MBR partitioning, not UEFI firmware boot management."
   },
   {
     "number": 115,
@@ -3907,7 +4021,8 @@
     "correctAnswers": [
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "systemctl set-default multi-user.target permanently sets the default boot target for future reboots. systemctl isolate changes only the current runtime target, and the other listed commands are not valid systemctl subcommands."
   },
   {
     "number": 116,
@@ -3944,7 +4059,8 @@
       "A",
       "D"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "An initramfs is a compressed archive (commonly cpio plus gzip) that can be unpacked to inspect early-boot files such as drivers and scripts. The kernel mounts it in memory and uses it to load essential modules and prepare storage before switching to the real root filesystem. It does not contain the MBR or bootloader, is tied to the kernel/initramfs build, and is not permanently exposed under /run/initramfs after a normal boot."
   },
   {
     "number": 117,
@@ -3980,7 +4096,8 @@
     "correctAnswers": [
       "B"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "modprobe loads a kernel module and automatically resolves and loads any required dependency modules listed in modules.dep. insmod loads only the single specified module without dependency handling, and depmod builds the dependency database rather than loading modules."
   },
   {
     "number": 118,
@@ -4018,7 +4135,8 @@
       "C",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "lspci lists PCI and PCIe devices and can show IRQ assignments, bus/link speed, and vendor/device identification. System battery status is reported by tools like acpi or upower, and Ethernet MAC addresses are obtained from network interfaces, not from lspci."
   },
   {
     "number": 119,
@@ -4028,7 +4146,8 @@
     "correctAnswers": [
       "/etc/inittab"
     ],
-    "correctText": "/etc/inittab"
+    "correctText": "/etc/inittab",
+    "explanation": "/etc/inittab is the classic System V init configuration file where the default runlevel is defined with an initdefault entry. systemd-based systems use targets instead, but this remains the correct answer for SysV init."
   },
   {
     "number": 120,
@@ -4065,6 +4184,7 @@
       "A",
       "E"
     ],
-    "correctText": null
+    "correctText": null,
+    "explanation": "In SysV init, scripts prefixed with S in /etc/rcN.d/ run when entering runlevel N, so S02apache2 starts Apache when runlevel 2 is entered. Scripts prefixed with K run when entering that runlevel to stop services, so K01apache2 stops Apache when runlevel 1 is entered. K does not mean the script is never executed, and both links are not run together during shutdown."
   }
 ]

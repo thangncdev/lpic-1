@@ -1,0 +1,751 @@
+[
+  {
+    "number": 26,
+    "type": "multiple_choice",
+    "question": "Which of the following steps prevents a user from obtaining an interactive login session?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Setting the UID for the user to 0.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Running the command chsh –s /bin/false with the user name.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Removing the user from the group staff.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Adding the user to /etc/noaccess.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Creating a .nologin file in the user's home directory.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 27,
+    "type": "fill_blank",
+    "question": "Which command included in systemd supports selecting messages from the systemd journal by criteria such as time or unit name? (Specify only the command without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "journalctl"
+    ],
+    "correctText": "journalctl"
+  },
+  {
+    "number": 28,
+    "type": "multiple_choice",
+    "question": "Which of the following statements about systemd-journald are true? (Choose three.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It is incompatible with syslog and cannot be installed on a system using regular syslog.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It only processes messages of systemd and not messages of any other tools.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It can pass log messages to syslog for further processing.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It maintains metadata such as _UID or _PID for each message.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "It supports syslog facilities such as kern, user, and auth.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "D",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 29,
+    "type": "fill_blank",
+    "question": "Which command must be run after adding a new email alias to the configuration in order to make this changeeffective? (Specify the command without any path but including all required parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "newaliases"
+    ],
+    "correctText": "newaliases"
+  },
+  {
+    "number": 30,
+    "type": "multiple_choice",
+    "question": "Which option in the chrony configuration file changes the initial interval of polls to a NTP server in order tospeed up the initial synchronization?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "iburst",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "quickstart",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "fast",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "fsync",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "flood",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 31,
+    "type": "multiple_choice",
+    "question": "Which of the following commands is used to rotate, compress, and mail system logs?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "logrotate",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "striplog",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "syslogd –-rotate",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "rotatelog",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "logger",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 32,
+    "type": "multiple_choice",
+    "question": "Why is the correct configuration of a system's time zone important?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Because the timezone is included in checksum calculations and timezone changes invalidate existingchecksums.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Because the time zone is saved as part of the modification times of files and cannot be changed after a file is created.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Because the environment variables LANG and LC_MESSAGES are, by default, set according to the time zone.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Because NTP chooses servers nearby based on the configured time zone.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Because the conversion of Unix timestamps to local time relies on the time zone configuration.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 33,
+    "type": "fill_blank",
+    "question": "Which command, available with all sendmail-compatible MTAs, is used to list the contents of the MTA's mail queue? (Specify only the command without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "mailq"
+    ],
+    "correctText": "mailq"
+  },
+  {
+    "number": 34,
+    "type": "fill_blank",
+    "question": "What is the top-level directory which contains the configuration files for CUPS? (Specify the full path to the directory.)",
+    "options": [],
+    "correctAnswers": [
+      "/etc/cups/ cups-files.conf   ->> /etc/cups/    (top-level directory chứ không phải file)"
+    ],
+    "correctText": "/etc/cups/ cups-files.conf   ->> /etc/cups/    (top-level directory chứ không phải file)"
+  },
+  {
+    "number": 35,
+    "type": "multiple_choice",
+    "question": "Which of the following commands lists all queued print jobs?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "lpd",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "lpr",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "lp",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "lsq",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "lpq",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 36,
+    "type": "multiple_choice",
+    "question": "Which of the following entries in /etc/syslog.conf writes all mail related events to the file /var/log/maillog and sends all critical events to the remote server logger.example.com?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "mail.* /var/log/maillogmail,crit @logger.example.org",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "mail.* /var/log/maillogmail.crit <w:t>syslog://logger.example.org",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "mail /var/log/maillogmail.crit @logger.example.org",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "mail.* /var/log/maillogmail.crit @logger.example.org",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "mail * /var/log/maillogmail crit @logger.example.org",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 37,
+    "type": "fill_blank",
+    "question": "Which option in the /etc/ntp.conf file specifies an external NTP source to be queried for time information?(Specify only the option without any values or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "server"
+    ],
+    "correctText": "server"
+  },
+  {
+    "number": 38,
+    "type": "multiple_choice",
+    "question": "Which of the following protocols is related to the term open relay?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SMTP",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "POP3",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "NTP",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "IMAP",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "LDAP",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 39,
+    "type": "multiple_choice",
+    "question": "Which of the following commands displays all environment and shell variables?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "getargs",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "lsenv",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ls",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "env",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "lsshell",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 40,
+    "type": "multiple_choice",
+    "question": "Which of the following comparison operators for test work on elements in the file system? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "–z",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "–eq",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "–d",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "–f",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "–lt",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 41,
+    "type": "multiple_choice",
+    "question": "What information is provided by the echo $$ command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The process ID of the current shell.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "The process ID for the following command.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The process ID of the last command executed.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The process ID of the last command which has been placed in the background.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The process ID of the echo command.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 42,
+    "type": "multiple_choice",
+    "question": "Which command makes the shell variable named VARIABLE visible to subshells?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "export $VARIABLE",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "env VARIABLE",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "set $VARIABLE",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "set VARIABLE",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "export VARIABLE",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 43,
+    "type": "multiple_choice",
+    "question": "What output is produced by the following command sequence?echo ‘1 2 3 4 5 6' | while read a b c; doecho result $c $b $a;done",
+    "options": [
+      {
+        "letter": "A",
+        "text": "result: 6 5 4",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "result: 1 2 3 4 5 6",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "result: 3 4 5 6 2 1",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "result: 6 5 4 3 2 1",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "result: 3 2 1",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 44,
+    "type": "multiple_choice",
+    "question": "Which of the following configuration files should be modified to globally set shell variables for all users?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/etc/profile",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "/etc/bashrc",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "~/.bash_profile",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "/etc/.bashrc",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "/etc/shellenv",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 45,
+    "type": "multiple_choice",
+    "question": "What output does the command seq 10 produce?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A continuous stream of numbers increasing in increments of 10 until the command is stopped.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It creates no output because a second parameter is missing.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The number 0 through 9 with one number per line.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The number 10 to standard output.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The numbers 1 through 10 with one number per line.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 46,
+    "type": "fill_blank",
+    "question": "What command list the aliases defined in the current Bash shell? (Specify only the command without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "alias"
+    ],
+    "correctText": "alias"
+  },
+  {
+    "number": 47,
+    "type": "multiple_choice",
+    "question": "Which of the following commands can be used to limit the amount of memory a user may use?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "umask",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "usermod",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "ulimit",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "chage",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 48,
+    "type": "multiple_choice",
+    "question": "What is a purpose of an SSH host key?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It must be sent by any SSH client in addition to a user key in order to identify the client's host.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It is root key by which all user SSH keys must be signed.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It provides the server's identity information to connecting SSH clients.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It authenticates any user that logs into a remote machine from the key's host.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It is used by system services like cron, syslog or a backup job to automatically connect to remote hosts.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 49,
+    "type": "multiple_choice",
+    "question": "What is the purpose of TCP wrapper?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Manage and adjust bandwidth used by TCP services.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Bind a network service to a TCP port.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Encapsulate TCP messages in IP packets.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Add SSL support to plain text TCP services.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Limit access to a network service.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 50,
+    "type": "multiple_choice",
+    "question": "Given the following excerpt of the sudo configuration:jane ANY=NOPASSWD: /bin/kill, /bin/id, PASSWD: /sbin/fdiskWhich of the following statements are true? (Choose three.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Jane can run /bin/id only after specifying her password.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Jane can run /sbin/fdisk after specifying root's password.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Jane can run /sbin/fdisk after specifying her password.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Jane can run /bin/kill without specifying a password.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "Jane can run /bin/id without specifying her password.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "D",
+      "E"
+    ],
+    "correctText": null
+  }
+]

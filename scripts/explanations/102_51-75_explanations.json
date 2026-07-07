@@ -1,0 +1,102 @@
+[
+  {
+    "number": 51,
+    "explanation": "`/etc/ssh/ssh_config` holds system-wide default options for SSH clients (the `ssh` command). `/etc/ssh/sshd_config` configures the SSH server (`sshd`), not clients. The other paths (`/etc/ssh/ssh`, `/etc/ssh/client`, `/etc/ssh/ssh_client`) are not standard SSH client configuration files."
+  },
+  {
+    "number": 52,
+    "explanation": "On systems using the xinetd super-server, `/etc/xinetd.conf` (and files in `/etc/xinetd.d/`) control which network services are enabled or disabled. `/etc/services` only maps service names to port numbers; it does not turn services on or off. `/etc/profile` sets shell environment, `/etc/ports` is not a standard Linux file, and `/etc/host.conf` controls host name resolution order."
+  },
+  {
+    "number": 53,
+    "explanation": "`lsof -i` lists open network sockets and shows which process (PID) owns each TCP port—for example, `lsof -i :80`. `strace` traces system calls, `ptrace` is a system call (not a standalone command for this purpose), `debug` is not a standard tool, and `nessus` is a vulnerability scanner."
+  },
+  {
+    "number": 54,
+    "explanation": "When SSH X11 forwarding is enabled, SSH sets the `DISPLAY` environment variable in the remote shell so graphical programs know which X server to connect to. The value typically points to a local display forwarded through the SSH tunnel (e.g., `localhost:10.0`)."
+  },
+  {
+    "number": 55,
+    "explanation": "Creating `/etc/nologin` temporarily blocks non-root users from logging in; its contents may be shown as a message. Root can still log in for maintenance. Remove the file to restore normal logins. This is commonly used before reboots or during system maintenance."
+  },
+  {
+    "number": 56,
+    "explanation": "`ssh-agent` holds decrypted private keys in memory and provides them to `ssh` for passwordless authentication. `ssh-keygen` creates keys, `sshd` is the server daemon, and `ssh-keyring`/`ssh-pki` are not the standard OpenSSH key-management tool."
+  },
+  {
+    "number": 57,
+    "explanation": "Multiple X servers on one machine are distinguished by display numbers, such as `:0`, `:1`, or `:2` (hostname:display.screen). Clients use the `DISPLAY` variable (e.g., `:1`) to select the server. X11 does not use UUIDs, usernames, device paths like `/dev/X11/xservers/1`, or IPv6 link-local addresses for this purpose."
+  },
+  {
+    "number": 58,
+    "explanation": "A screen reader converts on-screen text and UI elements into speech or Braille output for blind or visually impaired users. It is an accessibility tool, not a virtual keyboard manager, monitor configuration utility, speed-reading aid, or e-book viewer."
+  },
+  {
+    "number": 59,
+    "explanation": "In `xorg.conf`, each section begins with a line `Section \"SectionName\"` and ends with `EndSection`, with options inside. Curly braces, XML-style tags, INI-style `[SectionName]` headers, and tab-indentation rules are not how Xorg configuration sections are formatted."
+  },
+  {
+    "number": 60,
+    "explanation": "SPICE (Simple Protocol for Independent Computing Environments) is a remote-display protocol used with virtualization that provides remote graphical desktop access and can redirect local USB devices to remote VMs. It does not replace Xorg as a local X server, download/install remote applications locally, or upload and execute binaries on a remote host."
+  },
+  {
+    "number": 61,
+    "explanation": "The systemd journal stores log data as binary files under `/run/log/journal/` (volatile) or `/var/log/journal/` (persistent). `/proc/log/` and `/proc/klog/` are not journal locations, `/var/jlog/` is non-standard, and `/etc/systemd/journal/` holds configuration—not the log data itself."
+  },
+  {
+    "number": 62,
+    "explanation": "Most MTAs, including Postfix and Exim, install a `sendmail` command as a compatibility interface so scripts and tools can submit mail the same way they would with Sendmail. It is not limited to the Sendmail MTA, does not need cron to run periodically, is not a systemd alias to `relayctl`, and does not print a queue history."
+  },
+  {
+    "number": 63,
+    "explanation": "`/etc/cups/printers.conf` stores CUPS printer definitions and their settings. `cupsd.conf` configures the CUPS daemon itself, `cups-devices.conf` handles device discovery, `snmp.conf` configures SNMP, and `printcap.conf` is not the standard CUPS printer settings file."
+  },
+  {
+    "number": 64,
+    "explanation": "The `newaliases` command rebuilds the mail alias database from `/etc/mail/aliases` (or `/etc/aliases` on some systems). After editing alias definitions, run `newaliases` so the MTA picks up the changes. The source text file—not the compiled `.db` file—is what `newaliases` processes."
+  },
+  {
+    "number": 65,
+    "explanation": "Syslog facilities categorize log sources; standard ones include `mail`, `daemon`, `kern`, and eight `local0`–`local7` facilities (including `local5`). `accounting`, `postmaster`, and `remote` are not defined syslog facilities—`postmaster` is typically a mail alias, not a facility name."
+  },
+  {
+    "number": 66,
+    "explanation": "`journalctl --since=` and `journalctl --until=` limit output to a time range (e.g., `--since=\"2024-01-01\" --until=\"2024-01-02\"`). `--from=`, `--upto=`, and `--date=` are not valid `journalctl` time-filter options."
+  },
+  {
+    "number": 67,
+    "explanation": "A user's `~/.forward` file lists addresses (or a program) to which incoming mail for that user should be forwarded. It is owned and editable by the user; no `newaliases` or `editaliases` step is required. Any user can configure forwarding for their own mail—there is no special root-only or `mailq` group restriction by default."
+  },
+  {
+    "number": 68,
+    "explanation": "`lpstat` and `lpq` both display jobs in the print queue (`lpq` is the traditional BSD tool; `lpstat -o` also lists jobs). `cups --list` is not a standard command, `lprm -l` removes jobs rather than listing them, and `lpr -q` is not the correct option for queue listing."
+  },
+  {
+    "number": 69,
+    "explanation": "`logger Howdy` sends a message to syslog, which systemd-journald collects. `systemd-cat echo Howdy` pipes command output into the journal. There is no `/dev/journal` device to write to, `journalctl` reads logs rather than adding entries, and `append` is not a standard logging command."
+  },
+  {
+    "number": 70,
+    "explanation": "In chrony configuration, `server` specifies an individual NTP server and `pool` specifies a pool of NTP servers to use. `source`, `clock`, and `remote` are not valid chrony directives for defining upstream time sources."
+  },
+  {
+    "number": 71,
+    "explanation": "The `hwclock` command reads and sets the hardware (RTC) clock. Use `hwclock --systohc` to copy the system clock to the hardware clock, or `hwclock --hctosys` to set the system clock from hardware. It is the standard tool for synchronizing between these two clocks."
+  },
+  {
+    "number": 72,
+    "explanation": "An NTP client compares the local system clock to a remote reference clock and adjusts the system time to reduce skew. It does not manage timezone configuration, daylight saving rules, physical location, or the relationship between the system clock and hardware clock—that is handled separately (e.g., with `hwclock` or `timedatectl`)."
+  },
+  {
+    "number": 73,
+    "explanation": "In bash, `alias ls='ls -l'` defines or replaces the `ls` alias with a new target. Re-running `alias` with the same name overwrites the previous definition. `set` does not define aliases, and `--force`, `--update`, and `realias` are not standard alias-management options."
+  },
+  {
+    "number": 74,
+    "explanation": "`mydate=\"$(date)\"` uses command substitution to run `date` and assign its output to the variable `mydate`. Double quotes without `$()` store the literal string `date`. `${date}` expands a variable named `date`, `$((date))` is arithmetic expansion, and `exec date` replaces the shell—it does not capture output."
+  },
+  {
+    "number": 75,
+    "explanation": "`$?` holds the exit status (return code) of the most recently executed foreground command—0 typically means success, non-zero means failure. It is not the PID of `echo`, the next command, or the current shell, and `echo $?` prints the previous command's status, not `echo`'s own exit code in the sense described by the wrong answers."
+  }
+]

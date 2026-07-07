@@ -1,5 +1,8 @@
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppStore } from '../store/useAppStore';
+import { loadQuestions } from '../data/loader';
+import type { Question } from '../types';
 import QuizResults from '../components/quiz/QuizResults';
 
 export default function SessionResultPage() {
@@ -8,6 +11,29 @@ export default function SessionResultPage() {
   const sessions = useAppStore((s) => s.progress.sessions);
 
   const session = sessions.find((s) => s.id === sessionId);
+  const [questions, setQuestions] = useState<Question[] | null>(null);
+
+  useEffect(() => {
+    if (!session?.questions || !session.exam) return;
+
+    let cancelled = false;
+    loadQuestions(session.exam).then((fresh) => {
+      if (cancelled) return;
+      const explanationByNumber = new Map(
+        fresh.map((q) => [q.number, q.explanation]),
+      );
+      setQuestions(
+        session.questions!.map((q) => ({
+          ...q,
+          explanation: q.explanation ?? explanationByNumber.get(q.number) ?? null,
+        })),
+      );
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [session]);
 
   if (!session) {
     return (
@@ -49,12 +75,14 @@ export default function SessionResultPage() {
     durationSeconds: session.durationSeconds,
   };
 
+  const displayQuestions = questions ?? session.questions;
+
   return (
     <div className="fixed inset-0 bg-gray-50 flex flex-col z-50">
       <div className="flex-1 flex overflow-hidden max-w-5xl w-full mx-auto">
         <QuizResults
           result={result}
-          questions={session.questions}
+          questions={displayQuestions}
           answers={session.answers}
           exam={session.exam}
           onRetry={() => navigate(`/exam/${session.exam}/quiz`)}

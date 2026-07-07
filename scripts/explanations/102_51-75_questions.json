@@ -1,0 +1,804 @@
+[
+  {
+    "number": 51,
+    "type": "multiple_choice",
+    "question": "Which configuration file contains the default options for SSH clients?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/etc/ssh/sshd_config",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/etc/ssh/ssh",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/etc/ssh/ssh_config",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "/etc/ssh/client",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "/etc/ssh/ssh_client",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 52,
+    "type": "multiple_choice",
+    "question": "Depending on a system's configuration, which of the following files can be used to enable and disable network services running on this host?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/etc/profile",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/etc/xinetd.conf",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "/etc/ports",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "/etc/services",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "/etc/host.conf",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 53,
+    "type": "multiple_choice",
+    "question": "Which of the following commands can identify the PID od a process which opened a TCP port?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ptrace",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "strace",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "debug",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "lsof",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "nessus",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 54,
+    "type": "fill_blank",
+    "question": "When using X11 forwarding in SSH, what environment variable is automatically set in the remote shell in order to help applications to connect to the correct X11 server? (Specify only the environment variable without any additional commands or values.)",
+    "options": [],
+    "correctAnswers": [
+      "DISPLAY"
+    ],
+    "correctText": "DISPLAY"
+  },
+  {
+    "number": 55,
+    "type": "fill_blank",
+    "question": "The presence of what file will temporarily prevent all users except root from logging into a system? (Specify the full name of the file, including path.)",
+    "options": [],
+    "correctAnswers": [
+      "/etc/nologin"
+    ],
+    "correctText": "/etc/nologin"
+  },
+  {
+    "number": 56,
+    "type": "multiple_choice",
+    "question": "Which of the following commands preloads and manages existing SSH keys that are used for automaticauthentication while logging in to order machines using SSH?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "sshd",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ssh-keyring",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ssh-keygen",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "ssh-pki",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "ssh-agent",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 57,
+    "type": "multiple_choice",
+    "question": "On a machine running several X servers, how do programs identify the different instances of the X11 server?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "By a fixed UUID that is defined in the X11 configuration file.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "By a display name like: 1.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "By the name of the user that runs the X server like x11:bob.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "By a device name like /dev/X11/xservers/1.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "By a unique IPv6 address from the fe80::/64 subnet.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 58,
+    "type": "multiple_choice",
+    "question": "What is the purpose of a screen reader?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It manages virtual keyboards on touch screen displays.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It reads the parameters of the attached monitors and creates an appropriate X11 configuration.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It displays lines and markers to help people use speed reading techniques.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "It manages and displays files that contain e-books.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It reads displayed text to accommodate the needs of blind or visually impaired people.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 59,
+    "type": "multiple_choice",
+    "question": "The X11 configuration file xorg.conf is grouped into section. How is the content of the sectionSectionName represented?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It is placed in curly brackets as in Section SectionName {…}.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It is placed between the tags <Section name=“SectionName”> and </Section>.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It is placed between a line containing Section “SectionName” and a line containing EndSection.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It is placed after the row [SectionName].",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It is placed after an initial unindented Section “SectionName” and must be indented by exactly one tab character.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 60,
+    "type": "multiple_choice",
+    "question": "Which of the following features are provided by SPICE? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Connecting local USB devices to remote applications.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Accessing graphical applications on a remote host.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Replacing Xorg as local X11 server.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Downloading and locally installing applications from a remote machine.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Uploading and running a binary program on a remote machine.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 61,
+    "type": "multiple_choice",
+    "question": "What is the systemd journal stored?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/var/jlog/ and /var/jlogd/",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/proc/log/ and /proc/klog/",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/run/log/journal/ or /var/log/journal/",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "/var/log/syslog.bin or /var/log/syslog.jrn",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "/etc/systemd/journal/ or /usr/lib/systemd/journal/",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 62,
+    "type": "multiple_choice",
+    "question": "Which of the following is true regarding the command sendmail?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "With any MTA, the sendmail command must be run periodically by the cron daemon.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "When using systemd, sendmail is an alias to relayctl.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The sendmail command prints the MTA's queue history of which mails have been sent successfully.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "It is only available when the sendmail MTA is installed.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "All common MTAs, including Postfix and Exim, provide a sendmail command.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 63,
+    "type": "multiple_choice",
+    "question": "Which file inside the CUPS configuration directory contains the settings of the printers?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "cups-devices.conf",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "snmp.conf",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "printers.conf",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "printcap.conf",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "cupsd.conf",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 64,
+    "type": "fill_blank",
+    "question": "Which file is processed by newaliases? (Specify the full name of the file, including path.)",
+    "options": [],
+    "correctAnswers": [
+      "/etc/mail/aliases"
+    ],
+    "correctText": "/etc/mail/aliases"
+  },
+  {
+    "number": 65,
+    "type": "multiple_choice",
+    "question": "Which of the following are syslog facilities? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "local5",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "accounting",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "mail",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "postmaster",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "remote",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 66,
+    "type": "multiple_choice",
+    "question": "Which of the following parameters are used for journalctl to limit the time frame of the output? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "--since=",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "--from=",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "--until=",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "--upto=",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "--date=",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 67,
+    "type": "multiple_choice",
+    "question": "What is true regarding the file ~/.forward?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "When configured correctly ~/.forward can be used to forward each incoming mail to one ormore other recipients.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "After editing ~/.forward the user must run newaliases to make the mail server aware of the changes.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Using ~/.forward, root may configure any email address whereas all other users may configure only their own addresses.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "As ~/.forward is owned by the MTA and not writable by the user, it must be edited using theeditaliases command.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "By default, only ~/.forward files of users in the group mailq are processed while all other user's ~/.forward files are ignored.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 68,
+    "type": "multiple_choice",
+    "question": "Which of the following commands display a list of jobs in the print queue? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "cups --list",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "lprm -l",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "lpstat",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "lpr -q",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "lpq",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 69,
+    "type": "multiple_choice",
+    "question": "On a system using systemd-journald, which of the following commands add the message Howdy to thesystem log? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "append Howdy",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "logger Howdy",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "systemd-cat echo Howdy",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "echo Howdy > /dev/journal",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "journalctl add Howdy",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 70,
+    "type": "multiple_choice",
+    "question": "Which of the following options in the chrony configuration file define remote time sources? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "source",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "clock",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "remote",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "pool",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "server",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "D",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 71,
+    "type": "fill_blank",
+    "question": "Which command is used to sync the hardware clock to the system clock? (Specify only the command without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "hwclock"
+    ],
+    "correctText": "hwclock"
+  },
+  {
+    "number": 72,
+    "type": "multiple_choice",
+    "question": "Which of the following situations is observed and corrected by an NTP client?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The skew in time between the system clock and the computer's hardware clock.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The physical location and the timezone configuration.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Changes in the time zone of the current computer's location.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Adjustment needed to support Daylight Saving Time.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The skew in time between the system clock and the reference clock.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 73,
+    "type": "multiple_choice",
+    "question": "If an alias ls exists, which of the following commands updates the alias to point to the command ls -linstead of the alias's current target?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "set ls='ls -l'",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "alias ls='ls -l'",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "alias --force ls='ls -l'",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "alias --update ls ls='ls -l'",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "realias ls='ls -l'",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 74,
+    "type": "multiple_choice",
+    "question": "Which of the following commands puts the output of the command date into the shell variable mydate?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "mydate=”date”",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "mydate=”exec date”",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "mydate=”$((date))”",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "mydate=”$(date)”",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "mydate=”${date}”",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 75,
+    "type": "multiple_choice",
+    "question": "What information is shown by the echo $? command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The process ID of the echo command.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The exit value of the command executed immediately before echo.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "The process ID which will be used for the next command.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The exit value of the echo command.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The process ID of the current shell.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  }
+]

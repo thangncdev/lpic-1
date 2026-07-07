@@ -1,0 +1,830 @@
+[
+  {
+    "number": 1,
+    "type": "multiple_choice",
+    "question": "Which type of file system is created by mkfs when it is executed with the block device name only and without any additional parameters?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "XFS",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "VFAT",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ext2",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "ext3",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "ext4",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 2,
+    "type": "multiple_choice",
+    "question": "Which umask value ensures that new directories can be read, written and listed by their owning user, read and listed by their owning group and are not accessible at all for everyone else?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "0750",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "0027",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "0036",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "7640",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "0029",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 3,
+    "type": "multiple_choice",
+    "question": "Which of the following commands changes the number of days before the ext3 filesystem on /dev/sda1 has to run through a full filesystem check while booting?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "tune2fs –d 200 /dev/sda1",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "tune2fs –i 200 /dev/sda1",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "tune2fs –c 200 /dev/sda1",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "tune2fs –n 200 /dev/sda1",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "tune2fs --days 200 /dev/sda1",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 4,
+    "type": "multiple_choice",
+    "question": "Which is the default percentage of reserved space for the root user on new ext4 filesystems?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "10%",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "3%",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "15%",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "0%",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "5%",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 5,
+    "type": "multiple_choice",
+    "question": "Which of the following is true when a file system, which is neither listed in /etc/fstab nor known to system, is mounted manually?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "systemd ignores any manual mounts which are not done using the systemctl mount command",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The command systemctl mountsync can be used to create a mount unit based on the existing mount",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "systemd automatically generates a mount unit and monitors the mount point without changing it",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Unless a systemd mount unit is created, systemd unmounts the file system after a short period of time",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "systemctl unmount must be used to remove the mount because system opens a file descriptor on the mount point",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 6,
+    "type": "fill_blank",
+    "question": "Which program updates the database that is used by the locate command? (Specify ONLY the command without any path or parameters).",
+    "options": [],
+    "correctAnswers": [
+      "updatedb"
+    ],
+    "correctText": "updatedb"
+  },
+  {
+    "number": 7,
+    "type": "multiple_choice",
+    "question": "What does the command mount --bind do?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It makes the contents of one directory available in another directory",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "It mounts all available filesystems to the current directory",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It mounts all user mountable filesystems to the user’s home directory",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "It mounts all file systems listed in /etc/fstab which have the option userbind set",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It permanently mounts a regular file to a directory",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 8,
+    "type": "multiple_choice",
+    "question": "Consider the following output from the command ls –i:How would a new file named c.txt be created with the same inode number as a.txt (Inode 525385)?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ln –h a.txt c.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ln c.txt a.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ln a.txt c.txt",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "ln –f c.txt a.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "ln –i 525385 c.txt",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 9,
+    "type": "multiple_choice",
+    "question": "Consider the following directory:drwxrwxr-x 2 root sales 4096 Jan 1 15:21 salesWhich command ensures new files created within the directory sales are owned by the group sales?(Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "chmod g+s sales",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "setpol –R newgroup=sales sales",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "chgrp –p sales sales",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "chown --persistent *.sales sales",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "chmod 2775 sales",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 10,
+    "type": "multiple_choice",
+    "question": "In order to display all currently mounted filesystems, which of the following commands could be used? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "cat /proc/self/mounts",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "free",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "lsmounts",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "mount",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "cat /proc/filesystems",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 11,
+    "type": "fill_blank",
+    "question": "Which command displays the current disk space usage for all mounted file systems? (Specify ONLY thecommand without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "df"
+    ],
+    "correctText": "df"
+  },
+  {
+    "number": 12,
+    "type": "multiple_choice",
+    "question": "Which chown command changes the ownership to dave and the group to staff on a file named data.txt?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "chown dave/staff data.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "chown –u dave –g staff data.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "chown --user dave --group staff data.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "chown dave+staff data.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "chown dave:staff data.txt",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 13,
+    "type": "multiple_choice",
+    "question": "When considering the use of hard links, what are valid reasons not to use hard links?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Hard links are not available on all Linux systems because traditional filesystems, such as ext4, do notsupport them",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Each hard link has individual ownership, permissions and ACLs which can lead to unintended disclosure of file content",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Hard links are specific to one filesystem and cannot point to files on another filesystem",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "If users other than root should be able to create hard links, suln has to be installed and configured",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "When a hard linked file is changed, a copy of the file is created and consumes additional space",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 14,
+    "type": "multiple_choice",
+    "question": "In compliance with the FHS, in which of the directories are man pages found?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/opt/man/",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/usr/doc/",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/usr/share/man/",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "/var/pkg/man",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "/var/man/",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 15,
+    "type": "fill_blank",
+    "question": "Which file in the /proc filesystem lists parameters passed from the bootloader to the kernel? (Specify the file name only without any path.)",
+    "options": [],
+    "correctAnswers": [
+      "cmdline"
+    ],
+    "correctText": "cmdline"
+  },
+  {
+    "number": 16,
+    "type": "multiple_choice",
+    "question": "What is the process ID number of the init process on a System V init based system?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "-1",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "1",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It is different with each reboot",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It is set to the current run level",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 17,
+    "type": "multiple_choice",
+    "question": "Which daemon handles power management events on a Linux system?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "acpid",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "batteryd",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "pwrmgntd",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "psd",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "inetd",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 18,
+    "type": "multiple_choice",
+    "question": "Which of the following statements are true about the boot sequence of a PC using a BIOS? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Some parts of the boot process can be configured from the BIOS",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Linux does not require the assistance of the BIOS to boot a computer",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The BIOS boot process starts only if secondary storage, such as the hard disk, isfunctional",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The BIOS initiates the boot process after turning the computer on",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "The BIOS is started by loading hardware drivers from secondary storage, such as the hard disk",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 19,
+    "type": "multiple_choice",
+    "question": "What is true regarding UEFI firmware? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It can read and interpret partitiontables",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "It can use and read certain file systems",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "It stores its entire configuration on the /boot/ partition",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "It is stored in a special area within the GPT metadata",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It is loaded from a fixed boot disk position",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 20,
+    "type": "multiple_choice",
+    "question": "A faulty kernel module is causing issues with a network interface card. Which of the following actions ensures that this module is not loaded automatically when the system boots?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Using lsmod --remove --autocleanwithout specifying the name of a specific module",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Using modinfo –k followed by the name of the offending module",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Using modprobe –r followed by the name of the offending module",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Adding a blacklist line including the name of the offending module to the file /etc/modprobe.d/blacklist.conf",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "Deleting the kernel module’s directory from the file system and recompiling the kernel, including its modules",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 21,
+    "type": "multiple_choice",
+    "question": "When is the content of the kernel ring buffer reset? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "When the ring buffer is explicitly reset using the command dmesg --clear",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "When the ring buffer is read using dmesg without any additional parameters",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "When a configurable amount of time, 15 minutes by default, has passed",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "When the kernel loads a previously unloaded kernel module",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "When the system is shut down or rebooted",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 22,
+    "type": "multiple_choice",
+    "question": "What is the first program the Linux kernel starts at boot time when using System V init?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/lib/init.so",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/proc/sys/kernel/init",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/etc/rc.d/rcinit",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "/sbin/init",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "/boot/init",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 23,
+    "type": "multiple_choice",
+    "question": "A Debian package creates several files during its installation. Which of the following commands searches forpackages owning the file /etc/debian_version?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "apt-get search /etc/debian_version",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "apt –r /etc/debian_version",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "find /etc/debian_version -dpkg",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "dpkg –S /etc/debian_version",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "apt-file /etc/debian_version",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 24,
+    "type": "multiple_choice",
+    "question": "What is contained on the EFI System Partition?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The Linux root file system",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The first stage boot loader",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "The default swap space file",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The Linux default shell binaries",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The user home directories",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 25,
+    "type": "multiple_choice",
+    "question": "Which of the following directories on a 64 bit Linux system typically contain shared libraries? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "~/.lib64/",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/usr/lib64/",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "/var/lib64/",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "/lib64/",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "/opt/lib64/",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null
+  }
+]

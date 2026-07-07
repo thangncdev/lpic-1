@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Question } from '../../types';
+import QuestionExplanation from '../shared/QuestionExplanation';
 
 interface Props {
   question: Question;
@@ -69,6 +70,7 @@ export default function QuestionItem({ question, index }: Props) {
               </div>
             </div>
           )}
+          <QuestionExplanation explanation={question.explanation} />
         </div>
       )}
     </div>

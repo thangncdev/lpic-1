@@ -3,6 +3,7 @@ import type { Question } from '../../types';
 import type { QuizResult } from '../../hooks/useQuiz';
 import { isAnswerCorrect } from '../../utils/scoring';
 import { formatDuration } from '../../utils/scoring';
+import QuestionExplanation from '../shared/QuestionExplanation';
 
 interface Props {
   result: QuizResult;
@@ -158,6 +159,8 @@ export default function QuizResults({ result, questions, answers, exam, onRetry,
                           )}
                         </div>
                       )}
+
+                      <QuestionExplanation explanation={q.explanation} />
 
                       {/* Summary line */}
                       <div className="text-xs text-gray-400 border-t border-gray-200 pt-2 mt-1">

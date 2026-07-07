@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "validate:explanations": "node scripts/validate-explanations.mjs",
     "deploy": "bash deploy.sh"
   },
   "dependencies": {

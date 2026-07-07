@@ -1,0 +1,861 @@
+[
+  {
+    "number": 51,
+    "type": "multiple_choice",
+    "question": "Which of the following commands can be used to determine how long the system has been running? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "uptime",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "up",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "time --up",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "uname –u",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "top",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 52,
+    "type": "multiple_choice",
+    "question": "What is true regarding the commandls > filesif files does not exist?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The output of ls is printed to the terminal",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "files is created and contains the output of ls",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "An error message is shown and ls is not executed",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The command files is executed and receives the output of ls",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Any output of ls is discarded",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 53,
+    "type": "multiple_choice",
+    "question": "Which of the following files, located in a user’s home directory, contains the Bash history?",
+    "options": [
+      {
+        "letter": "A",
+        "text": ".bashrc_history",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": ".bash_histfile",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": ".history",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": ".bash_history",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": ".history_bash",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 54,
+    "type": "multiple_choice",
+    "question": "Which wildcards will match the following filenames? (Choose two.)ttyS0ttyS1ttyS2",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ttyS[1-5]",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "tty?[0-5]",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "tty*2",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "tty[A-Z][012]",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "tty[Ss][02]",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 55,
+    "type": "multiple_choice",
+    "question": "Which of the following commands redirects the output of ls to standard error?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ls >-1",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ls <<ERR",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ls >&2",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "ls >>2",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "ls |error",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 56,
+    "type": "multiple_choice",
+    "question": "Which of the following commands displays the contents of a gzip compressed tar archive?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "gzip archive.tgz | tar xvf -",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "tar –fzt archive.tgz",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "gzip –d archive.tgz | tar tvf -",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "tar cf archive.tgz",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "tar ztf archive.tgz",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 57,
+    "type": "multiple_choice",
+    "question": "Which of the following commands prints a list of usernames (first column) and their primary group (fourthcolumn) from the /etc/passwd file?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "fmt –f 1,4 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "cut –d : -f 1,4 /etc/passwd",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "sort –t : -k 1,4 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "paste –f 1,4 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "split –c 1,4 /etc/passwd",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 58,
+    "type": "multiple_choice",
+    "question": "Which of the following regular expressions represents a single upper-case letter?",
+    "options": [
+      {
+        "letter": "A",
+        "text": ":UPPER:",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "[A-Z]",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "!a-z",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "%C",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "{AZ}",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 59,
+    "type": "fill_blank",
+    "question": "Which command is used to start another command with a given nice level? (Specify ONLY the commandwithout any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "nice"
+    ],
+    "correctText": "nice"
+  },
+  {
+    "number": 60,
+    "type": "multiple_choice",
+    "question": "Given a log file loga.log with timestamps of the format DD/MM/YYYY:hh:mm:ss, which command filtersout all log entries in the time period between 8:00 am and 8:59 am?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "grep –E ‘:08:[09]+:[09]+’ loga.log",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "grep –E ‘:08:[00]+’ loga.log",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "grep –E loga.log ‘:08:[0-9]+:[0-9]+’",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "grep loga.log ‘:08:[0-9]:[0-9]’",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "grep –E ‘:08:[0-9]+:[0-9]+’ loga.log",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 61,
+    "type": "multiple_choice",
+    "question": "Instead of supplying an explicit device in /etc/fstab for mounting, what other options may be used toidentify the intended partition? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "LABEL",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "ID",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "FIND",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "NAME",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "UUID",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 62,
+    "type": "multiple_choice",
+    "question": "A yum repository can declare sets of related packages. Which yum command installs all packages belonging to the group admintools?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "yum pkgsel --install admintools",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "yum install admintools/*",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "yum groupinstall admintools",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "yum taskinstall admintools",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "yum collection install admintools",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 63,
+    "type": "fill_blank",
+    "question": "What directory contains configuration files for additional yum repositories? (Specify the full path to thedirectory.)",
+    "options": [],
+    "correctAnswers": [
+      "/etc/yum.repos.d/"
+    ],
+    "correctText": "/etc/yum.repos.d/"
+  },
+  {
+    "number": 64,
+    "type": "multiple_choice",
+    "question": "Which of the following commands installs the GRUB boot files into the currently active file systems and theboot loader into the first partition of the first disk?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "grub-install /dev/sda",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "grub-install /dev/sda1",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "grub-install current /dev/sda0",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "grub-install /dev/sda0",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "grub-install current /dev/sda1",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 65,
+    "type": "multiple_choice",
+    "question": "Which of the following files are found in the /boot/ file system? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Linux kernel images",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Bash shell binaries",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "systemd target and service units",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Initial ramdisk images",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "fsck binaries",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 66,
+    "type": "multiple_choice",
+    "question": "Which file defines the network locations from where the Debian package manager downloads softwarepackages?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/etc/dpkg/dpkg.cfg",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/etc/apt/apt.conf.d",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/etc/apt/apt.conf",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "/etc/dpkg/dselect.cfg",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "/etc/apt/sources.list",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 67,
+    "type": "multiple_choice",
+    "question": "When removing a package on a system using dpkg package management, which dpkg option ensuresconfiguration files are removed as well?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "--clean",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "--purge",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "--vacuum",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "--remove",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "--declare",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 68,
+    "type": "multiple_choice",
+    "question": "Which of the following statements are correct when comparing Linux containers with traditional virtualmachines (e.g. LXC vs. KVM)? (Choose three.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Containers are a lightweight virtualization method where the kernel controls process isolation and resourcemanagement.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Fully virtualized machines can run any operating system for a specific hardware architecture within thevirtual machine.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Containers are completely decoupled from the host system’s physical hardware and can only use emulatedvirtual hardware devices.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The guest environment for fully virtualized machines is created by a hypervisor which provides virtual andemulated hardware devices.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "Containers on the same host can use different operating systems, as the container hypervisor createsseparate kernel execution.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 69,
+    "type": "multiple_choice",
+    "question": "The installation of a local Debian package failed due to unsatisfied dependencies. Which of the followingcommands installs missing dependencies and completes the interrupted package installation?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "dpkg --fix --all",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "apt-get autoinstall",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "dpkg-reconfigure --all",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "apt-get all",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "apt-get install -f",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 70,
+    "type": "multiple_choice",
+    "question": "Which of the following commands lists all currently installed packages when using RPM packagemanagement?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "yum --query --all",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "yum --list --installed",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "rpm --query --list",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "rpm --list --installed",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "rpm --query --all",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 71,
+    "type": "multiple_choice",
+    "question": "Which of the following commands are valid in the GRUB 2 configuration file? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "menuentry",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "uefi",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "pxe-ifconfig",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "insmod",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "kpartx",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 72,
+    "type": "multiple_choice",
+    "question": "What is the purpose of the ldd command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It lists which shared libraries a binary needs to run.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "It installs and updates installed shared libraries.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It turns a dynamically linked binary into a static binary.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "It defines which version of a library should be used by default.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It runs a binary with an alternate library search path.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 73,
+    "type": "multiple_choice",
+    "question": "What can the Logical Volume Manager (LVM) be used for? (Choose three.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "To create snapshots.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "To dynamically change the size of logical volumes.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "To dynamically create or delete logical volumes.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "To create RAID 9 arrays.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "To encrypt logical volumes.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 74,
+    "type": "multiple_choice",
+    "question": "What are the main differences between GPT and MBR partition tables regarding maximum number and size of partitions? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "MBR can handle partition sizes up to 4 TB, whereas GPT supports partition sizes up to 128 ZB.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "By default, GPT can manage up to 128 partitions while MBR only supports four primary partitions.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "By default, GPT can manage up to 64 partitions while MBR only supports 16 primary partitions.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "MBR can handle partition sizes up to 2.2 TB, whereas GPT supports sizes up to 9.4ZB.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "Both GPT and MBR support up to four primary partitions, each with up to 4096 TB.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 75,
+    "type": "multiple_choice",
+    "question": "A backup software heavily uses hard links between files which have not been changed in between two backup runs. Which benefits are realized due to these hard links? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The old backups can be moved to slow backup media, such as tapes, while still serving as hard link target in new backups.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The backup runs faster because hard links are asynchronous operations, postponing the copy operation to a later point in time.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The backup is guaranteed to be uncharged because a hard linked file cannot be modified after its creation.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The backup consumes less space because the hard links point to the same data on disk instead of storing redundant copies.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "The backup runs faster because, instead of copying the data of each file, hard links only change file system meta data.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "D",
+      "E"
+    ],
+    "correctText": null
+  }
+]

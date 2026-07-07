@@ -1,0 +1,102 @@
+[
+  {
+    "number": 76,
+    "explanation": "/proc/mounts is a kernel-generated pseudo-file that lists all currently mounted filesystems, including device, mount point, filesystem type, and mount options. It mirrors the information in /etc/mtab on many systems and is the standard place to inspect active mounts under /proc. Similar paths like /proc/partitions or /proc/devices list hardware partitions and registered device drivers, not mount table entries."
+  },
+  {
+    "number": 77,
+    "explanation": "Each non-comment line in /etc/fstab contains exactly six whitespace-separated fields: device, mount point, filesystem type, mount options, dump flag, and fsck pass number. Fewer than six fields makes the line syntactically invalid, and there is no seventh standard field in the traditional fstab format."
+  },
+  {
+    "number": 78,
+    "explanation": "Only the file owner or root may change a file's permissions, so chmod fails if another user owns the file. On Linux, chmod cannot change the permissions of a symbolic link; it may change the link's metadata in limited ways, but permission changes apply to the target file, not the link itself. The sticky bit, SetUID bit, and hard links do not prevent chmod from working when you own the file."
+  },
+  {
+    "number": 79,
+    "explanation": "ext2 and ext3 allocate a fixed inode table when the filesystem is created, which is why running out of inodes can occur even with free disk space. XFS and JFS create inodes dynamically as files are added. procfs is a virtual filesystem and does not use traditional inode preallocation at all."
+  },
+  {
+    "number": 80,
+    "explanation": "In octal chmod notation, the leading digit 4 sets the SetUID bit, so 4755 enables SetUID while keeping rwxr-xr-x permissions. 1755 sets the sticky bit, 2755 sets SetGID, and u-s removes SetUID rather than setting it. The syntax 755+s is not valid chmod notation."
+  },
+  {
+    "number": 81,
+    "explanation": "The stat command reports detailed file metadata including the inode number. ls -i also displays inode numbers alongside filenames. There is no standard inode command, and ln, cp, and similar tools perform file operations without primarily displaying inode information."
+  },
+  {
+    "number": 82,
+    "explanation": "New files are created with mode 666 masked by the umask. A umask of 0027 removes write for group and all permissions for others from the default, yielding 640 (-rw-r-----) for regular files. Values like 0640 or 0038 do not produce that exact permission set when applied to the default file mode."
+  },
+  {
+    "number": 83,
+    "explanation": "xfs_repair is the dedicated offline repair utility for XFS filesystems and must be run on an unmounted partition. There is no xfsck command (that naming belongs to ext-family tools), and mount -f only forces a mount without fixing structural errors. xfsadmin manages XFS parameters but does not serve as the primary filesystem repair tool."
+  },
+  {
+    "number": 84,
+    "explanation": "A hard link is another directory entry pointing to the same inode, so creating one increments the link count stored in the inode. File size, permissions, inode number, and modification time belong to the shared inode and are not changed merely by adding another hard link name."
+  },
+  {
+    "number": 85,
+    "explanation": "The FHS designates /usr/local for software installed locally by the system administrator, separate from distribution-packaged files under /usr/bin. Locally compiled programs meant for all users belong in /usr/local/bin. Directories like /usr/bin or /sbin are reserved for packages provided by the distribution."
+  },
+  {
+    "number": 86,
+    "explanation": "The type shell builtin reports how the shell would interpret a command name: alias, function, builtin, or external executable path. where exists in some shells like tcsh but is not the standard Bash mechanism, and stat reports file metadata rather than command resolution."
+  },
+  {
+    "number": 87,
+    "explanation": "In vi Normal mode, ? begins a reverse search, searching backward from the cursor toward the start of the file. The / character performs a forward search instead. Characters like r (replace) and s (substitute) edit text rather than initiate a search."
+  },
+  {
+    "number": 88,
+    "explanation": "The standard Linux syntax to open a specific manual section is man 1 command, where 1 is the section number. Forms like command(1) or 1.command are not the conventional invocation, and man -s is used on BSD systems rather than being the primary GNU man syntax."
+  },
+  {
+    "number": 89,
+    "explanation": "The > operator redirects stdout and creates the file if it does not exist, or truncates and overwrites it if it does. The >> operator appends instead of overwriting. Redirections like 3>, >& , and >>> are either different file descriptors or invalid syntax for this purpose."
+  },
+  {
+    "number": 90,
+    "explanation": "The set builtin modifies shell options and positional parameters in the current running Bash session. Commands like history, setsh, bashconf, and envsetup are not standard Bash builtins for changing live shell behavior."
+  },
+  {
+    "number": 91,
+    "explanation": "pgrep -u root matches processes by the username root, and pgrep -U 0 matches by UID 0, which is also root. The -c option returns a count rather than listing IDs, and -f matches against the full command line text, which would also match unrelated processes whose commands happen to contain the word root."
+  },
+  {
+    "number": 92,
+    "explanation": "In vi, :wq (after pressing Esc) writes the buffer to disk and quits the editor. ZZ (Shift+Z twice from Normal mode) saves and exits without typing the colon command. Ctrl+:W alone does not quit, and zz scrolls the current line to the center of the screen."
+  },
+  {
+    "number": 93,
+    "explanation": "grep -v inverts the match and prints only lines that do not contain the pattern. Color highlighting uses --color, version information uses -V, and grep has no option that prefixes matching lines with a plus sign or reverses output order."
+  },
+  {
+    "number": 94,
+    "explanation": "which searches PATH and prints the executable that would run for a given command name. type also reveals the resolved command, including builtins and aliases, and shows the path for external commands. find and locate search the filesystem broadly, while pwd prints the current working directory."
+  },
+  {
+    "number": 95,
+    "explanation": "Pressing Ctrl+Z sends a stop signal that suspends the foreground process, allowing it to be resumed later with fg or bg. On Linux terminals this is typically SIGTSTP, which is the exam's intended answer as SIGSTOP. SIGINT (Ctrl+C) interrupts, SIGTERM requests termination, and SIGCONT resumes a stopped process."
+  },
+  {
+    "number": 96,
+    "explanation": "The substitution s/[ABC][abc]/xx/ replaces the first pair of characters where the first matches A, B, or C and the second matches a, b, or c. In the string ABCabc, C matches [ABC] and the following a matches [abc], so Cab becomes xx, producing ABxxbc. The pattern only replaces one occurrence unless a global flag is used."
+  },
+  {
+    "number": 97,
+    "explanation": "The pwd command prints the current working directory. echo \"${PWD}\" also works because PWD is a Bash shell variable automatically set to the same value. ${WD} and ${pwd} are not standard variables for this purpose, and printwd is not a standard command."
+  },
+  {
+    "number": 98,
+    "explanation": "cat <<EOT starts a here-document: the shell feeds subsequent lines as standard input until a line containing only EOT is found. The other options use invalid or nonexistent redirection operators and would not produce the expected output."
+  },
+  {
+    "number": 99,
+    "explanation": "When invoked without an explicit priority argument, the nice command increases the nice value by 10 relative to the current shell, so a process normally started at nice 0 runs at nice 10. Nice 0 is the default priority for processes started without nice, not the default increment that nice itself applies."
+  },
+  {
+    "number": 100,
+    "explanation": "The directory name is literally backslash followed by dir, so the shell path must include an escaped backslash: ~/\\dir resolves to $HOME/\\dir. In rmdir ~/\\\\dir (written as ~/\\dir in the shell), the double backslash produces a single literal backslash in the path. Quoted forms like \"~/\\dir\" prevent tilde expansion, and ~/\\dir without proper escaping is interpreted as ~/dir, a different directory."
+  }
+]

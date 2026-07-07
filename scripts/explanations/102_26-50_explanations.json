@@ -1,0 +1,102 @@
+[
+  {
+    "number": 26,
+    "explanation": "Setting a user's login shell to /bin/false with `chsh -s /bin/false` causes any interactive login attempt to exit immediately, effectively blocking shell access. Assigning UID 0 would make the user root, not restrict login. `/etc/noaccess` is not a standard mechanism, removing the user from `staff` does not block logins, and a `.nologin` file in the home directory is not how login denial is configured."
+  },
+  {
+    "number": 27,
+    "explanation": "`journalctl` is the systemd utility for querying the journal. It supports filtering by criteria such as time range, systemd unit, priority, and other metadata. Other logging tools like `dmesg` or `syslog` do not provide the same journal-specific query interface."
+  },
+  {
+    "number": 28,
+    "explanation": "systemd-journald can forward messages to a traditional syslog daemon for further processing, stores structured metadata fields such as `_UID` and `_PID` with each entry, and preserves syslog facility classifications like `kern`, `user`, and `auth`. It is not incompatible with syslog and can coexist with it, and it collects messages from many sources—not only from systemd itself."
+  },
+  {
+    "number": 29,
+    "explanation": "After editing `/etc/aliases`, you must run `newaliases` to rebuild the alias database (typically `/etc/aliases.db`) so the MTA picks up the changes. Simply saving the aliases file is not enough; the database must be regenerated before new aliases take effect."
+  },
+  {
+    "number": 30,
+    "explanation": "The `iburst` option in chrony (or NTP) tells the client to send a burst of several poll packets at startup instead of waiting through the normal poll interval, which speeds up initial time synchronization. Options like `quickstart`, `fast`, `fsync`, and `flood` are not valid chrony configuration directives for this purpose."
+  },
+  {
+    "number": 31,
+    "explanation": "`logrotate` is the standard tool for rotating, compressing, and optionally mailing archived log files according to rules in `/etc/logrotate.conf` and `/etc/logrotate.d/`. `logger` only writes messages to the system log, while `striplog`, `rotatelog`, and `syslogd --rotate` are not standard log-management utilities."
+  },
+  {
+    "number": 32,
+    "explanation": "Unix systems store time internally as UTC-based timestamps; the configured time zone is used when converting those timestamps to human-readable local time for logs, `ls -l`, cron jobs, and user-facing output. Time zone does not affect checksums, file modification-time storage, locale variables like `LANG`, or NTP server selection."
+  },
+  {
+    "number": 33,
+    "explanation": "`mailq` lists the messages currently queued by the MTA and is available on sendmail-compatible mail systems (including Postfix, which provides a `mailq` compatibility interface). It shows queue IDs, sizes, arrival times, and sender/recipient information for pending mail."
+  },
+  {
+    "number": 34,
+    "explanation": "CUPS stores its configuration files in `/etc/cups/`, including `cupsd.conf`, `printers.conf`, and related settings. This is the top-level configuration directory for the Common Unix Printing System, not a single file path."
+  },
+  {
+    "number": 35,
+    "explanation": "`lpq` displays all jobs currently queued on a print server or local spool. `lpr` and `lp` submit print jobs rather than listing them, `lpd` is the line-printer daemon, and `lsq` is not a standard printing command."
+  },
+  {
+    "number": 36,
+    "explanation": "In `/etc/syslog.conf`, each line pairs a facility.priority selector with an action. `mail.* /var/log/maillog` logs all mail-related messages locally, and `mail.crit @logger.example.org` forwards critical mail events to a remote syslog server (the `@` prefix denotes a remote host). Other options use invalid syntax such as missing wildcards, commas instead of separate rules, or non-standard URL-style destinations."
+  },
+  {
+    "number": 37,
+    "explanation": "The `server` directive in `/etc/ntp.conf` specifies an external NTP server to query for time synchronization. Related directives like `pool` define pools of servers, but `server` is the option that names a single upstream time source."
+  },
+  {
+    "number": 38,
+    "explanation": "An open relay is an SMTP server misconfiguration that allows unauthorized third parties to forward mail through it, which is a mail-delivery problem. POP3 and IMAP handle mail retrieval, NTP handles time synchronization, and LDAP handles directory services—none of which involve mail relaying."
+  },
+  {
+    "number": 39,
+    "explanation": "The `env` command prints all environment variables currently set in the shell session. Commands like `getargs`, `lsenv`, and `lsshell` do not exist, and `ls` lists directory contents rather than shell or environment state."
+  },
+  {
+    "number": 40,
+    "explanation": "In `test`/`[ ]`, `-d` tests whether a path exists and is a directory, and `-f` tests whether a path exists and is a regular file—both operate on filesystem objects. `-z` tests for a zero-length string, while `-eq` and `-lt` perform numeric integer comparisons and do not inspect files."
+  },
+  {
+    "number": 41,
+    "explanation": "`$$` is a shell parameter that expands to the process ID (PID) of the current shell, so `echo $$` prints that PID. `$!` refers to the PID of the most recent background job, not the current shell, and the `echo` command's own PID is a child process, not what `$$` represents."
+  },
+  {
+    "number": 42,
+    "explanation": "`export VARIABLE` marks a shell variable as an environment variable, making it visible to child processes and subshells. `export $VARIABLE` incorrectly tries to export the variable's value as a name, while `env VARIABLE` runs a command with a modified environment and `set` assigns values without exporting them."
+  },
+  {
+    "number": 43,
+    "explanation": "`read a b c` assigns the first word to `a`, the second to `b`, and all remaining words to `c`. With input `1 2 3 4 5 6`, that gives `a=1`, `b=2`, and `c=\"3 4 5 6\"`, so `echo result $c $b $a` prints `result 3 4 5 6 2 1`. The loop runs only once because `read` consumes the entire line from the pipe."
+  },
+  {
+    "number": 44,
+    "explanation": "`/etc/profile` is executed for login shells of all users and is the standard place to set global environment variables system-wide. `~/.bash_profile` is per-user, `/etc/bashrc` applies to interactive non-login bash shells, and `/etc/.bashrc` and `/etc/shellenv` are not standard global profile files."
+  },
+  {
+    "number": 45,
+    "explanation": "When `seq` is given a single argument, it prints the integers from 1 through that number, one per line. So `seq 10` outputs 1 through 10. It does not print only the number 10, count from 0, or stream indefinitely."
+  },
+  {
+    "number": 46,
+    "explanation": "Running `alias` with no arguments lists all aliases currently defined in the Bash shell. Aliases are shell-level shortcuts and this built-in command is the standard way to inspect them."
+  },
+  {
+    "number": 47,
+    "explanation": "`ulimit` sets per-shell resource limits, including maximum memory usage (`-v` for virtual memory, `-m` for resident set size). `umask` controls default file permissions, `usermod` edits user account properties, `passwd` changes passwords, and `chage` manages password aging—not memory limits."
+  },
+  {
+    "number": 48,
+    "explanation": "An SSH host key is the server's cryptographic identity, allowing clients to verify they are connecting to the intended machine and detect man-in-the-middle attacks. It is not sent by clients, does not sign user keys, does not authenticate users by itself, and is separate from the key-based authentication used by automated jobs."
+  },
+  {
+    "number": 49,
+    "explanation": "TCP Wrappers (`libwrap`) control access to network services by evaluating client addresses against `/etc/hosts.allow` and `/etc/hosts.deny` before a connection is accepted. It does not manage bandwidth, bind ports, encapsulate packets, or add SSL/TLS encryption."
+  },
+  {
+    "number": 50,
+    "explanation": "The sudo rule grants Jane passwordless (`NOPASSWD`) access to `/bin/kill` and `/bin/id`, while `/sbin/fdisk` requires her own password (`PASSWD`). Sudo always authenticates the invoking user, not root's password, so she runs `fdisk` after entering her password and can run `kill` and `id` without one."
+  }
+]

@@ -1,5 +1,6 @@
 import type { Question, QuizMode } from '../../types';
 import { isAnswerCorrect } from '../../utils/scoring';
+import QuestionExplanation from '../shared/QuestionExplanation';
 
 interface Props {
   question: Question;
@@ -77,6 +78,7 @@ export default function QuizQuestion({ question, answer, mode, locked, onAnswer 
               </span>
             </div>
           )}
+          {showFeedback && <QuestionExplanation explanation={question.explanation} />}
         </div>
       ) : (
         /* Multiple choice */
@@ -117,6 +119,9 @@ export default function QuizQuestion({ question, answer, mode, locked, onAnswer 
             );
           })}
         </div>
+      )}
+      {showFeedback && question.type === 'multiple_choice' && (
+        <QuestionExplanation explanation={question.explanation} />
       )}
     </div>
   );

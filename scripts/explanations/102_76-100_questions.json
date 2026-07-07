@@ -1,0 +1,804 @@
+[
+  {
+    "number": 76,
+    "type": "multiple_choice",
+    "question": "Which of the following files is not read directly by a Bash login shell?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "~/.bashrc",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "~/.bash_profile",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "~/.bash_login",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "~/.profile",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "/etc/profile",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 77,
+    "type": "multiple_choice",
+    "question": "What is true about the file .profile in a user's home directory?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It must be executable.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It must call the binary of the login shell.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It must use a valid shell script syntax.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It must start with a shebang.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It must be readable for its owner only.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 78,
+    "type": "multiple_choice",
+    "question": "What is true regarding the statement beginning with #! that is found in the first line of script? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It prevents the scripts from being executed until the ! is removed.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "it triggers the installation of the script's interpreter.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It specifies the path and the arguments of the interpreter used to run the script.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It defines the character encoding of the script.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It is a comment that is ignored by the script interpreter.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 79,
+    "type": "multiple_choice",
+    "question": "What output does the command seq 1 5 20 produce?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "151015",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "161116",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "12 3 4",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "23 4 5",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "5101520",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 80,
+    "type": "multiple_choice",
+    "question": "Which of the following commands lists all defines variables and functions within Bash?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "env",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "export",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "env -a",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "set",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "echo $ENV",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 81,
+    "type": "multiple_choice",
+    "question": "What information related to a user account is modified using the chage command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Default ownership for new files",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Group membership",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Set of commands available to the user",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Password expiry information",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "Default permissions for new files",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 82,
+    "type": "multiple_choice",
+    "question": "Which command is used to set restrictions on the size of a core file that is created for a user when a programcrashes?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "core",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "edquota",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "quota",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "ulimit",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "ktrace",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 83,
+    "type": "multiple_choice",
+    "question": "How do shadow passwords improve the password security in comparison to standard no-shadow password?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Regular users do not have access to the password hashes of shadow passwords.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Every shadow password is valid for 45 days and must be changed afterwards.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The system's host key is used to encrypt all shadow passwords.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Shadow passwords are always combined with a public key that has to match the user's private key.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Shadow passwords are stored in plain text and can be checked for weak passwords.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 84,
+    "type": "multiple_choice",
+    "question": "After editing the TCP wrapper configuration to grant specific hosts access to a service, when do these changes become effective?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The new configuration becomes effective after restarting the respective service.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The new configuration becomes effective at the next system reboot.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The new configuration becomes effective when the last established connection to the service is closed.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The new configuration becomes effective after restarting the tcpd service.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The new configuration becomes effective immediately for all new connections.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 85,
+    "type": "multiple_choice",
+    "question": "What is true regarding public and private SSH keys? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "For each user account, there is exactly one key pair that can be used to log into that account.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The private key must never be revealed to anyone.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Several different public keys may be generated for the same private key.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "To maintain the private key's confidentiality, the SSH key pair must be created by its owner.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "To allow remote logins, the user's private key must be copied to the remote server.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 86,
+    "type": "multiple_choice",
+    "question": "Which of the following commands finds all files owned by root that have the SetUID bit set?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "find / -user root -perm -4000",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "find / -user 0 -mode +s",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "find / -owner root -setuid",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "find / -owner 0 -permbits 0x100000000",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "find / --filter uid=1 --filter pers=u+s",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 87,
+    "type": "fill_blank",
+    "question": "What command is used to add OpenSSH private keys to a running ssh-agent instance? (Specify the command name only without any path.)",
+    "options": [],
+    "correctAnswers": [
+      "ssh-add"
+    ],
+    "correctText": "ssh-add"
+  },
+  {
+    "number": 88,
+    "type": "fill_blank",
+    "question": "Which directory holds configuration files for xinetd services? (Specify the full path to the directory.)",
+    "options": [],
+    "correctAnswers": [
+      "/etc/xinetd.d/"
+    ],
+    "correctText": "/etc/xinetd.d/"
+  },
+  {
+    "number": 89,
+    "type": "multiple_choice",
+    "question": "Which mechanism does ssh use to interact with the SSH agent?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Connecting to port 2222 which is used by the system-wide SSH agent.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Using the fixed socket .ssh-agent/ipc.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Creating an alias replacing ssh with calls to ssh-agent.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Starting ssh-agent as a child process for each ssh invocation.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Evaluating environment variables such as SSH_AUTH_SOCK.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 90,
+    "type": "fill_blank",
+    "question": "Which parameter of the ssh command specifies the location of the private key used for login attempts?(Specify only the option name without any values or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "-i"
+    ],
+    "correctText": "-i"
+  },
+  {
+    "number": 91,
+    "type": "multiple_choice",
+    "question": "Which of the following is true about IPv6?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "IPv6 no longer supports broadcast addresses.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "With IPv6, the TCP port numbers of most services have changed.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "IPv4 addresses can be used without any change with IPv6.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "IPv6 no longer supports multicast addresses.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "For IPv6, UDP and TCP have been replaced by the Rapid Transmission Protocol RTP.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 92,
+    "type": "multiple_choice",
+    "question": "What is true about the following command?nmcli device wifi connect WIFIoI",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NetworkManager opens a new public hotspot with the SSID WIFIoI.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "NetworkManager creates an unconfigured new virtual network interface named WIFIoI.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "NetworkManager creates a new wifi connection WIFIoI and activates it.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "NetworkManager returns an error in case the connection WIFIoI does not exist.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "NetworkManager returns an error because WIFIoI is an invalid wifi device.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 93,
+    "type": "multiple_choice",
+    "question": "Which of the commands below might have produced the following output?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "dig -t mx www.example.org",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "dig www.example.org",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "dig -t ns www.example.org",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "dig -t a www.example.org",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "dig -t soa www.example.org",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 94,
+    "type": "fill_blank",
+    "question": "Which parameter is missing in the commandip link set dev eth0to activate the previously inactive network interface eth0? (Specify the parameter only without any command, path or additional options.)",
+    "options": [],
+    "correctAnswers": [
+      "up"
+    ],
+    "correctText": "up"
+  },
+  {
+    "number": 95,
+    "type": "multiple_choice",
+    "question": "Which of the following states can NetworkManager show regarding the system's network connectivity?(Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "up",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "portal",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "full",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "login-required",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "firewalled",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 96,
+    "type": "multiple_choice",
+    "question": "Which of the following are valid host addresses for the subnet 203.0.113.64/28? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "203.0.113.64",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "203.0.113.78",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "203.0.113.65",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "203.0.113.80",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "203.0.113.81",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 97,
+    "type": "multiple_choice",
+    "question": "Which of the following keywords can be used in the file /etc/resolv/conf? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "substitute",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "lookup",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "search",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "nameserver",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "method",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 98,
+    "type": "multiple_choice",
+    "question": "How does the ping command work by default?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Is sends an ICMP Echo Request to a remote host and waits to receive an ICMP Echo Response in return.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "It sends an ARP request to a remote host and waits to receive an ARP response in return.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It sends a TCP SYN packet to a remote host and waits to receive an TCP ACK response in return.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Is sends a broadcast packet to all hosts on the net and waits to receive, among others, a response from the target system.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It sends a UDP packet to port 0 of the remote host and waits to receive a UDP error response in return.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 99,
+    "type": "multiple_choice",
+    "question": "Which of the following commands display the number of bytes transmitted and received via the eth0 network interface? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "route -v via eth0",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ip stats show dev eth0",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "netstat -s -i eth0",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "ifconfig eth0",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "ip -s link show eth0",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "D",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 100,
+    "type": "multiple_choice",
+    "question": "Given the following routing table:How would an outgoing packet to the destination 192.168.2.150 be handled?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It would be passed to the default router 192.168.178.1 on wlan0.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It would be directly transmitted on the device eth0.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It would be passed to the default router 255.255.255.0 on eth0.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "It would be passed to the router 192.168.1.1 on eth0.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "It would be directly transmitted on the device wlan0.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  }
+]

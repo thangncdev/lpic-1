@@ -1,0 +1,82 @@
+[
+  {
+    "number": 101,
+    "explanation": "The default gateway is removed from the routing table with `route del default` (legacy net-tools) or `ip route del default` (iproute2). `ifconfig unset default` is not valid syntax, `netstat -r` only displays routes, and `sysctl ipv4.default_gw=0` is not a real mechanism for deleting a default route."
+  },
+  {
+    "number": 102,
+    "explanation": "The `ifup` command brings a network interface up using distribution-specific configuration files, such as `/etc/network/interfaces` on Debian/Ubuntu or `/etc/sysconfig/network-scripts/ifcfg-*` on RHEL-family systems. It reads the static settings defined there rather than applying ad hoc parameters on the command line."
+  },
+  {
+    "number": 103,
+    "explanation": "NetworkManager is designed to coexist with existing configuration: by default it does not alter interfaces that are already configured by the distribution's tools. It can also be configured (e.g., via `nm-connection-manager` or keyfile settings) to respect distribution network scripts. It does not forcibly switch all interfaces to DHCP, require per-interface enablement before any management, or disable non-NetworkManager interfaces."
+  },
+  {
+    "number": 104,
+    "explanation": "HTTPS (HTTP over TLS/SSL) uses TCP port 443 by IANA assignment. Port 80 is plain HTTP, port 25 is SMTP, port 8080 is a common alternate HTTP port, and port 636 is LDAP over SSL (LDAPS), not HTTPS."
+  },
+  {
+    "number": 105,
+    "explanation": "`/etc/locale.conf` (systemd) sets system-wide locale variables from the standard LC_* family, including `LC_ALL` (override all categories) and `LC_TIME` (date/time formatting). `LC_USERNAME`, `LC_UTF8`, and `LC_GEOGRAPHY` are not valid locale category names."
+  },
+  {
+    "number": 106,
+    "explanation": "The system timezone is set by linking `/etc/localtime` to the desired zoneinfo file: `ln -sf /usr/share/zoneinfo/Canada/Eastern /etc/localtime`. The other options use nonexistent or incorrect tools (`localegen`, `tzconf`, `modprobe tz_ca_est`) or wrong mechanisms (`sysctl clock.tz` is not how Linux sets timezones)."
+  },
+  {
+    "number": 107,
+    "explanation": "The `-m` option to `useradd` creates the user's home directory and copies skeleton files from `/etc/skel` into it. Without `-m`, the home directory is not created automatically unless other options or defaults apply."
+  },
+  {
+    "number": 108,
+    "explanation": "Access to `at` is controlled by `/etc/at.allow` and `/etc/at.deny`. Adding a user to `/etc/at.deny` blocks them from scheduling at jobs. Listing a user in `/etc/at.allow` would permit access (when that file exists), and there is no `[deny]` section in `atd.conf` or an `atd --deny` command."
+  },
+  {
+    "number": 109,
+    "explanation": "`/etc/shadow` stores the encrypted password and password-aging metadata, including the date of the last password change (days since the Unix epoch, field 3). `/etc/passwd` holds basic account info but uses `x` in the password field when shadow passwords are enabled; it does not store the change date."
+  },
+  {
+    "number": 110,
+    "explanation": "Each line in `/etc/group` has the format `group_name:password:GID:member_list`, so it contains the group name and a comma-separated list of member usernames. It does not store a home directory, ACL defaults, or a free-text description for the group."
+  },
+  {
+    "number": 111,
+    "explanation": "A systemd timer unit uses a `[Timer]` section to define when the associated service should be triggered (e.g., `OnCalendar`, `OnBootSec`). Sections like `[Events]`, `[cron]`, `[Schedule]`, and `[Trigger]` are not part of the timer unit file format."
+  },
+  {
+    "number": 112,
+    "explanation": "`getent passwd` queries the Name Service Switch (NSS) passwd database and lists all users from `/etc/passwd` and any configured sources (LDAP, NIS, etc.). `getent homes`, `getent uids`, `getent users`, and `getent logins` are not valid database names."
+  },
+  {
+    "number": 113,
+    "explanation": "The crontab fields are minute, hour, day-of-month, month, and day-of-week. `15 14 * * 1-5` runs at 14:15 (2:15 PM) on Monday through Friday. The `1-5` in the last field refers to weekdays, not months or days of the month, and the minute/hour order is not reversed."
+  },
+  {
+    "number": 114,
+    "explanation": "When neither `/etc/cron.allow` nor `/etc/cron.deny` exists, only root may create user-specific crontabs by default on LPIC-tested systems. If `cron.allow` exists, only listed users may use cron; if only `cron.deny` exists, listed users are denied while others are allowed."
+  },
+  {
+    "number": 115,
+    "explanation": "`iconv` converts text between character encodings (e.g., ISO-8859-1 to UTF-8). It does not convert image formats, validate FHS directory layout, change inode modes, or read `.ico` file metadata."
+  },
+  {
+    "number": 116,
+    "explanation": "When shadow passwords are enabled, `/etc/passwd` shows `x` in the password field to indicate the actual encrypted password is stored in `/etc/shadow`. An asterisk (`*`) typically means the account is locked; `s`, `-`, and `#` are not the standard shadow-password placeholder."
+  },
+  {
+    "number": 117,
+    "explanation": "A Braille display is an assistive hardware device that represents text as patterns of raised dots that blind users can read by touch. It is not a desktop theme, desktop environment, legacy LCD technology, or a data-exchange file format."
+  },
+  {
+    "number": 118,
+    "explanation": "The `DISPLAY` environment variable tells an X11 client which X server to connect to, typically in the form `hostname:display.screen` (e.g., `:0` for the local first display). Without it, graphical clients do not know where to send their output."
+  },
+  {
+    "number": 119,
+    "explanation": "A display manager (e.g., GDM, LightDM, SDDM; the question's XDM/KDM are older examples) presents the graphical login screen and starts the user's desktop session after authentication. Hot-plugging monitors, generating X11 config files, and automatic screen locking are handled by other components, not the display manager's core role."
+  },
+  {
+    "number": 120,
+    "explanation": "SPICE (Simple Protocol for Independent Computing Environments) provides remote display and device access for virtual machines, including video output from the guest's graphics card. X11 is a general windowing protocol, XDMCP is for remote display-manager sessions, and KDE/Xfce are desktop environments, not VM display protocols."
+  }
+]

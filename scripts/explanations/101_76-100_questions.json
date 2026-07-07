@@ -1,0 +1,857 @@
+[
+  {
+    "number": 76,
+    "type": "fill_blank",
+    "question": "Which file from the /proc/ file system contains a list of all currently mounted devices? (Specify the full name of the file, including path.)",
+    "options": [],
+    "correctAnswers": [
+      "/proc/mounts"
+    ],
+    "correctText": "/proc/mounts"
+  },
+  {
+    "number": 77,
+    "type": "multiple_choice",
+    "question": "How many fields are in a syntactically correct line of /etc/fstab?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "4",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "5",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "6",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "7",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 78,
+    "type": "multiple_choice",
+    "question": "Running chmod 640 filea.txt as a regular user doesn’t update filea.txt’s permission. What might be a reason why chmod cannot modify the permissions? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "filea.txt is owned by another user and a regular user cannot change the permissions of another user’s file.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "filea.txtis a symbolic link whose permissions are a fixed value which cannot be charged.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "filea.txthas the sticky bit set and a regular user cannot remove this permission.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "filea.txt is a hard link whose permissions are inherited from the target and cannot be set directly.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "filea.txt has the SetUID bit set which imposes the restriction that only the root user can makechanges to the file.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 79,
+    "type": "multiple_choice",
+    "question": "Which of the following Linux filesystems preallocate a fixed number of inodes when creating a new filesystem instead of generating them as needed? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "JFS",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ext3",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "XFS",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "ext2",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "procfs",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 80,
+    "type": "multiple_choice",
+    "question": "Which of the following commands sets the SetUID permission on the executable /bin/foo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "chmod 4755 /bin/foo",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "chmod 1755 /bin/foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "chmod u-s /bin/foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "chmod 755+s /bin/foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "chmod 2755 /bin/foo",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 81,
+    "type": "multiple_choice",
+    "question": "Which of the following commands can be used to display the inode number of a given file? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "inode",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ln",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ls",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "cp",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "stat",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 82,
+    "type": "multiple_choice",
+    "question": "Which of the following settings for umask ensures that new files have the default permissions -rw-r ---- ?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "0017",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "0640",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "0038",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "0227",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "0027",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 83,
+    "type": "multiple_choice",
+    "question": "After a power outage, the XFS file system of /dev/sda3 is inconsistent. How can the existing file system errors be fixed?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "By using mount -f to force a mount of the file system",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "By running xfsck on the file system",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "By mounting the file system with the option xfs_repair",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "By running xfsadmin repair on the file system",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "By running xfs_repair on the file system",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 84,
+    "type": "multiple_choice",
+    "question": "Which of the following properties of an existing file changes when a hard link pointing to that file is created?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "File size",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Link count",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Modify timestamp",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Inode number",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Permissions",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 85,
+    "type": "fill_blank",
+    "question": "Following the Filesystem Hierarchy Standard (FHS), where should binaries that have been compiled by the system administrator be placed in order to be made available to all users on the system? (Specify the full path to the directory.)",
+    "options": [],
+    "correctAnswers": [
+      "/usr/local/bin/"
+    ],
+    "correctText": "/usr/local/bin/"
+  },
+  {
+    "number": 86,
+    "type": "multiple_choice",
+    "question": "Which of the following commands show how the shell handles a specific command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "where",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "type",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "stat",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "case",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "fileinfo",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 87,
+    "type": "multiple_choice",
+    "question": "When in Normal mode in vi, which character can be used to begin a reverse search of the text?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "r",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "F",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "?",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "s",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 88,
+    "type": "multiple_choice",
+    "question": "Which of the following commands displays the manual page command from section 1?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "man command(1)",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "man command@1",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "man 1 command",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "man 1.command",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "man -s 1 command",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 89,
+    "type": "multiple_choice",
+    "question": "Which of the following commands creates or, in case it already exists, overwrites a file called data with the output of ls?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ls 3> data",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ls >& data",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ls > data",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "ls >> data",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "ls >>> data",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 90,
+    "type": "multiple_choice",
+    "question": "Which of the following commands is used to change options and positional parameters within a running Bash shell?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "history",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "setsh",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "bashconf",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "set",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "envsetup",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 91,
+    "type": "multiple_choice",
+    "question": "Which of the following commands display the IDs of all processes owned by root? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "pgrep -c root",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "pgrep -u root",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "pgrep -f root",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "pgrep -U 0",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "pgrep -c 0",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 92,
+    "type": "multiple_choice",
+    "question": "Which of the following sequences in the vi editor saves the opened document and exits the editor? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ctrl XX",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Ctrl :W",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Esc zz",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Esc :wq",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "Esc ZZ",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "D",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 93,
+    "type": "multiple_choice",
+    "question": "What is the effect of the -v option for the grep command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It enables color to highlight matching parts.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It shows the command’s version information.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It only outputs non-matching lines.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It changes the output order showing the last matching line first.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It outputs all lines and prefixes matching lines with a+.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 94,
+    "type": "multiple_choice",
+    "question": "Which of the following tools can show the complete path of an executable file that the current shell wouldexecute when starting a command without specifying its complete path? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "find",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "pwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "which",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "locate",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "type",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 95,
+    "type": "multiple_choice",
+    "question": "Which of the following signals is sent to a process when the key combination Ctrl+Z is pressed on thekeyboard?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SIGTERM",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "SIGCONT",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "SIGSTOP",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "SIGKILL",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "SIGINT",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 96,
+    "type": "multiple_choice",
+    "question": "What is the output when the regular expression s/[ABC] [abc]/xx/ is applied to the following string?ABCabc",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ABxxbc",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "xxCxxc",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "xxxxxx",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "ABCabc",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Axxaxx",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 97,
+    "type": "multiple_choice",
+    "question": "Which of the following commands print the current working directory when using a Bash shell? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "echo “${PWD}”",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "echo “${WD}”",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "printwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "pwd",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "echo “${pwd}”",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 98,
+    "type": "multiple_choice",
+    "question": "Which of the following commands outputs test to the shell?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "cat <!EOTtestEOT",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "cat <|EOTtestEOT",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "cat !<EOTtestEOT",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "cat &<EOTtestEOT",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "cat <<EOTtestEOT",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 99,
+    "type": "multiple_choice",
+    "question": "What is the default nice level when a process is started using the nicecommand?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "-10",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "10",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "15",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "20",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 100,
+    "type": "multiple_choice",
+    "question": "A user accidentally created the subdirectory \\dir in his home directory. Which of the following commands will remote that directory?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "rmdir ~/\\\\dir",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "rmdir “~/\\dir”",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "rmdir ~/’dir’",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "rmdir ~/\\dir",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "rmdir ‘~/\\dir’",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  }
+]

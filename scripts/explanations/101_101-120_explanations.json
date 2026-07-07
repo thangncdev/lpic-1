@@ -1,0 +1,82 @@
+[
+  {
+    "number": 101,
+    "explanation": "grep searches the contents of files line by line and supports regular expressions with options like -E and -P. find and locate search for files by name or attributes, not by matching text inside files. pgrep matches running processes, and reggrep is not a standard Linux command."
+  },
+  {
+    "number": 102,
+    "explanation": "The find -maxdepth option limits how many directory levels below the starting path are searched. Options like -dirmax and -maxlevels do not exist, and -s enables silent mode while -n is unrelated to depth control."
+  },
+  {
+    "number": 103,
+    "explanation": "The file command identifies a file's type by comparing its content against the magic database (typically under /usr/share/misc/magic or /etc/magic). type is a shell builtin that classifies commands, and hash computes checksums rather than detecting file formats."
+  },
+  {
+    "number": 104,
+    "explanation": "cut -d: -f1,7 uses colon as the field delimiter and extracts fields 1 (username) and 7 (login shell) from /etc/passwd. sort only reorders lines, colrm removes columns by character position, and chop and column are not standard tools for this field-based extraction."
+  },
+  {
+    "number": 105,
+    "explanation": "gunzip only decompresses the gzip layer, converting texts.tgz into texts.tar. It does not extract the tar archive, so a.txt and b.txt remain inside texts.tar until tar is run separately. The original .tgz file is removed after successful decompression."
+  },
+  {
+    "number": 106,
+    "explanation": "In vi Normal mode, a count is placed immediately before a command to repeat it that many times, such as 4dd to delete four lines or 2yj to yank two lines and move down. There is no :repeat command, and placing the number after the command does not work as a repeat prefix."
+  },
+  {
+    "number": 107,
+    "explanation": "Appending & to a command runs it as a background job in the current shell, returning control to the prompt immediately. It does not redirect output to /dev/null, read input from /dev/null, or directly make init the parent process."
+  },
+  {
+    "number": 108,
+    "explanation": "split reads a file and divides it into smaller files of a specified size (for example, split -b 1M largefile). cat concatenates files, ar manages static library archives, and parted is a disk partitioning tool."
+  },
+  {
+    "number": 109,
+    "explanation": "xargs reads items from standard input (often filenames from find) and builds command lines to execute, which is useful when a command cannot accept too many arguments at once. It has nothing to do with X servers, graphical prompts, or translating short options into long ones."
+  },
+  {
+    "number": 110,
+    "explanation": "The jobs builtin lists background tasks started in the current shell session, showing their job numbers and status. It only reports jobs managed by that shell, not all processes on the system."
+  },
+  {
+    "number": 111,
+    "explanation": "renice changes the scheduling priority (nice value) of a process that is already running. The nice command only sets priority when starting a new process; renice is needed to adjust an existing one."
+  },
+  {
+    "number": 112,
+    "explanation": "In Bash, 1>&2 redirects file descriptor 1 (standard output) to file descriptor 2 (standard error), so stdout goes to the same destination as stderr. The other options reverse the direction or redirect stdin instead of stdout."
+  },
+  {
+    "number": 113,
+    "explanation": "After booting from a rescue CD, examining /var/log on the hard disk's filesystem reveals messages from the failed boot, including service startup errors. dmesg in the rescue environment only shows the rescue session's kernel ring buffer, and /proc/kmsg is not available as a persistent log on disk."
+  },
+  {
+    "number": 114,
+    "explanation": "On UEFI systems, bootloaders and EFI applications are stored on the EFI System Partition (ESP), usually a FAT-formatted partition mounted at /boot/efi. The MBR and EBR belong to legacy BIOS/MBR partitioning, not UEFI firmware boot management."
+  },
+  {
+    "number": 115,
+    "explanation": "systemctl set-default multi-user.target permanently sets the default boot target for future reboots. systemctl isolate changes only the current runtime target, and the other listed commands are not valid systemctl subcommands."
+  },
+  {
+    "number": 116,
+    "explanation": "An initramfs is a compressed archive (commonly cpio plus gzip) that can be unpacked to inspect early-boot files such as drivers and scripts. The kernel mounts it in memory and uses it to load essential modules and prepare storage before switching to the real root filesystem. It does not contain the MBR or bootloader, is tied to the kernel/initramfs build, and is not permanently exposed under /run/initramfs after a normal boot."
+  },
+  {
+    "number": 117,
+    "explanation": "modprobe loads a kernel module and automatically resolves and loads any required dependency modules listed in modules.dep. insmod loads only the single specified module without dependency handling, and depmod builds the dependency database rather than loading modules."
+  },
+  {
+    "number": 118,
+    "explanation": "lspci lists PCI and PCIe devices and can show IRQ assignments, bus/link speed, and vendor/device identification. System battery status is reported by tools like acpi or upower, and Ethernet MAC addresses are obtained from network interfaces, not from lspci."
+  },
+  {
+    "number": 119,
+    "explanation": "/etc/inittab is the classic System V init configuration file where the default runlevel is defined with an initdefault entry. systemd-based systems use targets instead, but this remains the correct answer for SysV init."
+  },
+  {
+    "number": 120,
+    "explanation": "In SysV init, scripts prefixed with S in /etc/rcN.d/ run when entering runlevel N, so S02apache2 starts Apache when runlevel 2 is entered. Scripts prefixed with K run when entering that runlevel to stop services, so K01apache2 stops Apache when runlevel 1 is entered. K does not mean the script is never executed, and both links are not run together during shutdown."
+  }
+]

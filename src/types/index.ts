@@ -15,6 +15,7 @@ export interface Question {
   options: Option[];
   correctAnswers: string[];
   correctText: string | null;
+  explanation?: string | null;
   exam: ExamId;
 }
 

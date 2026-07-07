@@ -1,0 +1,648 @@
+[
+  {
+    "number": 101,
+    "type": "multiple_choice",
+    "question": "Which of the following commands can perform searches on file contents using regular expressions?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "find",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "locate",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "grep",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "reggrep",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "pgrep",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 102,
+    "type": "multiple_choice",
+    "question": "In a nested directory structure, which find command line option would be used to restrict the command to searching down a particular number of subdirectories?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "-maxdepth",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "-dirmax",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "-maxlevels",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "-s",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "-n",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 103,
+    "type": "multiple_choice",
+    "question": "Which of the following commands determines a file’s format by using a definition database file which contains information about all common file types?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "type",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "file",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "magic",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "pmagic",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "hash",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 104,
+    "type": "multiple_choice",
+    "question": "Which of the following commands generates a list of user names from /etc/passwd along with their login shell?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "column -s : 1,7 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "chop -c 1,7 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "colrm 1,7 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "sort -t: -k1,7 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "cut -d: -f1,7 /etc/passwd",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 105,
+    "type": "multiple_choice",
+    "question": "If the gzip compressed tar archive texts.tgz contains the files a.txt and b.txt, which files will bepresent in the current directory after running gunzip texts.tgz?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Only a.txt, b.txt, and texts.tgz",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Only texts.tar and texts.tgz",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Only a.txt.gz and b.txt.gz",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Only a.txt and b.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Only texts.tar",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 106,
+    "type": "multiple_choice",
+    "question": "In the vi editor, how can commands such as moving the cursor or copying lines into the buffer be issuedmultiple times or applied to multiple rows?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "By using the command :repeat followed by the number and thecommand",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "By specifying the number right in front of a command such as 41 or 2yj.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "By selecting all affected lines using the shit and cursor keys before applying thecommand.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "By issuing a command such as :set repetition=4 with repeats every subsequent command 4 times.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "By specifying the number after a command such as 14 or yj2 followed by escape.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 107,
+    "type": "multiple_choice",
+    "question": "Which of the following statements is correct for a command ending with an & character?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The command’s output is redirected to /dev/null.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The command is run in background of the current shell.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "The command’s output is executed by the shell.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The command is run as a direct child of the init process.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The command’s input is read from /dev/null.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 108,
+    "type": "multiple_choice",
+    "question": "Which of the following commands reads a file and creates separate chunks of a given size from the file’scontents?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ar",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "cat",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "break",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "split",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "parted",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 109,
+    "type": "multiple_choice",
+    "question": "What is the purpose of the xargs command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It passes arguments to an X server.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It repeats the execution of a command using different parameters for each invocation.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It reads standard input and builds up commands to execute.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It asks a question, graphically, and returns the answer to the shell.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It allows specifying long options (like --help) for commands that normally only accept short options (like -h)",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 110,
+    "type": "fill_blank",
+    "question": "Which command displays a list of all background tasks running in the current shell? (Specify ONLY thecommand without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "jobs"
+    ],
+    "correctText": "jobs"
+  },
+  {
+    "number": 111,
+    "type": "fill_blank",
+    "question": "Which command is used to change the priority of an already running process? (Specify ONLY the commandwithout any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "renice"
+    ],
+    "correctText": "renice"
+  },
+  {
+    "number": 112,
+    "type": "multiple_choice",
+    "question": "In Bash, inserting 1>&2 after a command redirects…",
+    "options": [
+      {
+        "letter": "A",
+        "text": "…standard error to standard input.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "…standard output to standard error.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "…standard input to standard error.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "…standard error to standardoutput.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "…standard output to standardinput.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 113,
+    "type": "multiple_choice",
+    "question": "When booting from the hard disk, a computer successfully loads the Linux kernel and initramfs but hangsduring the subsequent startup tasks. The system is booted using a Linux based rescue CD to investigate the problem. Which of the following methods helps to identify the root cause of the problem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Using the dmesgcommand from the rescue CD’s shell to view the original system’s boot logs.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Investigating the file /proc/kmsg on the computer’s hard disk for possible errors.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Investigating the file /var/log on the computer’s hard disk for possible errors.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Using chroot to switch to the file system on the hard disk and use dmesg to view the logs.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Rebooting again from the hard drive since the system successfully booted from the rescueCD.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 114,
+    "type": "multiple_choice",
+    "question": "Where is the bootloader stored on the hard disk of a UEFI system?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "In the EFI Boot Record (EBR).",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "In the Master Boot Record (MBR).",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "On the EFI System Partition (ESP).",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "On the partition labeled boot.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "On the partition number 127.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 115,
+    "type": "multiple_choice",
+    "question": "What is the correct way to set the default systemd boot target to multi-user?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "systemctl isolate multi-user.target",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "systemctl set-runlevel multi-user.target",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "systemctl set-boot multi-user.target",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "systemctl set-default multi-user.target",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "systemctl boot -p multi-user.target",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 116,
+    "type": "multiple_choice",
+    "question": "Which of the following statements are correct about the initial RAM disk involved in the boot process of Linux?(Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "An initramfs is a compressed file system archive, which can be unpacked to examine its contents.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "An initramfs file contains the MBR, the bootloader and the Linux kernel.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "After a successful boot, the initramfs contents are available in /run/initramfs/.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The kernel uses the initramfs temporarily before accessing the real root file system.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "An initramfs does not depend on a specific kernel version and is not changed after the initial installation.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 117,
+    "type": "multiple_choice",
+    "question": "Which of the following commands loads a kernel module along with any required dependency modules?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "depmod",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "modprobe",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "module_install",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "insmod",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "loadmod",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 118,
+    "type": "multiple_choice",
+    "question": "What information can the lspcicommand display about the system hardware? (Choose three.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "System battery type",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Device IRQ settings",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "PCI bus speed",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Ethernet MAC address",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Device vendor identification",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "C",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 119,
+    "type": "fill_blank",
+    "question": "Which System V init configuration file is commonly used to set the default run level? (Specify the full name of the file, including path.)",
+    "options": [],
+    "correctAnswers": [
+      "/etc/inittab"
+    ],
+    "correctText": "/etc/inittab"
+  },
+  {
+    "number": 120,
+    "type": "multiple_choice",
+    "question": "Given the following two symbolic links in a System V init configuration:/etc/rc1.d/K01apache2/etc/rc2.d/S02apache2When are the scripts executed that are referenced by these links? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "S02apache2 is run when runlevel 2 is entered.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "S02apache2 is run when runlevel 2 is left.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "K01apache2 is never run because K indicates a deactivated service.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Both S02apache2 and K01apache2 are run during a system shutdown.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "K01apache2 is run when runlevel 1 is entered.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null
+  }
+]

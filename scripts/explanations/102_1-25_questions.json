@@ -1,0 +1,809 @@
+[
+  {
+    "number": 1,
+    "type": "fill_blank",
+    "question": "Which command is used to set the hostname of the local system? (Specify only the command without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "hostname"
+    ],
+    "correctText": "hostname"
+  },
+  {
+    "number": 2,
+    "type": "multiple_choice",
+    "question": "Which of the following is a valid IPv6 address?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "2001:db8:0g21::1",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "2001::db8:4581::1",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "2001:db8:3241::1",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "2001%db8%9990%%1",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "2001.db8.819f..1",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 3,
+    "type": "fill_blank",
+    "question": "What command, depending on its options, can display the open TCP connections, the routing tables, as well as network interface statistics? (Specify only the command without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "netstat"
+    ],
+    "correctText": "netstat"
+  },
+  {
+    "number": 4,
+    "type": "fill_blank",
+    "question": "Which command included in NetworkManager is a curses application which provides easy acces to theNetworkManager on the command line? (Specify only the command without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "nmtui"
+    ],
+    "correctText": "nmtui"
+  },
+  {
+    "number": 5,
+    "type": "multiple_choice",
+    "question": "Which if the following tools, used for DNS debugging, reports not only the response from the name sever but also details about the query?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "dnsq",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "hostname",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "dig",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "dnslookup",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "zoneinfo",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 6,
+    "type": "multiple_choice",
+    "question": "Which of the following statements is valid in the file /etc/nsswitch.conf?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "multi on",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "192.168.168.4 dns-server",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "namespaces: net mount procs",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "include /etc/nsswitch.d/",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "hosts: files dns",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 7,
+    "type": "multiple_choice",
+    "question": "Which of the following connection types, as seen in nmcli connection show, may exist inNetworkManager? (Choose three.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "tcp",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ethernet",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "wifi",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "ipv6",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "bridge",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "C",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 8,
+    "type": "multiple_choice",
+    "question": "On a Linux workstation, the route command takes a long time before printing out the routing table. Which of the following errors does that indicate?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The local routing information may be corrupted and must be re-validated using a routing protocol.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "One of the routers in the routing table is not available which causes the automatic router failure detection mechanism (ARF-D) to wait for a timeout.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "There may accidentally be more than one default router in which case a default router election has to be done on the network in order to choose one router as the default.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The Linux Kernel Routing Daemon (LKRD) is not running and should be started using its init script orsystemd unit.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "DNS resolution may not be working as route by default tries to resolve names of routers anddestinations and may run into a timeout.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 9,
+    "type": "multiple_choice",
+    "question": "What is true about the Hop Limit field in the IPv6 header?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The field is not changed during the transport of a package.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The field is transmitted within a hop-by-hop extension header.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Each router forwarding the packet increases the field's value.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Each router forwarding the packet decreases the field's value.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "For multicast packages, the field's value is always 1.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 10,
+    "type": "multiple_choice",
+    "question": "Which of the following nmcli subcommands exist? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "nmcli ethernet",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "nmcli device",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "nmcli wifi",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "nmcli address",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "nmcli connection",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 11,
+    "type": "multiple_choice",
+    "question": "Which of the following changes may occur as a consequence of using the command ip? (Choose three.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Network interfaces may become active or inactive.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "New name servers may be added to the resolver configuration.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The system's host name may change.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "IP addresses may change.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "The routing table may change.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 12,
+    "type": "multiple_choice",
+    "question": "How many IP addresses can be used for unique hosts inside the IPv4 subnet 192.168.2.128/26?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "6",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "14",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "30",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "62",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "126",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 13,
+    "type": "multiple_choice",
+    "question": "Which of the following IPv4 networks are reserved by IANA for private address assignment and privaterouting? (Choose three.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "10.0.0.0/8",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "127.0.0.0/8",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "169.255.0.0/16",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "172.16.0.0/12",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "192.168.0.0/16",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 14,
+    "type": "multiple_choice",
+    "question": "Which of the following commands configure network interfaces based on the system's existing distributionspecific configuration files? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ifconf",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ifdown",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "ifpause",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "ifstart",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "ifup",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 15,
+    "type": "multiple_choice",
+    "question": "Which of the following statements is true if the UID of a regular user is identical to the GID of a group?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "UID have precedence over GIDs, therefore the user is available while the group doesn't.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The user as well as the group are not available to avoid ambiguity due to the ID conflict.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "UIDs and GIDs are independent of each other, therefore the user as well as the group are stillavailable.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "The user is the only member of the group, even if the group configuration contains other members.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "GIDs have precedence over UIDs, therefore the group is available while the user isn't.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 16,
+    "type": "multiple_choice",
+    "question": "Which of the following information is stored in /etc/shadow for each user?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The timestamp of the user's last login",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The user's private SSH keys",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The hashed password of the user",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "The numerical user ID (UID)",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The path to the user's home directory",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 17,
+    "type": "multiple_choice",
+    "question": "Which of the following commands shows all active systemd timers?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "systemctl-timer show",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "timectl list",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "systemctl –t",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "systemctl list-timers",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "timeq",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 18,
+    "type": "multiple_choice",
+    "question": "Which of the following tasks can the date command accomplish? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Set the system's date and time.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Set the system's date but not the time.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Calculate the time span between two dates.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Print a calendar for a month or a year.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Display time in a specific format.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 19,
+    "type": "fill_blank",
+    "question": "Which file, if present, must contain all users that are allowed to use the cron scheduling system? (Specify the full name of the file, including path.)",
+    "options": [],
+    "correctAnswers": [
+      "crontab  /etc/cron.allow (full file name với path chứ không phải lệnh)"
+    ],
+    "correctText": "crontab  /etc/cron.allow (full file name với path chứ không phải lệnh)"
+  },
+  {
+    "number": 20,
+    "type": "multiple_choice",
+    "question": "What can be specified with useradd? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Commands the user can run using sudo.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The absolute path to the user's home directory.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Which printers are available for the new user.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The SSH keys used to login to the new account.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The numeric user ID (UID) of the user.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 21,
+    "type": "multiple_choice",
+    "question": "What is true about the file /etc/localtime?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It is a plain text file containing a string such as Europe/Berlin",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It is created and maintained by the NTP service based on the location of the system's IP address.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It is a symlink to /sys/device/clock/ltime and always contains the current local time.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "After changing this file, newtzconfig has to be run to make the changes effective.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It is either a symlink to or a copy of a timezone information file such as/usr/share/zoneinfo/ Europe/Berlin.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 22,
+    "type": "multiple_choice",
+    "question": "Which of the following statements is true regarding systemd timer units?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Timer units can only be defined within a service unit's file.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The command executed by the timer is specified in the timer unit's [Cmd] section.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A dedicated system service, systemd-cron, handles the execution of timer units.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Timer units only exist in the system scope and are not available for users.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Each systemd timer unit controls a specific systemd service unit.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 23,
+    "type": "multiple_choice",
+    "question": "Which of the following fields are available in the standard format of both the global /etc/crontab file as well as in user-specific crontab files? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Year",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Minute",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Username",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Effective group ID",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Command",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 24,
+    "type": "multiple_choice",
+    "question": "Which of the following commands should be executed when starting a login shell in order to change thelanguage of messages for an internationalized program to Portuguese (pt)?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "export LANGUAGE=“pt”",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "export LC_MESSAGES=“pt”",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "export UI_MESSAGES=“pt”",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "export MESSAGE=“pt”",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "export ALL_MESSAGES=“pt”",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null
+  },
+  {
+    "number": 25,
+    "type": "multiple_choice",
+    "question": "Which of the following files assigns a user to its primary group?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/etc/pgroup",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/etc/shadow",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/etc/passwd",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "/etc/group",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "/etc/gshadow",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null
+  }
+]

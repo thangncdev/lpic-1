@@ -1,0 +1,102 @@
+[
+  {
+    "number": 26,
+    "explanation": "GRUB 2 stores its main configuration in /boot/grub/grub.cfg and loads platform-specific modules (such as lvm.mod) from directories like /boot/grub/i386-pc/. The stage files under /boot/grub/stages/ belong to legacy GRUB 1, not GRUB 2. GRUB does not provide its own fstab or kernel image paths — those live in /etc/fstab and /boot/ respectively."
+  },
+  {
+    "number": 27,
+    "explanation": "On openSUSE/SLES, `zypper install \"*foo\"` uses a shell-style wildcard to install every package whose name ends with \"foo\". Options like `get`, `update`, `force`, and `add` are either different operations or not valid zypper subcommands for bulk installation."
+  },
+  {
+    "number": 28,
+    "explanation": "A cloned VM must get unique identity values or two systems will conflict on the network and in system services. The D-Bus machine ID (/etc/machine-id) and SSH host keys must be regenerated so each clone is distinct. Partition layout, filesystem type, and /root permissions are ordinary install properties and do not need to change just because a VM was cloned."
+  },
+  {
+    "number": 29,
+    "explanation": "`grub-install /dev/sdc` installs GRUB 2 boot code to the MBR of the third disk (/dev/sdc). `grub-mkrescue` builds a rescue image, `grub-mbrinstall` is a legacy GRUB 1 tool, and `grub2 install` / `grub-setup` are not the correct modern command names."
+  },
+  {
+    "number": 30,
+    "explanation": "In the MBR partition table, type 0x82 (decimal 82) is reserved for Linux swap. Type 83 is a standard Linux filesystem, 0x8e is Linux LVM, 0xfd is Linux RAID, and type 7 is typically NTFS/exFAT — none of which identify swap space."
+  },
+  {
+    "number": 31,
+    "explanation": "YUM repository settings can be split across multiple `.repo` files in /etc/yum.repos.d/, and those files support variables such as `$basearch` and `$releasever` for architecture- and version-specific URLs. There is no `yum confupdate` command, yum is not managed by a `yumd` service, and /etc/yum.conf is still read alongside files in yum.repos.d/."
+  },
+  {
+    "number": 32,
+    "explanation": "`apt-get dist-upgrade` upgrades all installed packages to their newest available versions and intelligently resolves dependency changes (such as installing or removing related packages). `apt-get update` only refreshes package lists without upgrading, and `install` is for adding new packages rather than upgrading everything already installed."
+  },
+  {
+    "number": 33,
+    "explanation": "`dpkg -r pkgname` removes a package but leaves its configuration files in place, so they are reused if the package is reinstalled. `dpkg -P` purges the package and its config files, while `-s` shows status, `-L` lists installed files, and `-v` prints the dpkg version."
+  },
+  {
+    "number": 34,
+    "explanation": "`rpm -qpR foo.rpm` queries (`-q`) the uninstalled package file (`-p`) and lists its Requires (`-R`) dependencies. `rpm -R` without `-p` queries an already-installed package, and the other options are not valid rpm query flags."
+  },
+  {
+    "number": 35,
+    "explanation": "Linux niceness ranges from -20 (highest priority) to 19 (lowest priority). A regular user may only increase niceness (lower CPU priority), so the maximum value they can assign when starting a new process with `nice` is 19. Values like 9 or 15 are within range but not the maximum, and 49 or 99 are outside the valid niceness range entirely."
+  },
+  {
+    "number": 36,
+    "explanation": "`find /tmp -user root` searches /tmp recursively for files owned by the user \"root\"; adding `-print` is optional because find prints results by default. `-uid root` is incorrect because root's UID is 0, not the string \"root\". Options that place `-path` before the starting directory or omit `/tmp` as the search path will not correctly limit the search to /tmp and its subdirectories."
+  },
+  {
+    "number": 37,
+    "explanation": "In Bash, `<` redirects standard input from a file, and `2>&1` redirects file descriptor 2 (stderr) to file descriptor 1 (stdout). `#>`, `%>`, and `>>>` are not valid Bash stream-redirection operators."
+  },
+  {
+    "number": 38,
+    "explanation": "In vi/vim, `dd` deletes the current line, and a count prefix applies to the command — so `2dd` deletes the current line and the one below it. `d2`, `2d`, and `dd2` are not valid vi delete-line syntax."
+  },
+  {
+    "number": 39,
+    "explanation": "`nohup dbmaint &` runs dbmaint in the background and makes it immune to the SIGHUP signal sent when the controlling terminal closes (e.g., on logout). A plain `&` keeps the process tied to the shell session, `bg` only resumes an already-stopped job, and redirecting output does not detach the process from the terminal."
+  },
+  {
+    "number": 40,
+    "explanation": "The `source` builtin and its dot (`.`) equivalent execute a script's commands in the current shell without spawning a subshell. Running the script as an executable path or invoking `/bin/bash script.sh` starts a child shell, so variables and shell state changes do not persist in the parent."
+  },
+  {
+    "number": 41,
+    "explanation": "The `watch` command repeatedly runs a specified command at a set interval (default 2 seconds) and clears/redraws the screen each time, making it ideal for monitoring changing command output."
+  },
+  {
+    "number": 42,
+    "explanation": "In vi, lowercase `p` pastes the most recently deleted or yanked text on the line below the cursor. Uppercase `P` pastes above the current line, `u` undoes the last change, and `U` restores the current line to its state before the last sequence of changes on that line."
+  },
+  {
+    "number": 43,
+    "explanation": "`tr -d '\\r'` reads the input and deletes every carriage-return character, converting Windows CRLF line endings to Unix LF. Replacing `\\r` with `\\n` would turn CRLF into two line feeds (LF LF), and the other options use incorrect `tr` syntax or argument order."
+  },
+  {
+    "number": 44,
+    "explanation": "The sed expression `s/txt$/bak.txt/` replaces the substring \"txt\" only when it appears at the end of a line, turning e.g. \"txt1.txt\" into \"txt1.bak.txt\". `s/txt/bak.txt/` would replace the first occurrence of \"txt\" anywhere in the line (breaking names like \"txt1.txt\"), and the other patterns use invalid or misplaced anchors."
+  },
+  {
+    "number": 45,
+    "explanation": "In vi's command mode, `:w filea.txt` writes (saves) the current buffer contents to the file filea.txt. `%s` and `:s` perform substitutions, `%w` is not a standard vi write command, and `:save` is not a valid ex/vi command."
+  },
+  {
+    "number": 46,
+    "explanation": "Pressing Ctrl+C in a terminal sends SIGINT (signal 2) to the foreground process group, requesting it to interrupt execution. SIGTERM is the default `kill` signal, SIGSTOP/SIGCONT pause and resume processes, and SIGKILL cannot be caught or ignored."
+  },
+  {
+    "number": 47,
+    "explanation": "`tee` reads from standard input and writes the data both to stdout (the screen) and to the specified file. Using `>` alone sends output only to the file (not the screen), and the other piped commands do not duplicate output to a file and the terminal simultaneously."
+  },
+  {
+    "number": 48,
+    "explanation": "Single quotes in Bash suppress all expansions, so `echo 'fred $USER'` prints the literal string \"fred $USER\" without substituting the environment variable. With double quotes, `$USER` would expand to the username (e.g., \"fred\"), producing \"fred fred\"."
+  },
+  {
+    "number": 49,
+    "explanation": "`which foo` searches the directories in `$PATH` and prints the full path to the executable that would run when you type `foo`. `whatis` and `apropos` search manual pages, `locate` finds files in a database, and `lsattr` lists extended file attributes — none of which resolve the executable path."
+  },
+  {
+    "number": 50,
+    "explanation": "`find ... -print0` outputs each matched filename followed by a null byte instead of a newline, which pairs safely with `xargs -0` when filenames contain spaces or special characters. Options like `-printnul`, `-rep-space`, and `-nospace` are not real find flags."
+  }
+]
