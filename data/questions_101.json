@@ -1,0 +1,4190 @@
+[
+  {
+    "number": 1,
+    "type": "multiple_choice",
+    "question": "Which type of file system is created by mkfs when it is executed with the block device name only and without any additional parameters?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "XFS",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "VFAT",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ext2",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "ext3",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "ext4",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "When invoked with only a block device and no `-t` type flag, the generic `mkfs` command defaults to creating an ext2 filesystem. ext3, ext4, XFS, and VFAT each require their own specific mkfs tool (e.g., `mkfs.ext4`, `mkfs.xfs`, `mkfs.vfat`) or an explicit type argument."
+  },
+  {
+    "number": 2,
+    "type": "multiple_choice",
+    "question": "Which umask value ensures that new directories can be read, written and listed by their owning user, read and listed by their owning group and are not accessible at all for everyone else?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "0750",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "0027",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "0036",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "7640",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "0029",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "A umask is subtracted from the default permissions (0777 for directories, 0666 for files). To get directory mode 750 (rwxr-x---), subtract 750 from 0777, which gives 0027. Option 0750 is a permission mode, not a umask value, and the other values would leave too much or too little access for group or others."
+  },
+  {
+    "number": 3,
+    "type": "multiple_choice",
+    "question": "Which of the following commands changes the number of days before the ext3 filesystem on /dev/sda1 has to run through a full filesystem check while booting?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "tune2fs –d 200 /dev/sda1",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "tune2fs –i 200 /dev/sda1",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "tune2fs –c 200 /dev/sda1",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "tune2fs –n 200 /dev/sda1",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "tune2fs --days 200 /dev/sda1",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "The `tune2fs -i` option sets the maximum time interval between filesystem checks, measured in days (e.g., `-i 200` means check at most every 200 days). `-c` controls checks based on mount count, not days, and `-d`, `-n`, and `--days` are not valid tune2fs options for this purpose."
+  },
+  {
+    "number": 4,
+    "type": "multiple_choice",
+    "question": "Which is the default percentage of reserved space for the root user on new ext4 filesystems?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "10%",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "3%",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "15%",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "0%",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "5%",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "By default, ext4 (and ext2/ext3) reserves 5% of filesystem blocks exclusively for the root user, preventing the disk from filling completely and locking out administrative tasks. The 10% figure is a common misconception from older documentation; 0%, 3%, and 15% are not the default."
+  },
+  {
+    "number": 5,
+    "type": "multiple_choice",
+    "question": "Which of the following is true when a file system, which is neither listed in /etc/fstab nor known to system, is mounted manually?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "systemd ignores any manual mounts which are not done using the systemctl mount command",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The command systemctl mountsync can be used to create a mount unit based on the existing mount",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "systemd automatically generates a mount unit and monitors the mount point without changing it",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Unless a systemd mount unit is created, systemd unmounts the file system after a short period of time",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "systemctl unmount must be used to remove the mount because system opens a file descriptor on the mount point",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "When a filesystem is mounted manually (e.g., via the `mount` command) and is not defined in `/etc/fstab`, systemd dynamically creates a transient `.mount` unit to track it. systemd does not ignore manual mounts, does not auto-unmount them after a timeout, and no `mountsync` or special `systemctl unmount` command is required."
+  },
+  {
+    "number": 6,
+    "type": "fill_blank",
+    "question": "Which program updates the database that is used by the locate command? (Specify ONLY the command without any path or parameters).",
+    "options": [],
+    "correctAnswers": [
+      "updatedb"
+    ],
+    "correctText": "updatedb",
+    "explanation": "The `updatedb` command rebuilds the database used by `locate`, scanning the filesystem and recording file paths. `locate` itself only searches the pre-built database and does not update it; `updatedb` is typically run periodically via cron."
+  },
+  {
+    "number": 7,
+    "type": "multiple_choice",
+    "question": "What does the command mount --bind do?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It makes the contents of one directory available in another directory",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "It mounts all available filesystems to the current directory",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It mounts all user mountable filesystems to the user’s home directory",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "It mounts all file systems listed in /etc/fstab which have the option userbind set",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It permanently mounts a regular file to a directory",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null,
+    "explanation": "`mount --bind` (or `mount -o bind`) remounts an existing directory tree at a second location, making the same contents visible through both paths. It does not mount all filesystems, all fstab entries, or permanently attach a regular file to a directory."
+  },
+  {
+    "number": 8,
+    "type": "multiple_choice",
+    "question": "Consider the following output from the command ls –i:How would a new file named c.txt be created with the same inode number as a.txt (Inode 525385)?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ln –h a.txt c.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ln c.txt a.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ln a.txt c.txt",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "ln –f c.txt a.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "ln –i 525385 c.txt",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "`ln a.txt c.txt` creates a hard link named c.txt that shares the same inode (525385) as a.txt. `ln` has no `-h` or `-i` options for this purpose, and reversing the argument order (`ln c.txt a.txt`) would try to link a nonexistent file."
+  },
+  {
+    "number": 9,
+    "type": "multiple_choice",
+    "question": "Consider the following directory:drwxrwxr-x 2 root sales 4096 Jan 1 15:21 salesWhich command ensures new files created within the directory sales are owned by the group sales?(Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "chmod g+s sales",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "setpol –R newgroup=sales sales",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "chgrp –p sales sales",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "chown --persistent *.sales sales",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "chmod 2775 sales",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "Setting the setgid bit on a directory (`chmod g+s` or `chmod 2775`, where 2 is the setgid flag) causes new files and subdirectories created inside to inherit the directory's group (sales). `chgrp`, `chown --persistent`, and `setpol` are not valid mechanisms for enforcing inherited group ownership on new files."
+  },
+  {
+    "number": 10,
+    "type": "multiple_choice",
+    "question": "In order to display all currently mounted filesystems, which of the following commands could be used? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "cat /proc/self/mounts",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "free",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "lsmounts",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "mount",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "cat /proc/filesystems",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "The `mount` command and `cat /proc/self/mounts` (equivalent to `/proc/mounts`) both list currently mounted filesystems with their mount points and options. `free` reports memory usage, `lsmounts` is not a standard command, and `/proc/filesystems` only lists filesystem types supported by the kernel, not active mounts."
+  },
+  {
+    "number": 11,
+    "type": "fill_blank",
+    "question": "Which command displays the current disk space usage for all mounted file systems? (Specify ONLY thecommand without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "df"
+    ],
+    "correctText": "df",
+    "explanation": "The `df` (disk free) command reports disk space usage for all mounted filesystems, showing total, used, available space, and mount points. Related tools like `du` measure usage of specific directories rather than summarizing all mounted filesystems."
+  },
+  {
+    "number": 12,
+    "type": "multiple_choice",
+    "question": "Which chown command changes the ownership to dave and the group to staff on a file named data.txt?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "chown dave/staff data.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "chown –u dave –g staff data.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "chown --user dave --group staff data.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "chown dave+staff data.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "chown dave:staff data.txt",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "The correct `chown` syntax for setting both owner and group is `user:group`, so `chown dave:staff data.txt` assigns user dave and group staff. Slashes, plus signs, and `--user`/`--group` or `-u`/`-g` flags are not valid chown syntax."
+  },
+  {
+    "number": 13,
+    "type": "multiple_choice",
+    "question": "When considering the use of hard links, what are valid reasons not to use hard links?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Hard links are not available on all Linux systems because traditional filesystems, such as ext4, do notsupport them",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Each hard link has individual ownership, permissions and ACLs which can lead to unintended disclosure of file content",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Hard links are specific to one filesystem and cannot point to files on another filesystem",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "If users other than root should be able to create hard links, suln has to be installed and configured",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "When a hard linked file is changed, a copy of the file is created and consumes additional space",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "Hard links reference an inode number, which is only meaningful within a single filesystem, so a hard link cannot point to a file on a different partition or device. ext4 fully supports hard links, all hard links share the same metadata (not separate permissions), and modifying a hard-linked file does not create a copy."
+  },
+  {
+    "number": 14,
+    "type": "multiple_choice",
+    "question": "In compliance with the FHS, in which of the directories are man pages found?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/opt/man/",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/usr/doc/",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/usr/share/man/",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "/var/pkg/man",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "/var/man/",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "The Filesystem Hierarchy Standard (FHS) places manual pages in `/usr/share/man/`, organized by section (man1, man5, etc.). `/usr/doc/`, `/opt/man/`, `/var/man/`, and `/var/pkg/man` are not the standard FHS locations for man pages."
+  },
+  {
+    "number": 15,
+    "type": "fill_blank",
+    "question": "Which file in the /proc filesystem lists parameters passed from the bootloader to the kernel? (Specify the file name only without any path.)",
+    "options": [],
+    "correctAnswers": [
+      "cmdline"
+    ],
+    "correctText": "cmdline",
+    "explanation": "The file `/proc/cmdline` contains the kernel command-line parameters passed by the bootloader at boot time (e.g., `root=`, `quiet`, `ro`). It is a virtual procfs file, not a file stored on disk under `/boot`."
+  },
+  {
+    "number": 16,
+    "type": "multiple_choice",
+    "question": "What is the process ID number of the init process on a System V init based system?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "-1",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "1",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It is different with each reboot",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It is set to the current run level",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "On System V init systems, the init process is always assigned PID 1 by the kernel as the first userspace process. PID 0 is the kernel scheduler (idle), PID -1 is not used for init, and the init PID is fixed at 1 across reboots."
+  },
+  {
+    "number": 17,
+    "type": "multiple_choice",
+    "question": "Which daemon handles power management events on a Linux system?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "acpid",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "batteryd",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "pwrmgntd",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "psd",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "inetd",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null,
+    "explanation": "The `acpid` daemon listens for ACPI (Advanced Configuration and Power Interface) events such as power button presses, lid closes, and battery status changes. `batteryd`, `pwrmgntd`, and `psd` are not standard Linux daemons, and `inetd` handles network superserver duties, not power management."
+  },
+  {
+    "number": 18,
+    "type": "multiple_choice",
+    "question": "Which of the following statements are true about the boot sequence of a PC using a BIOS? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Some parts of the boot process can be configured from the BIOS",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Linux does not require the assistance of the BIOS to boot a computer",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The BIOS boot process starts only if secondary storage, such as the hard disk, isfunctional",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The BIOS initiates the boot process after turning the computer on",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "The BIOS is started by loading hardware drivers from secondary storage, such as the hard disk",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "After power-on, the BIOS firmware runs POST and initiates the boot process by loading a boot loader from the configured boot device. Parts of the boot sequence (boot device order, hardware settings) are configurable in the BIOS setup. Linux still depends on the BIOS/UEFI firmware to start the boot loader, and the BIOS itself resides in firmware ROM, not on the hard disk."
+  },
+  {
+    "number": 19,
+    "type": "multiple_choice",
+    "question": "What is true regarding UEFI firmware? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It can read and interpret partitiontables",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "It can use and read certain file systems",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "It stores its entire configuration on the /boot/ partition",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "It is stored in a special area within the GPT metadata",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It is loaded from a fixed boot disk position",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "UEFI firmware can read partition tables (including GPT) and access files on supported filesystems such as FAT32 on the EFI System Partition. UEFI configuration is stored in NVRAM/firmware, not on `/boot`, and while GPT is commonly used with UEFI, the firmware itself is not stored within GPT metadata."
+  },
+  {
+    "number": 20,
+    "type": "multiple_choice",
+    "question": "A faulty kernel module is causing issues with a network interface card. Which of the following actions ensures that this module is not loaded automatically when the system boots?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Using lsmod --remove --autocleanwithout specifying the name of a specific module",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Using modinfo –k followed by the name of the offending module",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Using modprobe –r followed by the name of the offending module",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Adding a blacklist line including the name of the offending module to the file /etc/modprobe.d/blacklist.conf",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "Deleting the kernel module’s directory from the file system and recompiling the kernel, including its modules",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "Adding a `blacklist modulename` entry to `/etc/modprobe.d/blacklist.conf` prevents the module from being loaded automatically at boot. `modprobe -r` only removes the module from the currently running kernel, and `lsmod --remove` is not a valid command for persistent blacklisting."
+  },
+  {
+    "number": 21,
+    "type": "multiple_choice",
+    "question": "When is the content of the kernel ring buffer reset? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "When the ring buffer is explicitly reset using the command dmesg --clear",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "When the ring buffer is read using dmesg without any additional parameters",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "When a configurable amount of time, 15 minutes by default, has passed",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "When the kernel loads a previously unloaded kernel module",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "When the system is shut down or rebooted",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "The kernel ring buffer is cleared when the system shuts down or reboots, and can also be explicitly cleared with `dmesg --clear`. Simply reading `dmesg` does not reset the buffer, it persists across module loads, and there is no automatic 15-minute timeout."
+  },
+  {
+    "number": 22,
+    "type": "multiple_choice",
+    "question": "What is the first program the Linux kernel starts at boot time when using System V init?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/lib/init.so",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/proc/sys/kernel/init",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/etc/rc.d/rcinit",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "/sbin/init",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "/boot/init",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "On System V init systems, the kernel starts `/sbin/init` (PID 1) as the first userspace program after bootstrapping. `/lib/init.so`, `/proc/sys/kernel/init`, `/etc/rc.d/rcinit`, and `/boot/init` are not the actual init binary executed by the kernel."
+  },
+  {
+    "number": 23,
+    "type": "multiple_choice",
+    "question": "A Debian package creates several files during its installation. Which of the following commands searches forpackages owning the file /etc/debian_version?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "apt-get search /etc/debian_version",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "apt –r /etc/debian_version",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "find /etc/debian_version -dpkg",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "dpkg –S /etc/debian_version",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "apt-file /etc/debian_version",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "`dpkg -S /etc/debian_version` searches installed packages to find which one owns that file path. `apt-get search` finds packages by name/description, not by file ownership, and `apt-file` requires a separate index and uses different syntax (`apt-file search`)."
+  },
+  {
+    "number": 24,
+    "type": "multiple_choice",
+    "question": "What is contained on the EFI System Partition?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The Linux root file system",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The first stage boot loader",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "The default swap space file",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The Linux default shell binaries",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The user home directories",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "The EFI System Partition (ESP), typically formatted as FAT32, stores UEFI boot loaders and related boot files that the firmware loads at startup. The Linux root filesystem, swap, shell binaries, and home directories reside on other partitions, not on the ESP."
+  },
+  {
+    "number": 25,
+    "type": "multiple_choice",
+    "question": "Which of the following directories on a 64 bit Linux system typically contain shared libraries? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "~/.lib64/",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/usr/lib64/",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "/var/lib64/",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "/lib64/",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "/opt/lib64/",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "On 64-bit Linux systems, shared libraries (.so files) are installed in `/lib64/` and `/usr/lib64/` per the FHS and multilib conventions. `/var/lib64/` is not a standard library location (package state data lives under `/var/lib/`), and `~/.lib64/` is not a system-wide shared library directory."
+  },
+  {
+    "number": 26,
+    "type": "multiple_choice",
+    "question": "Which of the following files exist in a standard GRUB 2 installation? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/boot/grub/stages/stage0",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/boot/grub/i386-pc/lvm.mod",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "/boot/grub/fstab",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "/boot/grub/grub.cfg",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "/boot/grub/linux/vmlinuz",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "GRUB 2 stores its main configuration in /boot/grub/grub.cfg and loads platform-specific modules (such as lvm.mod) from directories like /boot/grub/i386-pc/. The stage files under /boot/grub/stages/ belong to legacy GRUB 1, not GRUB 2. GRUB does not provide its own fstab or kernel image paths — those live in /etc/fstab and /boot/ respectively."
+  },
+  {
+    "number": 27,
+    "type": "multiple_choice",
+    "question": "Which of the following commands installs all packages with a name ending with the string foo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "zypper get “*foo”",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "zypper update “foo?”",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "zypper force “foo*”",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "zypper install “*foo”",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "zypper add “.*foo”",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "On openSUSE/SLES, `zypper install \"*foo\"` uses a shell-style wildcard to install every package whose name ends with \"foo\". Options like `get`, `update`, `force`, and `add` are either different operations or not valid zypper subcommands for bulk installation."
+  },
+  {
+    "number": 28,
+    "type": "multiple_choice",
+    "question": "Which of the following properties of a Linux system should be changed when a virtual machine is cloned?(Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The partitioning scheme",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The file system",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The D-Bus Machine ID",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "The permissions of /root/",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The SSH host keys",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "A cloned VM must get unique identity values or two systems will conflict on the network and in system services. The D-Bus machine ID (/etc/machine-id) and SSH host keys must be regenerated so each clone is distinct. Partition layout, filesystem type, and /root permissions are ordinary install properties and do not need to change just because a VM was cloned."
+  },
+  {
+    "number": 29,
+    "type": "multiple_choice",
+    "question": "Which of the following commands installs GRUB 2 into the master boot record on the third hard disk?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "grub2 install /dev/sdc",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "grub-mkrescue /dev/sdc",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "grub-mbrinstall /dev/sdc",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "grub-setup /dev/sdc",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "grub-install /dev/sdc",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "`grub-install /dev/sdc` installs GRUB 2 boot code to the MBR of the third disk (/dev/sdc). `grub-mkrescue` builds a rescue image, `grub-mbrinstall` is a legacy GRUB 1 tool, and `grub2 install` / `grub-setup` are not the correct modern command names."
+  },
+  {
+    "number": 30,
+    "type": "multiple_choice",
+    "question": "Which of the following partition types is used for Linux swap spaces when partitioning hard disk drives?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "7",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "82",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "83",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "8e",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "fd",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "In the MBR partition table, type 0x82 (decimal 82) is reserved for Linux swap. Type 83 is a standard Linux filesystem, 0x8e is Linux LVM, 0xfd is Linux RAID, and type 7 is typically NTFS/exFAT — none of which identify swap space."
+  },
+  {
+    "number": 31,
+    "type": "multiple_choice",
+    "question": "What is true regarding the configuration of yum? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Changes to the repository configuration become active after running yum confupdate",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Changes to the yum configuration become active after restarting the yumd service",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The configuration of package repositories can be divided into multiple files",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Repository configurations can include variables such as $basearchor $releasever",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "In case /etc/yum.repos.d/ contains files, /etc/yum.conf is ignored",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "YUM repository settings can be split across multiple `.repo` files in /etc/yum.repos.d/, and those files support variables such as `$basearch` and `$releasever` for architecture- and version-specific URLs. There is no `yum confupdate` command, yum is not managed by a `yumd` service, and /etc/yum.conf is still read alongside files in yum.repos.d/."
+  },
+  {
+    "number": 32,
+    "type": "multiple_choice",
+    "question": "Which of the following apt-get subcommands installs the newest versions of all currently installed packages?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "auto-update",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "dist-upgrade",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "full-upgrade",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "install",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "update",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "`apt-get dist-upgrade` upgrades all installed packages to their newest available versions and intelligently resolves dependency changes (such as installing or removing related packages). `apt-get update` only refreshes package lists without upgrading, and `install` is for adding new packages rather than upgrading everything already installed."
+  },
+  {
+    "number": 33,
+    "type": "multiple_choice",
+    "question": "Which command uninstalls a package but keeps its configuration files in case the package is re-installed?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "dpkg –s pkgname",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "dpkg –L pkgname",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "dpkg –P pkgname",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "dpkg –v pkgname",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "dpkg –r pkgname",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "`dpkg -r pkgname` removes a package but leaves its configuration files in place, so they are reused if the package is reinstalled. `dpkg -P` purges the package and its config files, while `-s` shows status, `-L` lists installed files, and `-v` prints the dpkg version."
+  },
+  {
+    "number": 34,
+    "type": "multiple_choice",
+    "question": "Which of the following commands lists the dependencies of the RPM package file foo.rpm?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "rpm –qpR foo.rpm",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "rpm –dep foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "rpm –ld foo.rpm",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "rpm –R foo.rpm",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "rpm –pD foo",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null,
+    "explanation": "`rpm -qpR foo.rpm` queries (`-q`) the uninstalled package file (`-p`) and lists its Requires (`-R`) dependencies. `rpm -R` without `-p` queries an already-installed package, and the other options are not valid rpm query flags."
+  },
+  {
+    "number": 35,
+    "type": "multiple_choice",
+    "question": "What is the maximum niceness value that a regular user can assign to a process with the nice command whenexecuting a new process?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "9",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "15",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "19",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "49",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "99",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "Linux niceness ranges from -20 (highest priority) to 19 (lowest priority). A regular user may only increase niceness (lower CPU priority), so the maximum value they can assign when starting a new process with `nice` is 19. Values like 9 or 15 are within range but not the maximum, and 49 or 99 are outside the valid niceness range entirely."
+  },
+  {
+    "number": 36,
+    "type": "multiple_choice",
+    "question": "Which of the following commands list all files and directories within the /tmp/ directory and its subdirectorieswhich are owned by the user root? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "find /tmp –user root -print",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "find –path /tmp –uid root",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "find /tmp –uid root -print",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "find /tmp –user root",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "find –path /tmp –user root -print",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "`find /tmp -user root` searches /tmp recursively for files owned by the user \"root\"; adding `-print` is optional because find prints results by default. `-uid root` is incorrect because root's UID is 0, not the string \"root\". Options that place `-path` before the starting directory or omit `/tmp` as the search path will not correctly limit the search to /tmp and its subdirectories."
+  },
+  {
+    "number": 37,
+    "type": "multiple_choice",
+    "question": "Which of the following are valid stream redirection operators within Bash? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "<",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "#>",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "%>",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": ">>>",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "2>&1",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "In Bash, `<` redirects standard input from a file, and `2>&1` redirects file descriptor 2 (stderr) to file descriptor 1 (stdout). `#>`, `%>`, and `>>>` are not valid Bash stream-redirection operators."
+  },
+  {
+    "number": 38,
+    "type": "multiple_choice",
+    "question": "Which of the following vi commands deletes two lines, the current and the following line?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "d2",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "2d",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "2dd",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "dd2",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "de12",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "In vi/vim, `dd` deletes the current line, and a count prefix applies to the command — so `2dd` deletes the current line and the one below it. `d2`, `2d`, and `dd2` are not valid vi delete-line syntax."
+  },
+  {
+    "number": 39,
+    "type": "multiple_choice",
+    "question": "The command dbmaint & was used to run dbmaint in the background. However, dbmaint is terminated after logging out of the system. Which alternative dbmaint invocation lets dbmaint continue to run even when the user running the program logs out?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "job –b dmaint",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "dbmaint &>/dev/pts/null",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "nohup dbmaint &",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "bg dbmaint",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "wait dbmaint",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "`nohup dbmaint &` runs dbmaint in the background and makes it immune to the SIGHUP signal sent when the controlling terminal closes (e.g., on logout). A plain `&` keeps the process tied to the shell session, `bg` only resumes an already-stopped job, and redirecting output does not detach the process from the terminal."
+  },
+  {
+    "number": 40,
+    "type": "multiple_choice",
+    "question": "From a Bash shell, which of the following commands directly execute the instructions from the file /usr/local/bin/runme.sh without starting a subshell? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "source /usr/local/bin/runme.sh",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "/usr/local/bin/runme.sh",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/bin/bash /usr/local/bin/runme.sh",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": ". /usr/local/bin/runme.sh",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "run /usr/local/bin/runme.sh",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "The `source` builtin and its dot (`.`) equivalent execute a script's commands in the current shell without spawning a subshell. Running the script as an executable path or invoking `/bin/bash script.sh` starts a child shell, so variables and shell state changes do not persist in the parent."
+  },
+  {
+    "number": 41,
+    "type": "fill_blank",
+    "question": "Which program runs a command in specific intervals and refreshes the display of the program’s output?(Specify ONLY the command without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "watch"
+    ],
+    "correctText": "watch",
+    "explanation": "The `watch` command repeatedly runs a specified command at a set interval (default 2 seconds) and clears/redraws the screen each time, making it ideal for monitoring changing command output."
+  },
+  {
+    "number": 42,
+    "type": "multiple_choice",
+    "question": "Immediately after deleting 3 lines of text in vi and moving the cursor to a different line, which single character command will insert the deleted content below the current line?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "i (lowercase)",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "p (lowercase)",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "P (uppercase)",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "U (uppercase)",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "u (lowercase)",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "In vi, lowercase `p` pastes the most recently deleted or yanked text on the line below the cursor. Uppercase `P` pastes above the current line, `u` undoes the last change, and `U` restores the current line to its state before the last sequence of changes on that line."
+  },
+  {
+    "number": 43,
+    "type": "multiple_choice",
+    "question": "Which of the following commands changes all CR-LF line breaks in the text file userlist.txt to Linuxstandard LF line breaks and stores the result in newlist.txt?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "tr –d ‘\\r’ < userlist.txt > newlist.txt",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "tr –c ‘\\n\\r’ ‘’ <newlist.txt> userlist.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "tr ‘\\r\\n’ ‘’ <userlist.txt> newlist.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "tr ‘\\r’ ‘\\n’ userlist.txt newlist.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "tr –s ‘/^M/^J/’ userlist.txt newlist.txt",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null,
+    "explanation": "`tr -d '\\r'` reads the input and deletes every carriage-return character, converting Windows CRLF line endings to Unix LF. Replacing `\\r` with `\\n` would turn CRLF into two line feeds (LF LF), and the other options use incorrect `tr` syntax or argument order."
+  },
+  {
+    "number": 44,
+    "type": "multiple_choice",
+    "question": "Given the following input stream:txt1.txtatxt.txttxtB.txtWhich of the following regular expressions turns this input stream into the following output stream?txt1.bak.txtatxt.bak.txttxtB.bak.txt",
+    "options": [
+      {
+        "letter": "A",
+        "text": "s/^.txt/.bak/",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "s/txt/bak.txt/",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "s/txt$/bak.txt/",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "s/^txt$/.bak^/",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "s/[.txt]/.bak$1/",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "The sed expression `s/txt$/bak.txt/` replaces the substring \"txt\" only when it appears at the end of a line, turning e.g. \"txt1.txt\" into \"txt1.bak.txt\". `s/txt/bak.txt/` would replace the first occurrence of \"txt\" anywhere in the line (breaking names like \"txt1.txt\"), and the other patterns use invalid or misplaced anchors."
+  },
+  {
+    "number": 45,
+    "type": "multiple_choice",
+    "question": "Which command must be entered before exiting vi to save the current file as filea.txt?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "%s filea.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "%w filea.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": ":save filea.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": ":w filea.txt",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": ":s filea.txt",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "In vi's command mode, `:w filea.txt` writes (saves) the current buffer contents to the file filea.txt. `%s` and `:s` perform substitutions, `%w` is not a standard vi write command, and `:save` is not a valid ex/vi command."
+  },
+  {
+    "number": 46,
+    "type": "multiple_choice",
+    "question": "Which of the following signals is sent to a process when the key combination Ctrl+C is pressed on thekeyboard?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SIGTERM",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "SIGCONT",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "SIGSTOP",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "SIGKILL",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "SIGINT",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "Pressing Ctrl+C in a terminal sends SIGINT (signal 2) to the foreground process group, requesting it to interrupt execution. SIGTERM is the default `kill` signal, SIGSTOP/SIGCONT pause and resume processes, and SIGKILL cannot be caught or ignored."
+  },
+  {
+    "number": 47,
+    "type": "multiple_choice",
+    "question": "Which of the following commands displays the output of the foo command on the screen and also writes it to a file called /tmp/foodata?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "foo | less /tmp/foodata",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "foo | cp /tmp/foodata",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "foo > /tmp/foodata",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "foo | tee /tmp/foodata",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "foo > stdout >> /tmp/foodata",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "`tee` reads from standard input and writes the data both to stdout (the screen) and to the specified file. Using `>` alone sends output only to the file (not the screen), and the other piped commands do not duplicate output to a file and the terminal simultaneously."
+  },
+  {
+    "number": 48,
+    "type": "multiple_choice",
+    "question": "What output will be displayed when the user fredexecutes the following command?echo ‘fred $USER’",
+    "options": [
+      {
+        "letter": "A",
+        "text": "fred fred",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "fred /home/fred/",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "‘fred $USER’",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "fred $USER",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "‘fred fred’",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "Single quotes in Bash suppress all expansions, so `echo 'fred $USER'` prints the literal string \"fred $USER\" without substituting the environment variable. With double quotes, `$USER` would expand to the username (e.g., \"fred\"), producing \"fred fred\"."
+  },
+  {
+    "number": 49,
+    "type": "multiple_choice",
+    "question": "Which of the following commands displays the path to the executable file that would be executed when the command foo is invoked?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "lsattr foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "apropos foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "locate foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "whatis foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "which foo",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "`which foo` searches the directories in `$PATH` and prints the full path to the executable that would run when you type `foo`. `whatis` and `apropos` search manual pages, `locate` finds files in a database, and `lsattr` lists extended file attributes — none of which resolve the executable path."
+  },
+  {
+    "number": 50,
+    "type": "multiple_choice",
+    "question": "When redirecting the output of find to the xargs command, what option to find is useful if the filenames contain spaces?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "–rep-space",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "-printnul",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "-nospace",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "–ignore-space",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "–print0",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "`find ... -print0` outputs each matched filename followed by a null byte instead of a newline, which pairs safely with `xargs -0` when filenames contain spaces or special characters. Options like `-printnul`, `-rep-space`, and `-nospace` are not real find flags."
+  },
+  {
+    "number": 51,
+    "type": "multiple_choice",
+    "question": "Which of the following commands can be used to determine how long the system has been running? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "uptime",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "up",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "time --up",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "uname –u",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "top",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "The `uptime` command reports how long the system has been running, along with load averages. `top` also displays uptime in its header line. `up` is not a standard Linux command, `time` measures command duration (it has no `--up` option), and `uname` reports kernel/system information—not uptime."
+  },
+  {
+    "number": 52,
+    "type": "multiple_choice",
+    "question": "What is true regarding the commandls > filesif files does not exist?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The output of ls is printed to the terminal",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "files is created and contains the output of ls",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "An error message is shown and ls is not executed",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The command files is executed and receives the output of ls",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Any output of ls is discarded",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "The `>` operator redirects standard output to a file, creating the file if it does not exist and truncating it if it does. So `ls > files` runs `ls` and writes its output into a new file named `files`. The output is not printed to the terminal, no error occurs, and `files` is a filename—not a command to execute."
+  },
+  {
+    "number": 53,
+    "type": "multiple_choice",
+    "question": "Which of the following files, located in a user’s home directory, contains the Bash history?",
+    "options": [
+      {
+        "letter": "A",
+        "text": ".bashrc_history",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": ".bash_histfile",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": ".history",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": ".bash_history",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": ".history_bash",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "Bash stores previously entered commands in `~/.bash_history`. The other filenames are invented; `.bashrc` configures the shell but does not hold the history file, and there is no standard `.history` or `.bash_histfile` in a default Bash setup."
+  },
+  {
+    "number": 54,
+    "type": "multiple_choice",
+    "question": "Which wildcards will match the following filenames? (Choose two.)ttyS0ttyS1ttyS2",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ttyS[1-5]",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "tty?[0-5]",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "tty*2",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "tty[A-Z][012]",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "tty[Ss][02]",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "`tty?[0-5]` matches `tty` plus one character (`S`) plus a digit 0–5, covering ttyS0, ttyS1, and ttyS2. `tty[A-Z][012]` matches `tty` plus an uppercase letter plus 0, 1, or 2—also matching all three. `ttyS[1-5]` misses ttyS0, `tty*2` only matches names ending in 2, and `tty[Ss][02]` misses ttyS1."
+  },
+  {
+    "number": 55,
+    "type": "multiple_choice",
+    "question": "Which of the following commands redirects the output of ls to standard error?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ls >-1",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ls <<ERR",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ls >&2",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "ls >>2",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "ls |error",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "`ls >&2` redirects standard output (file descriptor 1) to wherever standard error (file descriptor 2) is currently pointing. `ls >-1`, `ls <<ERR`, `ls >>2`, and `ls |error` are not valid ways to send stdout to stderr."
+  },
+  {
+    "number": 56,
+    "type": "multiple_choice",
+    "question": "Which of the following commands displays the contents of a gzip compressed tar archive?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "gzip archive.tgz | tar xvf -",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "tar –fzt archive.tgz",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "gzip –d archive.tgz | tar tvf -",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "tar cf archive.tgz",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "tar ztf archive.tgz",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "`tar ztf archive.tgz` lists (`t`) the contents of a gzip-compressed (`z`) tar archive specified with `-f`. The other options either extract instead of list, use invalid option combinations (`-fzt`), or create an archive (`tar cf`) rather than display one."
+  },
+  {
+    "number": 57,
+    "type": "multiple_choice",
+    "question": "Which of the following commands prints a list of usernames (first column) and their primary group (fourthcolumn) from the /etc/passwd file?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "fmt –f 1,4 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "cut –d : -f 1,4 /etc/passwd",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "sort –t : -k 1,4 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "paste –f 1,4 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "split –c 1,4 /etc/passwd",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "`cut -d : -f 1,4 /etc/passwd` extracts fields 1 (username) and 4 (primary group GID) from colon-delimited `/etc/passwd` lines. `fmt` reformats text, `sort` orders lines, `paste` merges files side by side, and `split` divides files—none selectively extract specific fields."
+  },
+  {
+    "number": 58,
+    "type": "multiple_choice",
+    "question": "Which of the following regular expressions represents a single upper-case letter?",
+    "options": [
+      {
+        "letter": "A",
+        "text": ":UPPER:",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "[A-Z]",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "!a-z",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "%C",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "{AZ}",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "In basic regular expressions, `[A-Z]` matches exactly one uppercase ASCII letter. `:UPPER:`, `!a-z`, `%C`, and `{AZ}` are not standard regex constructs for matching a single uppercase letter."
+  },
+  {
+    "number": 59,
+    "type": "fill_blank",
+    "question": "Which command is used to start another command with a given nice level? (Specify ONLY the commandwithout any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "nice"
+    ],
+    "correctText": "nice",
+    "explanation": "The `nice` command starts a program with an adjusted scheduling priority (nice value). For example, `nice -n 10 command` runs `command` at a lower priority. To change the nice level of an already running process, you would use `renice` instead."
+  },
+  {
+    "number": 60,
+    "type": "multiple_choice",
+    "question": "Given a log file loga.log with timestamps of the format DD/MM/YYYY:hh:mm:ss, which command filtersout all log entries in the time period between 8:00 am and 8:59 am?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "grep –E ‘:08:[09]+:[09]+’ loga.log",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "grep –E ‘:08:[00]+’ loga.log",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "grep –E loga.log ‘:08:[0-9]+:[0-9]+’",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "grep loga.log ‘:08:[0-9]:[0-9]’",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "grep –E ‘:08:[0-9]+:[0-9]+’ loga.log",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "`grep -E ':08:[0-9]+:[0-9]+' loga.log` matches log lines where the time field shows hour 08 (8:00–8:59 am) with any minutes and seconds. The pattern must target the `:hh:mm:ss` portion after the date. Wrong options use incorrect regex syntax, wrong argument order, or patterns that do not match the full minute/second range."
+  },
+  {
+    "number": 61,
+    "type": "multiple_choice",
+    "question": "Instead of supplying an explicit device in /etc/fstab for mounting, what other options may be used toidentify the intended partition? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "LABEL",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "ID",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "FIND",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "NAME",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "UUID",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "In `/etc/fstab`, partitions can be identified by filesystem label (`LABEL=...`) or UUID (`UUID=...`) instead of a device path like `/dev/sda1`. These identifiers remain stable across reboots and device reordering. `ID`, `FIND`, and `NAME` are not valid fstab device specifiers."
+  },
+  {
+    "number": 62,
+    "type": "multiple_choice",
+    "question": "A yum repository can declare sets of related packages. Which yum command installs all packages belonging to the group admintools?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "yum pkgsel --install admintools",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "yum install admintools/*",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "yum groupinstall admintools",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "yum taskinstall admintools",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "yum collection install admintools",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "`yum groupinstall admintools` installs all packages in the named yum package group. Yum organizes related packages into groups; `groupinstall` is the command designed for this. The other options use nonexistent or incorrect yum syntax."
+  },
+  {
+    "number": 63,
+    "type": "fill_blank",
+    "question": "What directory contains configuration files for additional yum repositories? (Specify the full path to thedirectory.)",
+    "options": [],
+    "correctAnswers": [
+      "/etc/yum.repos.d/"
+    ],
+    "correctText": "/etc/yum.repos.d/",
+    "explanation": "Additional yum repository definitions are stored as `.repo` files in `/etc/yum.repos.d/`. Each file describes a repository URL, GPG keys, and enable/disable settings. The main yum configuration lives in `/etc/yum.conf`, but individual repo entries go in this directory."
+  },
+  {
+    "number": 64,
+    "type": "multiple_choice",
+    "question": "Which of the following commands installs the GRUB boot files into the currently active file systems and theboot loader into the first partition of the first disk?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "grub-install /dev/sda",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "grub-install /dev/sda1",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "grub-install current /dev/sda0",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "grub-install /dev/sda0",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "grub-install current /dev/sda1",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "`grub-install /dev/sda1` installs GRUB boot files to the currently mounted filesystems and writes the boot loader to the first partition of the first disk. Specifying the whole disk (`/dev/sda`) targets the MBR/disk boot sector rather than partition 1, and options like `current` or `/dev/sda0` are not valid for this scenario."
+  },
+  {
+    "number": 65,
+    "type": "multiple_choice",
+    "question": "Which of the following files are found in the /boot/ file system? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Linux kernel images",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Bash shell binaries",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "systemd target and service units",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Initial ramdisk images",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "fsck binaries",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "The `/boot` directory holds files needed to boot the system, including compressed Linux kernel images (`vmlinuz-*`) and initial RAM disk images (`initrd.img-*` or `initramfs-*`). Bash binaries live under `/bin` or `/usr/bin`, systemd units under `/etc/systemd`, and `fsck` under `/sbin`."
+  },
+  {
+    "number": 66,
+    "type": "multiple_choice",
+    "question": "Which file defines the network locations from where the Debian package manager downloads softwarepackages?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "/etc/dpkg/dpkg.cfg",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/etc/apt/apt.conf.d",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "/etc/apt/apt.conf",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "/etc/dpkg/dselect.cfg",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "/etc/apt/sources.list",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "`/etc/apt/sources.list` (and files under `/etc/apt/sources.list.d/`) define the network locations (repositories) from which APT downloads Debian packages. `/etc/apt/apt.conf` sets APT options, and `/etc/dpkg/` files configure dpkg behavior—not repository URLs."
+  },
+  {
+    "number": 67,
+    "type": "multiple_choice",
+    "question": "When removing a package on a system using dpkg package management, which dpkg option ensuresconfiguration files are removed as well?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "--clean",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "--purge",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "--vacuum",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "--remove",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "--declare",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "`dpkg --purge` (or `apt-get purge`) removes a package and its configuration files. A plain `dpkg --remove` or `apt-get remove` uninstalls the package but leaves config files on disk. Options like `--clean`, `--vacuum`, and `--declare` are not valid dpkg removal flags."
+  },
+  {
+    "number": 68,
+    "type": "multiple_choice",
+    "question": "Which of the following statements are correct when comparing Linux containers with traditional virtualmachines (e.g. LXC vs. KVM)? (Choose three.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Containers are a lightweight virtualization method where the kernel controls process isolation and resourcemanagement.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Fully virtualized machines can run any operating system for a specific hardware architecture within thevirtual machine.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Containers are completely decoupled from the host system’s physical hardware and can only use emulatedvirtual hardware devices.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The guest environment for fully virtualized machines is created by a hypervisor which provides virtual andemulated hardware devices.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "Containers on the same host can use different operating systems, as the container hypervisor createsseparate kernel execution.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "Containers (e.g., LXC) share the host kernel and use namespaces/cgroups for lightweight process isolation. Full VMs (e.g., KVM) run a separate guest OS on virtual hardware provided by a hypervisor, so they can run different operating systems for the same CPU architecture. Containers do not use emulated hardware or separate kernels—those statements describe full virtualization, not containers."
+  },
+  {
+    "number": 69,
+    "type": "multiple_choice",
+    "question": "The installation of a local Debian package failed due to unsatisfied dependencies. Which of the followingcommands installs missing dependencies and completes the interrupted package installation?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "dpkg --fix --all",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "apt-get autoinstall",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "dpkg-reconfigure --all",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "apt-get all",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "apt-get install -f",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "`apt-get install -f` (fix-broken) resolves unmet dependencies and completes interrupted installations. It reads dpkg's state, downloads missing packages, and configures pending packages. `dpkg --fix --all`, `apt-get autoinstall`, and `dpkg-reconfigure --all` are not the correct commands for this situation."
+  },
+  {
+    "number": 70,
+    "type": "multiple_choice",
+    "question": "Which of the following commands lists all currently installed packages when using RPM packagemanagement?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "yum --query --all",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "yum --list --installed",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "rpm --query --list",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "rpm --list --installed",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "rpm --query --all",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "`rpm --query --all` (or `rpm -qa`) lists every installed RPM package on the system. `rpm --query --list` shows files within a single named package, not all installed packages. The yum variants shown are not the standard way to list all installed RPMs—`rpm -qa` is the direct tool for this."
+  },
+  {
+    "number": 71,
+    "type": "multiple_choice",
+    "question": "Which of the following commands are valid in the GRUB 2 configuration file? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "menuentry",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "uefi",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "pxe-ifconfig",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "insmod",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "kpartx",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "`menuentry` defines a boot menu item in GRUB 2's configuration, and `insmod` loads a GRUB module at boot time. `uefi` is a firmware interface—not a GRUB config directive—and `pxe-ifconfig` and `kpartx` are unrelated utilities, not valid GRUB 2 configuration commands."
+  },
+  {
+    "number": 72,
+    "type": "multiple_choice",
+    "question": "What is the purpose of the ldd command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It lists which shared libraries a binary needs to run.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "It installs and updates installed shared libraries.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It turns a dynamically linked binary into a static binary.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "It defines which version of a library should be used by default.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It runs a binary with an alternate library search path.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null,
+    "explanation": "`ldd` (list dynamic dependencies) shows which shared libraries an executable or shared object requires to run. It does not install libraries, convert binaries to static linking, set default library versions, or alter the library search path—that is what package managers, linkers, and `LD_LIBRARY_PATH`/`ldconfig` handle."
+  },
+  {
+    "number": 73,
+    "type": "multiple_choice",
+    "question": "What can the Logical Volume Manager (LVM) be used for? (Choose three.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "To create snapshots.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "To dynamically change the size of logical volumes.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "To dynamically create or delete logical volumes.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "To create RAID 9 arrays.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "To encrypt logical volumes.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "LVM manages logical volumes on top of physical volumes and volume groups, allowing you to create and delete LVs, resize them online, and take snapshots of volume state. RAID 9 is not a real RAID level, and while LVM can sit on encrypted block devices, native LVM does not provide encryption—that is handled by LUKS/dm-crypt."
+  },
+  {
+    "number": 74,
+    "type": "multiple_choice",
+    "question": "What are the main differences between GPT and MBR partition tables regarding maximum number and size of partitions? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "MBR can handle partition sizes up to 4 TB, whereas GPT supports partition sizes up to 128 ZB.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "By default, GPT can manage up to 128 partitions while MBR only supports four primary partitions.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "By default, GPT can manage up to 64 partitions while MBR only supports 16 primary partitions.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "MBR can handle partition sizes up to 2.2 TB, whereas GPT supports sizes up to 9.4ZB.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "Both GPT and MBR support up to four primary partitions, each with up to 4096 TB.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "GPT supports up to 128 partitions by default, while MBR allows only four primary partitions (or three primaries plus one extended). MBR uses 32-bit sector addressing, limiting partitions to about 2.2 TB, whereas GPT uses 64-bit addressing and supports vastly larger partitions (on the order of zettabytes). Claims of 4 TB MBR limits, 64 GPT partitions, or identical limits for both schemes are incorrect."
+  },
+  {
+    "number": 75,
+    "type": "multiple_choice",
+    "question": "A backup software heavily uses hard links between files which have not been changed in between two backup runs. Which benefits are realized due to these hard links? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The old backups can be moved to slow backup media, such as tapes, while still serving as hard link target in new backups.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The backup runs faster because hard links are asynchronous operations, postponing the copy operation to a later point in time.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The backup is guaranteed to be uncharged because a hard linked file cannot be modified after its creation.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The backup consumes less space because the hard links point to the same data on disk instead of storing redundant copies.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "The backup runs faster because, instead of copying the data of each file, hard links only change file system meta data.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "D",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "Hard links let multiple directory entries point to the same inode and data blocks on disk, so unchanged files between backup runs do not consume extra storage for duplicate content. Creating a hard link only adds a directory entry (metadata), which is much faster than copying file data. Hard links do not make files immutable, are not asynchronous deferred copies, and moving old backups to tape typically breaks hard-link-based deduplication on the original filesystem."
+  },
+  {
+    "number": 76,
+    "type": "fill_blank",
+    "question": "Which file from the /proc/ file system contains a list of all currently mounted devices? (Specify the full name of the file, including path.)",
+    "options": [],
+    "correctAnswers": [
+      "/proc/mounts"
+    ],
+    "correctText": "/proc/mounts",
+    "explanation": "/proc/mounts is a kernel-generated pseudo-file that lists all currently mounted filesystems, including device, mount point, filesystem type, and mount options. It mirrors the information in /etc/mtab on many systems and is the standard place to inspect active mounts under /proc. Similar paths like /proc/partitions or /proc/devices list hardware partitions and registered device drivers, not mount table entries."
+  },
+  {
+    "number": 77,
+    "type": "multiple_choice",
+    "question": "How many fields are in a syntactically correct line of /etc/fstab?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "4",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "5",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "6",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "7",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "Each non-comment line in /etc/fstab contains exactly six whitespace-separated fields: device, mount point, filesystem type, mount options, dump flag, and fsck pass number. Fewer than six fields makes the line syntactically invalid, and there is no seventh standard field in the traditional fstab format."
+  },
+  {
+    "number": 78,
+    "type": "multiple_choice",
+    "question": "Running chmod 640 filea.txt as a regular user doesn’t update filea.txt’s permission. What might be a reason why chmod cannot modify the permissions? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "filea.txt is owned by another user and a regular user cannot change the permissions of another user’s file.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "filea.txtis a symbolic link whose permissions are a fixed value which cannot be charged.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "filea.txthas the sticky bit set and a regular user cannot remove this permission.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "filea.txt is a hard link whose permissions are inherited from the target and cannot be set directly.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "filea.txt has the SetUID bit set which imposes the restriction that only the root user can makechanges to the file.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "Only the file owner or root may change a file's permissions, so chmod fails if another user owns the file. On Linux, chmod cannot change the permissions of a symbolic link; it may change the link's metadata in limited ways, but permission changes apply to the target file, not the link itself. The sticky bit, SetUID bit, and hard links do not prevent chmod from working when you own the file."
+  },
+  {
+    "number": 79,
+    "type": "multiple_choice",
+    "question": "Which of the following Linux filesystems preallocate a fixed number of inodes when creating a new filesystem instead of generating them as needed? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "JFS",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ext3",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "XFS",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "ext2",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "procfs",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "ext2 and ext3 allocate a fixed inode table when the filesystem is created, which is why running out of inodes can occur even with free disk space. XFS and JFS create inodes dynamically as files are added. procfs is a virtual filesystem and does not use traditional inode preallocation at all."
+  },
+  {
+    "number": 80,
+    "type": "multiple_choice",
+    "question": "Which of the following commands sets the SetUID permission on the executable /bin/foo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "chmod 4755 /bin/foo",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "chmod 1755 /bin/foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "chmod u-s /bin/foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "chmod 755+s /bin/foo",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "chmod 2755 /bin/foo",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null,
+    "explanation": "In octal chmod notation, the leading digit 4 sets the SetUID bit, so 4755 enables SetUID while keeping rwxr-xr-x permissions. 1755 sets the sticky bit, 2755 sets SetGID, and u-s removes SetUID rather than setting it. The syntax 755+s is not valid chmod notation."
+  },
+  {
+    "number": 81,
+    "type": "multiple_choice",
+    "question": "Which of the following commands can be used to display the inode number of a given file? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "inode",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ln",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ls",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "cp",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "stat",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "The stat command reports detailed file metadata including the inode number. ls -i also displays inode numbers alongside filenames. There is no standard inode command, and ln, cp, and similar tools perform file operations without primarily displaying inode information."
+  },
+  {
+    "number": 82,
+    "type": "multiple_choice",
+    "question": "Which of the following settings for umask ensures that new files have the default permissions -rw-r ---- ?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "0017",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "0640",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "0038",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "0227",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "0027",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "New files are created with mode 666 masked by the umask. A umask of 0027 removes write for group and all permissions for others from the default, yielding 640 (-rw-r-----) for regular files. Values like 0640 or 0038 do not produce that exact permission set when applied to the default file mode."
+  },
+  {
+    "number": 83,
+    "type": "multiple_choice",
+    "question": "After a power outage, the XFS file system of /dev/sda3 is inconsistent. How can the existing file system errors be fixed?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "By using mount -f to force a mount of the file system",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "By running xfsck on the file system",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "By mounting the file system with the option xfs_repair",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "By running xfsadmin repair on the file system",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "By running xfs_repair on the file system",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "xfs_repair is the dedicated offline repair utility for XFS filesystems and must be run on an unmounted partition. There is no xfsck command (that naming belongs to ext-family tools), and mount -f only forces a mount without fixing structural errors. xfsadmin manages XFS parameters but does not serve as the primary filesystem repair tool."
+  },
+  {
+    "number": 84,
+    "type": "multiple_choice",
+    "question": "Which of the following properties of an existing file changes when a hard link pointing to that file is created?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "File size",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Link count",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Modify timestamp",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Inode number",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Permissions",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "A hard link is another directory entry pointing to the same inode, so creating one increments the link count stored in the inode. File size, permissions, inode number, and modification time belong to the shared inode and are not changed merely by adding another hard link name."
+  },
+  {
+    "number": 85,
+    "type": "fill_blank",
+    "question": "Following the Filesystem Hierarchy Standard (FHS), where should binaries that have been compiled by the system administrator be placed in order to be made available to all users on the system? (Specify the full path to the directory.)",
+    "options": [],
+    "correctAnswers": [
+      "/usr/local/bin/"
+    ],
+    "correctText": "/usr/local/bin/",
+    "explanation": "The FHS designates /usr/local for software installed locally by the system administrator, separate from distribution-packaged files under /usr/bin. Locally compiled programs meant for all users belong in /usr/local/bin. Directories like /usr/bin or /sbin are reserved for packages provided by the distribution."
+  },
+  {
+    "number": 86,
+    "type": "multiple_choice",
+    "question": "Which of the following commands show how the shell handles a specific command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "where",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "type",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "stat",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "case",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "fileinfo",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "The type shell builtin reports how the shell would interpret a command name: alias, function, builtin, or external executable path. where exists in some shells like tcsh but is not the standard Bash mechanism, and stat reports file metadata rather than command resolution."
+  },
+  {
+    "number": 87,
+    "type": "multiple_choice",
+    "question": "When in Normal mode in vi, which character can be used to begin a reverse search of the text?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "r",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "/",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "F",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "?",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "s",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "In vi Normal mode, ? begins a reverse search, searching backward from the cursor toward the start of the file. The / character performs a forward search instead. Characters like r (replace) and s (substitute) edit text rather than initiate a search."
+  },
+  {
+    "number": 88,
+    "type": "multiple_choice",
+    "question": "Which of the following commands displays the manual page command from section 1?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "man command(1)",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "man command@1",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "man 1 command",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "man 1.command",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "man -s 1 command",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "The standard Linux syntax to open a specific manual section is man 1 command, where 1 is the section number. Forms like command(1) or 1.command are not the conventional invocation, and man -s is used on BSD systems rather than being the primary GNU man syntax."
+  },
+  {
+    "number": 89,
+    "type": "multiple_choice",
+    "question": "Which of the following commands creates or, in case it already exists, overwrites a file called data with the output of ls?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ls 3> data",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ls >& data",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "ls > data",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "ls >> data",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "ls >>> data",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "The > operator redirects stdout and creates the file if it does not exist, or truncates and overwrites it if it does. The >> operator appends instead of overwriting. Redirections like 3>, >& , and >>> are either different file descriptors or invalid syntax for this purpose."
+  },
+  {
+    "number": 90,
+    "type": "multiple_choice",
+    "question": "Which of the following commands is used to change options and positional parameters within a running Bash shell?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "history",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "setsh",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "bashconf",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "set",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "envsetup",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "The set builtin modifies shell options and positional parameters in the current running Bash session. Commands like history, setsh, bashconf, and envsetup are not standard Bash builtins for changing live shell behavior."
+  },
+  {
+    "number": 91,
+    "type": "multiple_choice",
+    "question": "Which of the following commands display the IDs of all processes owned by root? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "pgrep -c root",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "pgrep -u root",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "pgrep -f root",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "pgrep -U 0",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "pgrep -c 0",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "pgrep -u root matches processes by the username root, and pgrep -U 0 matches by UID 0, which is also root. The -c option returns a count rather than listing IDs, and -f matches against the full command line text, which would also match unrelated processes whose commands happen to contain the word root."
+  },
+  {
+    "number": 92,
+    "type": "multiple_choice",
+    "question": "Which of the following sequences in the vi editor saves the opened document and exits the editor? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ctrl XX",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Ctrl :W",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Esc zz",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Esc :wq",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "Esc ZZ",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "D",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "In vi, :wq (after pressing Esc) writes the buffer to disk and quits the editor. ZZ (Shift+Z twice from Normal mode) saves and exits without typing the colon command. Ctrl+:W alone does not quit, and zz scrolls the current line to the center of the screen."
+  },
+  {
+    "number": 93,
+    "type": "multiple_choice",
+    "question": "What is the effect of the -v option for the grep command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It enables color to highlight matching parts.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It shows the command’s version information.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It only outputs non-matching lines.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It changes the output order showing the last matching line first.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It outputs all lines and prefixes matching lines with a+.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "grep -v inverts the match and prints only lines that do not contain the pattern. Color highlighting uses --color, version information uses -V, and grep has no option that prefixes matching lines with a plus sign or reverses output order."
+  },
+  {
+    "number": 94,
+    "type": "multiple_choice",
+    "question": "Which of the following tools can show the complete path of an executable file that the current shell wouldexecute when starting a command without specifying its complete path? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "find",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "pwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "which",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "locate",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "type",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "which searches PATH and prints the executable that would run for a given command name. type also reveals the resolved command, including builtins and aliases, and shows the path for external commands. find and locate search the filesystem broadly, while pwd prints the current working directory."
+  },
+  {
+    "number": 95,
+    "type": "multiple_choice",
+    "question": "Which of the following signals is sent to a process when the key combination Ctrl+Z is pressed on thekeyboard?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SIGTERM",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "SIGCONT",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "SIGSTOP",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "SIGKILL",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "SIGINT",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "Pressing Ctrl+Z sends a stop signal that suspends the foreground process, allowing it to be resumed later with fg or bg. On Linux terminals this is typically SIGTSTP, which is the exam's intended answer as SIGSTOP. SIGINT (Ctrl+C) interrupts, SIGTERM requests termination, and SIGCONT resumes a stopped process."
+  },
+  {
+    "number": 96,
+    "type": "multiple_choice",
+    "question": "What is the output when the regular expression s/[ABC] [abc]/xx/ is applied to the following string?ABCabc",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ABxxbc",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "xxCxxc",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "xxxxxx",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "ABCabc",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Axxaxx",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null,
+    "explanation": "The substitution s/[ABC][abc]/xx/ replaces the first pair of characters where the first matches A, B, or C and the second matches a, b, or c. In the string ABCabc, C matches [ABC] and the following a matches [abc], so Cab becomes xx, producing ABxxbc. The pattern only replaces one occurrence unless a global flag is used."
+  },
+  {
+    "number": 97,
+    "type": "multiple_choice",
+    "question": "Which of the following commands print the current working directory when using a Bash shell? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "echo “${PWD}”",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "echo “${WD}”",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "printwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "pwd",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "echo “${pwd}”",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "The pwd command prints the current working directory. echo \"${PWD}\" also works because PWD is a Bash shell variable automatically set to the same value. ${WD} and ${pwd} are not standard variables for this purpose, and printwd is not a standard command."
+  },
+  {
+    "number": 98,
+    "type": "multiple_choice",
+    "question": "Which of the following commands outputs test to the shell?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "cat <!EOTtestEOT",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "cat <|EOTtestEOT",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "cat !<EOTtestEOT",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "cat &<EOTtestEOT",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "cat <<EOTtestEOT",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "cat <<EOT starts a here-document: the shell feeds subsequent lines as standard input until a line containing only EOT is found. The other options use invalid or nonexistent redirection operators and would not produce the expected output."
+  },
+  {
+    "number": 99,
+    "type": "multiple_choice",
+    "question": "What is the default nice level when a process is started using the nicecommand?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "-10",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "10",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "15",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "20",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "When invoked without an explicit priority argument, the nice command increases the nice value by 10 relative to the current shell, so a process normally started at nice 0 runs at nice 10. Nice 0 is the default priority for processes started without nice, not the default increment that nice itself applies."
+  },
+  {
+    "number": 100,
+    "type": "multiple_choice",
+    "question": "A user accidentally created the subdirectory \\dir in his home directory. Which of the following commands will remote that directory?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "rmdir ~/\\\\dir",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "rmdir “~/\\dir”",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "rmdir ~/’dir’",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "rmdir ~/\\dir",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "rmdir ‘~/\\dir’",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null,
+    "explanation": "The directory name is literally backslash followed by dir, so the shell path must include an escaped backslash: ~/\\dir resolves to $HOME/\\dir. In rmdir ~/\\\\dir (written as ~/\\dir in the shell), the double backslash produces a single literal backslash in the path. Quoted forms like \"~/\\dir\" prevent tilde expansion, and ~/\\dir without proper escaping is interpreted as ~/dir, a different directory."
+  },
+  {
+    "number": 101,
+    "type": "multiple_choice",
+    "question": "Which of the following commands can perform searches on file contents using regular expressions?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "find",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "locate",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "grep",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "reggrep",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "pgrep",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "grep searches the contents of files line by line and supports regular expressions with options like -E and -P. find and locate search for files by name or attributes, not by matching text inside files. pgrep matches running processes, and reggrep is not a standard Linux command."
+  },
+  {
+    "number": 102,
+    "type": "multiple_choice",
+    "question": "In a nested directory structure, which find command line option would be used to restrict the command to searching down a particular number of subdirectories?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "-maxdepth",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "-dirmax",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "-maxlevels",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "-s",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "-n",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "correctText": null,
+    "explanation": "The find -maxdepth option limits how many directory levels below the starting path are searched. Options like -dirmax and -maxlevels do not exist, and -s enables silent mode while -n is unrelated to depth control."
+  },
+  {
+    "number": 103,
+    "type": "multiple_choice",
+    "question": "Which of the following commands determines a file’s format by using a definition database file which contains information about all common file types?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "type",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "file",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "magic",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "pmagic",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "hash",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "The file command identifies a file's type by comparing its content against the magic database (typically under /usr/share/misc/magic or /etc/magic). type is a shell builtin that classifies commands, and hash computes checksums rather than detecting file formats."
+  },
+  {
+    "number": 104,
+    "type": "multiple_choice",
+    "question": "Which of the following commands generates a list of user names from /etc/passwd along with their login shell?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "column -s : 1,7 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "chop -c 1,7 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "colrm 1,7 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "sort -t: -k1,7 /etc/passwd",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "cut -d: -f1,7 /etc/passwd",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "cut -d: -f1,7 uses colon as the field delimiter and extracts fields 1 (username) and 7 (login shell) from /etc/passwd. sort only reorders lines, colrm removes columns by character position, and chop and column are not standard tools for this field-based extraction."
+  },
+  {
+    "number": 105,
+    "type": "multiple_choice",
+    "question": "If the gzip compressed tar archive texts.tgz contains the files a.txt and b.txt, which files will bepresent in the current directory after running gunzip texts.tgz?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Only a.txt, b.txt, and texts.tgz",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Only texts.tar and texts.tgz",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Only a.txt.gz and b.txt.gz",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Only a.txt and b.txt",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Only texts.tar",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "gunzip only decompresses the gzip layer, converting texts.tgz into texts.tar. It does not extract the tar archive, so a.txt and b.txt remain inside texts.tar until tar is run separately. The original .tgz file is removed after successful decompression."
+  },
+  {
+    "number": 106,
+    "type": "multiple_choice",
+    "question": "In the vi editor, how can commands such as moving the cursor or copying lines into the buffer be issuedmultiple times or applied to multiple rows?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "By using the command :repeat followed by the number and thecommand",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "By specifying the number right in front of a command such as 41 or 2yj.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "By selecting all affected lines using the shit and cursor keys before applying thecommand.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "By issuing a command such as :set repetition=4 with repeats every subsequent command 4 times.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "By specifying the number after a command such as 14 or yj2 followed by escape.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "In vi Normal mode, a count is placed immediately before a command to repeat it that many times, such as 4dd to delete four lines or 2yj to yank two lines and move down. There is no :repeat command, and placing the number after the command does not work as a repeat prefix."
+  },
+  {
+    "number": 107,
+    "type": "multiple_choice",
+    "question": "Which of the following statements is correct for a command ending with an & character?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The command’s output is redirected to /dev/null.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The command is run in background of the current shell.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "The command’s output is executed by the shell.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The command is run as a direct child of the init process.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "The command’s input is read from /dev/null.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "Appending & to a command runs it as a background job in the current shell, returning control to the prompt immediately. It does not redirect output to /dev/null, read input from /dev/null, or directly make init the parent process."
+  },
+  {
+    "number": 108,
+    "type": "multiple_choice",
+    "question": "Which of the following commands reads a file and creates separate chunks of a given size from the file’scontents?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ar",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "cat",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "break",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "split",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "parted",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "split reads a file and divides it into smaller files of a specified size (for example, split -b 1M largefile). cat concatenates files, ar manages static library archives, and parted is a disk partitioning tool."
+  },
+  {
+    "number": 109,
+    "type": "multiple_choice",
+    "question": "What is the purpose of the xargs command?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It passes arguments to an X server.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It repeats the execution of a command using different parameters for each invocation.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It reads standard input and builds up commands to execute.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It asks a question, graphically, and returns the answer to the shell.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "It allows specifying long options (like --help) for commands that normally only accept short options (like -h)",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "xargs reads items from standard input (often filenames from find) and builds command lines to execute, which is useful when a command cannot accept too many arguments at once. It has nothing to do with X servers, graphical prompts, or translating short options into long ones."
+  },
+  {
+    "number": 110,
+    "type": "fill_blank",
+    "question": "Which command displays a list of all background tasks running in the current shell? (Specify ONLY thecommand without any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "jobs"
+    ],
+    "correctText": "jobs",
+    "explanation": "The jobs builtin lists background tasks started in the current shell session, showing their job numbers and status. It only reports jobs managed by that shell, not all processes on the system."
+  },
+  {
+    "number": 111,
+    "type": "fill_blank",
+    "question": "Which command is used to change the priority of an already running process? (Specify ONLY the commandwithout any path or parameters.)",
+    "options": [],
+    "correctAnswers": [
+      "renice"
+    ],
+    "correctText": "renice",
+    "explanation": "renice changes the scheduling priority (nice value) of a process that is already running. The nice command only sets priority when starting a new process; renice is needed to adjust an existing one."
+  },
+  {
+    "number": 112,
+    "type": "multiple_choice",
+    "question": "In Bash, inserting 1>&2 after a command redirects…",
+    "options": [
+      {
+        "letter": "A",
+        "text": "…standard error to standard input.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "…standard output to standard error.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "…standard input to standard error.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "…standard error to standardoutput.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "…standard output to standardinput.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "In Bash, 1>&2 redirects file descriptor 1 (standard output) to file descriptor 2 (standard error), so stdout goes to the same destination as stderr. The other options reverse the direction or redirect stdin instead of stdout."
+  },
+  {
+    "number": 113,
+    "type": "multiple_choice",
+    "question": "When booting from the hard disk, a computer successfully loads the Linux kernel and initramfs but hangsduring the subsequent startup tasks. The system is booted using a Linux based rescue CD to investigate the problem. Which of the following methods helps to identify the root cause of the problem?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Using the dmesgcommand from the rescue CD’s shell to view the original system’s boot logs.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Investigating the file /proc/kmsg on the computer’s hard disk for possible errors.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Investigating the file /var/log on the computer’s hard disk for possible errors.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Using chroot to switch to the file system on the hard disk and use dmesg to view the logs.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Rebooting again from the hard drive since the system successfully booted from the rescueCD.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "After booting from a rescue CD, examining /var/log on the hard disk's filesystem reveals messages from the failed boot, including service startup errors. dmesg in the rescue environment only shows the rescue session's kernel ring buffer, and /proc/kmsg is not available as a persistent log on disk."
+  },
+  {
+    "number": 114,
+    "type": "multiple_choice",
+    "question": "Where is the bootloader stored on the hard disk of a UEFI system?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "In the EFI Boot Record (EBR).",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "In the Master Boot Record (MBR).",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "On the EFI System Partition (ESP).",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "On the partition labeled boot.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "On the partition number 127.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "correctText": null,
+    "explanation": "On UEFI systems, bootloaders and EFI applications are stored on the EFI System Partition (ESP), usually a FAT-formatted partition mounted at /boot/efi. The MBR and EBR belong to legacy BIOS/MBR partitioning, not UEFI firmware boot management."
+  },
+  {
+    "number": 115,
+    "type": "multiple_choice",
+    "question": "What is the correct way to set the default systemd boot target to multi-user?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "systemctl isolate multi-user.target",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "systemctl set-runlevel multi-user.target",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "systemctl set-boot multi-user.target",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "systemctl set-default multi-user.target",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "systemctl boot -p multi-user.target",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "systemctl set-default multi-user.target permanently sets the default boot target for future reboots. systemctl isolate changes only the current runtime target, and the other listed commands are not valid systemctl subcommands."
+  },
+  {
+    "number": 116,
+    "type": "multiple_choice",
+    "question": "Which of the following statements are correct about the initial RAM disk involved in the boot process of Linux?(Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "An initramfs is a compressed file system archive, which can be unpacked to examine its contents.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "An initramfs file contains the MBR, the bootloader and the Linux kernel.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "After a successful boot, the initramfs contents are available in /run/initramfs/.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The kernel uses the initramfs temporarily before accessing the real root file system.",
+        "isCorrect": true
+      },
+      {
+        "letter": "E",
+        "text": "An initramfs does not depend on a specific kernel version and is not changed after the initial installation.",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "correctText": null,
+    "explanation": "An initramfs is a compressed archive (commonly cpio plus gzip) that can be unpacked to inspect early-boot files such as drivers and scripts. The kernel mounts it in memory and uses it to load essential modules and prepare storage before switching to the real root filesystem. It does not contain the MBR or bootloader, is tied to the kernel/initramfs build, and is not permanently exposed under /run/initramfs after a normal boot."
+  },
+  {
+    "number": 117,
+    "type": "multiple_choice",
+    "question": "Which of the following commands loads a kernel module along with any required dependency modules?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "depmod",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "modprobe",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "module_install",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "insmod",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "loadmod",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "correctText": null,
+    "explanation": "modprobe loads a kernel module and automatically resolves and loads any required dependency modules listed in modules.dep. insmod loads only the single specified module without dependency handling, and depmod builds the dependency database rather than loading modules."
+  },
+  {
+    "number": 118,
+    "type": "multiple_choice",
+    "question": "What information can the lspcicommand display about the system hardware? (Choose three.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "System battery type",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Device IRQ settings",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "PCI bus speed",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Ethernet MAC address",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "Device vendor identification",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "B",
+      "C",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "lspci lists PCI and PCIe devices and can show IRQ assignments, bus/link speed, and vendor/device identification. System battery status is reported by tools like acpi or upower, and Ethernet MAC addresses are obtained from network interfaces, not from lspci."
+  },
+  {
+    "number": 119,
+    "type": "fill_blank",
+    "question": "Which System V init configuration file is commonly used to set the default run level? (Specify the full name of the file, including path.)",
+    "options": [],
+    "correctAnswers": [
+      "/etc/inittab"
+    ],
+    "correctText": "/etc/inittab",
+    "explanation": "/etc/inittab is the classic System V init configuration file where the default runlevel is defined with an initdefault entry. systemd-based systems use targets instead, but this remains the correct answer for SysV init."
+  },
+  {
+    "number": 120,
+    "type": "multiple_choice",
+    "question": "Given the following two symbolic links in a System V init configuration:/etc/rc1.d/K01apache2/etc/rc2.d/S02apache2When are the scripts executed that are referenced by these links? (Choose two.)",
+    "options": [
+      {
+        "letter": "A",
+        "text": "S02apache2 is run when runlevel 2 is entered.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "S02apache2 is run when runlevel 2 is left.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "K01apache2 is never run because K indicates a deactivated service.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Both S02apache2 and K01apache2 are run during a system shutdown.",
+        "isCorrect": false
+      },
+      {
+        "letter": "E",
+        "text": "K01apache2 is run when runlevel 1 is entered.",
+        "isCorrect": true
+      }
+    ],
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "correctText": null,
+    "explanation": "In SysV init, scripts prefixed with S in /etc/rcN.d/ run when entering runlevel N, so S02apache2 starts Apache when runlevel 2 is entered. Scripts prefixed with K run when entering that runlevel to stop services, so K01apache2 stops Apache when runlevel 1 is entered. K does not mean the script is never executed, and both links are not run together during shutdown."
+  }
+]
