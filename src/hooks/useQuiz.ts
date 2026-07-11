@@ -68,10 +68,9 @@ export function useQuiz(exam: ExamId) {
     setAnswers((prev) => ({ ...prev, [questionNumber]: selected }));
   }, []);
 
-  // instant mode: lock current question (reveal answer), then go next
-  const confirmAndNext = useCallback((questionNumber: number) => {
+  // instant mode: lock question to reveal answer + explanation (stay on current question)
+  const lockQuestion = useCallback((questionNumber: number) => {
     setLockedQuestions((prev) => new Set([...prev, questionNumber]));
-    setCurrentIndex((i) => Math.min(i + 1, QUIZ_COUNT - 1));
   }, []);
 
   const submitQuiz = useCallback(() => {
@@ -129,7 +128,7 @@ export function useQuiz(exam: ExamId) {
     result,
     startQuiz,
     answerQuestion,
-    confirmAndNext,
+    lockQuestion,
     submitQuiz,
     goNext,
     goPrev,

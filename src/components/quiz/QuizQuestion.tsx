@@ -1,4 +1,6 @@
+import { useEffect, useRef } from 'react';
 import type { Question, QuizMode } from '../../types';
+import { toggleOptionAnswer } from '../../utils/answering';
 import { isAnswerCorrect } from '../../utils/scoring';
 import QuestionExplanation from '../shared/QuestionExplanation';
 
@@ -11,22 +13,21 @@ interface Props {
 }
 
 export default function QuizQuestion({ question, answer, mode, locked, onAnswer }: Props) {
+  const feedbackRef = useRef<HTMLDivElement>(null);
   const isMulti = question.correctAnswers.length > 1;
   const showFeedback = mode === 'instant' && locked;
   const correct = showFeedback ? isAnswerCorrect(question, answer) : null;
 
+  useEffect(() => {
+    if (showFeedback && feedbackRef.current) {
+      feedbackRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }, [showFeedback]);
+
   function toggleOption(letter: string) {
     if (locked) return;
     if (question.type === 'fill_blank') return;
-
-    if (isMulti) {
-      const next = answer.includes(letter)
-        ? answer.filter((l) => l !== letter)
-        : [...answer, letter];
-      onAnswer(next);
-    } else {
-      onAnswer([letter]);
-    }
+    onAnswer(toggleOptionAnswer(question, answer, letter));
   }
 
   function handleFillBlankChange(val: string) {
@@ -71,14 +72,16 @@ export default function QuizQuestion({ question, answer, mode, locked, onAnswer 
             className="w-full border-2 border-gray-300 rounded-xl px-4 py-3 font-mono text-sm focus:outline-none focus:border-blue-400 disabled:bg-gray-50 disabled:text-gray-500"
           />
           {showFeedback && (
-            <div className="text-sm">
-              <span className="text-gray-500">Correct answer: </span>
-              <span className="font-mono bg-green-100 text-green-800 px-2 py-1 rounded font-semibold">
-                {question.correctText}
-              </span>
+            <div ref={feedbackRef} className="space-y-3">
+              <div className="text-sm">
+                <span className="text-gray-500">Correct answer: </span>
+                <span className="font-mono bg-green-100 text-green-800 px-2 py-1 rounded font-semibold">
+                  {question.correctText}
+                </span>
+              </div>
+              <QuestionExplanation explanation={question.explanation} />
             </div>
           )}
-          {showFeedback && <QuestionExplanation explanation={question.explanation} />}
         </div>
       ) : (
         /* Multiple choice */
@@ -121,7 +124,9 @@ export default function QuizQuestion({ question, answer, mode, locked, onAnswer 
         </div>
       )}
       {showFeedback && question.type === 'multiple_choice' && (
-        <QuestionExplanation explanation={question.explanation} />
+        <div ref={feedbackRef}>
+          <QuestionExplanation explanation={question.explanation} />
+        </div>
       )}
     </div>
   );
